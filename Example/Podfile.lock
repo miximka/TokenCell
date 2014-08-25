@@ -23,6 +23,6 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: 30c28e3d8104665ee70e32df1cfc030bb37a8a6c
   FBSnapshotTestCase: 9053afee1d66b4c7c313fcb0ae582a5e47bea9d0
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
-  TokenCell: fa6859f43843762c9f1058dfb30818e0e66d384f
+  TokenCell: e01c691e7ada2139ed904dede91bfb0b417f49d1
 
 COCOAPODS: 0.33.1
