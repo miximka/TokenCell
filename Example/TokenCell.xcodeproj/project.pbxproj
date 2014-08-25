@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085FD84F19AB404500E4C2E0 /* MBRecipientToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 085FD84619AB404500E4C2E0 /* MBRecipientToken.m */; };
+		085FD85019AB404500E4C2E0 /* MBRecipientTokenAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 085FD84819AB404500E4C2E0 /* MBRecipientTokenAccessoryView.m */; };
+		085FD85119AB404500E4C2E0 /* MBRecipientTokenCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 085FD84A19AB404500E4C2E0 /* MBRecipientTokenCollection.m */; };
+		085FD85219AB404500E4C2E0 /* MBRecipientTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 085FD84C19AB404500E4C2E0 /* MBRecipientTokenView.m */; };
+		085FD85319AB404500E4C2E0 /* MBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085FD84E19AB404500E4C2E0 /* MBTableViewController.m */; };
 		3E3007B7D5B94516A9417FE4 /* libPods-TokenCell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CD297384BB4B559B04DB8F /* libPods-TokenCell.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -16,7 +21,6 @@
 		6003F59E195388D20070C39A /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* MBAppDelegate.m */; };
 		6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F59F195388D20070C39A /* Main_iPhone.storyboard */; };
 		6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A2195388D20070C39A /* Main_iPad.storyboard */; };
-		6003F5A7195388D20070C39A /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* MBViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -37,6 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		085FD84519AB404500E4C2E0 /* MBRecipientToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecipientToken.h; sourceTree = "<group>"; };
+		085FD84619AB404500E4C2E0 /* MBRecipientToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecipientToken.m; sourceTree = "<group>"; };
+		085FD84719AB404500E4C2E0 /* MBRecipientTokenAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecipientTokenAccessoryView.h; sourceTree = "<group>"; };
+		085FD84819AB404500E4C2E0 /* MBRecipientTokenAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecipientTokenAccessoryView.m; sourceTree = "<group>"; };
+		085FD84919AB404500E4C2E0 /* MBRecipientTokenCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecipientTokenCollection.h; sourceTree = "<group>"; };
+		085FD84A19AB404500E4C2E0 /* MBRecipientTokenCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecipientTokenCollection.m; sourceTree = "<group>"; };
+		085FD84B19AB404500E4C2E0 /* MBRecipientTokenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecipientTokenView.h; sourceTree = "<group>"; };
+		085FD84C19AB404500E4C2E0 /* MBRecipientTokenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecipientTokenView.m; sourceTree = "<group>"; };
+		085FD84D19AB404500E4C2E0 /* MBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTableViewController.h; sourceTree = "<group>"; };
+		085FD84E19AB404500E4C2E0 /* MBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTableViewController.m; sourceTree = "<group>"; };
 		39CD297384BB4B559B04DB8F /* libPods-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D76E927AF4A49909D7EF4E3 /* TokenCell.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TokenCell.podspec; path = ../TokenCell.podspec; sourceTree = "<group>"; };
 		42783CE26E7B45089104A3F0 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,8 +67,6 @@
 		6003F59D195388D20070C39A /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A0195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		6003F5A3195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -133,10 +145,18 @@
 			children = (
 				6003F59C195388D20070C39A /* MBAppDelegate.h */,
 				6003F59D195388D20070C39A /* MBAppDelegate.m */,
+				085FD84519AB404500E4C2E0 /* MBRecipientToken.h */,
+				085FD84619AB404500E4C2E0 /* MBRecipientToken.m */,
+				085FD84719AB404500E4C2E0 /* MBRecipientTokenAccessoryView.h */,
+				085FD84819AB404500E4C2E0 /* MBRecipientTokenAccessoryView.m */,
+				085FD84919AB404500E4C2E0 /* MBRecipientTokenCollection.h */,
+				085FD84A19AB404500E4C2E0 /* MBRecipientTokenCollection.m */,
+				085FD84B19AB404500E4C2E0 /* MBRecipientTokenView.h */,
+				085FD84C19AB404500E4C2E0 /* MBRecipientTokenView.m */,
+				085FD84D19AB404500E4C2E0 /* MBTableViewController.h */,
+				085FD84E19AB404500E4C2E0 /* MBTableViewController.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
-				6003F5A5195388D20070C39A /* MBViewController.h */,
-				6003F5A6195388D20070C39A /* MBViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -349,9 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				085FD85019AB404500E4C2E0 /* MBRecipientTokenAccessoryView.m in Sources */,
 				6003F59E195388D20070C39A /* MBAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* MBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				085FD84F19AB404500E4C2E0 /* MBRecipientToken.m in Sources */,
+				085FD85119AB404500E4C2E0 /* MBRecipientTokenCollection.m in Sources */,
+				085FD85319AB404500E4C2E0 /* MBTableViewController.m in Sources */,
+				085FD85219AB404500E4C2E0 /* MBRecipientTokenView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
