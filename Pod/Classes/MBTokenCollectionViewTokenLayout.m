@@ -68,8 +68,7 @@
     NSMutableDictionary *layoutInfo = [NSMutableDictionary new];
     NSMutableDictionary *cellInfo = [NSMutableDictionary new];
     
-    NSInteger numSections = self.collectionView.numberOfSections;
-    NSAssert(numSections == 1, @"Expected only one section");
+    NSAssert(self.collectionView.numberOfSections == 1, @"Expected only one section");
     NSInteger numItems = [self.collectionView numberOfItemsInSection:0];
 
     self.topLeftFreeContentRect = [self.delegate collectionViewTopLeftContentFreeRect:self.collectionView layout:self];
