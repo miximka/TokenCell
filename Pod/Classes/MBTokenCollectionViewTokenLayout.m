@@ -9,7 +9,7 @@
 #import "MBTokenCollectionViewTokenLayout.h"
 
 #define INSET 10.0
-#define TOP_INSET 5.0
+#define TOP_INSET 10.0
 #define ITEM_HEIGHT 25.0
 #define INTERITEM_SPACING 5.0
 
@@ -160,7 +160,7 @@
     if (self.numOfLines == 0)
         return CGSizeZero;
     
-    CGFloat contentHeight = self.numOfLines * (ITEM_HEIGHT + INSET);
+    CGFloat contentHeight = _insets.top + self.numOfLines * (ITEM_HEIGHT + INSET);
     CGSize contentSize = CGSizeMake(self.collectionView.bounds.size.width, contentHeight);
     
     return contentSize;

@@ -101,6 +101,18 @@
     return self.collectionView.contentSize;
 }
 
+#pragma mark - Editing Text
+
+- (void)setEditingText:(NSString *)text
+{
+    [self.collectionView setText:text];
+}
+
+- (NSString *)editingText
+{
+    return [self.collectionView text];
+}
+
 #pragma mark - Overridden Methods
 
 - (void)prepareForReuse
@@ -112,6 +124,13 @@
 }
 
 #pragma mark - MBTokenCollectionViewDelegate
+
+- (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text
+{
+    if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCell:didChangeText:)]) {
+        [self.delegate tokenCollectionTableViewCell:self didChangeText:text];
+    }
+}
 
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didEndEditingText:(NSString *)text
 {

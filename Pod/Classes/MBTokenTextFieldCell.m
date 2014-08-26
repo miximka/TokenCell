@@ -18,7 +18,7 @@
 
 @implementation MBTokenTextFieldCell
 {
-    BOOL _editing;
+    BOOL _updatingItem;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -33,18 +33,18 @@
 - (void)dealloc
 {
     [self unregisterFromNotifications];
+    [self setItem:nil];
 }
 
 - (void)addTextField
 {
     MBTextField *textField = [[MBTextField alloc] init];
     textField.translatesAutoresizingMaskIntoConstraints = NO;
-    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.borderStyle = UITextBorderStyleNone;
     textField.returnKeyType = UIReturnKeyDone;
     textField.keyboardType = UIKeyboardTypeEmailAddress;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.spellCheckingType = UITextSpellCheckingTypeNo;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     textField.delegate = self;
 
@@ -68,10 +68,25 @@
                                                object:self.textField];
 }
 
+- (void)updateTextFieldText
+{
+    self.textField.text = self.item.text;
+}
+
 - (void)setItem:(MBTextFieldItem *)item
 {
-    _item = item;
-    self.textField.text = item.text;
+    if (_item != item) {
+
+        [_item removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
+        
+        _item = item;
+        
+        if (item != nil) {
+            [_item addObserver:self forKeyPath:NSStringFromSelector(@selector(text)) options:0 context:nil];
+        }
+        
+        [self updateTextFieldText];
+    }
 }
 
 #pragma mark - Overridden Methods
@@ -113,6 +128,13 @@
 
 #pragma mark - MBTextFieldDelegate
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (self.item.textBeginEditingHandler != nil) {
+        self.item.textBeginEditingHandler();
+    }
+}
+
 - (void)textFieldDeleteBackwardsInEmptyField:(MBTextField *)textField
 {
     if (self.item.deleteBackwardsInEmptyFieldHandler != nil) {
@@ -142,7 +164,22 @@
 
 - (void)textDidChangeNotification:(NSNotification *)notification
 {
+    _updatingItem = YES;
     self.item.text = self.textField.text;
+    _updatingItem = NO;
+    
+    if (self.item.textDidChangeHandler != nil) {
+        self.item.textDidChangeHandler(self.textField.text);
+    }
+}
+
+#pragma mark KVO Notifications
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(text))] && !_updatingItem) {
+        [self updateTextFieldText];
+    }
 }
 
 @end

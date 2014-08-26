@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^MBTextFieldItemTextEndEditingHandler)(NSString *text);
-typedef void(^MBTextFieldItemDeleteBackwardsInEmptyFieldHandler)();
-
 @interface MBTextFieldItem : NSObject
 
 @property (nonatomic) NSString *text;
-@property (nonatomic, copy) MBTextFieldItemTextEndEditingHandler textEndEditingHandler;
-@property (nonatomic, copy) MBTextFieldItemDeleteBackwardsInEmptyFieldHandler deleteBackwardsInEmptyFieldHandler;
+@property (nonatomic, copy) void(^textBeginEditingHandler)();
+@property (nonatomic, copy) void(^textDidChangeHandler)(NSString *text);
+@property (nonatomic, copy) void(^textEndEditingHandler)(NSString *text);
+@property (nonatomic, copy) void(^deleteBackwardsInEmptyFieldHandler)();
 @end

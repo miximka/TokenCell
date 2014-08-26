@@ -59,7 +59,7 @@
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 
     //Configure collection view
-    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.backgroundColor = [UIColor clearColor];
     collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     collectionView.allowsMultipleSelection = YES;
     collectionView.scrollEnabled = NO;
@@ -91,8 +91,8 @@
     label.translatesAutoresizingMaskIntoConstraints = NO;
 
     [self addSubview:label];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[label]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[label]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[label]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[label]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
 
     _titleLabel = label;
 }
@@ -102,11 +102,19 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
     button.translatesAutoresizingMaskIntoConstraints = NO;
 
-     [self addSubview:button];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button]-8-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[button]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)]];
+    button.alpha = 0.0;
+    [self addSubview:button];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[button]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)]];
     
     _addButton = button;
+}
+
+- (void)notifyDelegateTextDidChange:(NSString *)text
+{
+    if ([self.delegate respondsToSelector:@selector(tokenCollectionView:didChangeText:)]) {
+        [self.delegate tokenCollectionView:self didChangeText:text];
+    }
 }
 
 - (void)notifyDelegateDidEndEditingText:(NSString *)text
@@ -123,13 +131,38 @@
     }
 }
 
+- (void)textFieldDidBeginEditing
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.addButton setAlpha:1.0];
+    }];
+}
+
+- (void)textFieldDidEndEditingWithText:(NSString *)text
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.addButton setAlpha:0.0];
+    }];
+    
+    [self notifyDelegateDidEndEditingText:text];
+}
+
 - (void)configure
 {
     MBTextFieldItem *textFieldItem = [[MBTextFieldItem alloc] init];
     
     __weak MBTokenCollectionView *weakSelf = self;
+
+    textFieldItem.textBeginEditingHandler = ^{
+        [weakSelf textFieldDidBeginEditing];
+    };
+
+    textFieldItem.textDidChangeHandler = ^(NSString *text){
+        [weakSelf notifyDelegateTextDidChange:text];
+    };
+
     textFieldItem.textEndEditingHandler = ^(NSString *text) {
-        [weakSelf notifyDelegateDidEndEditingText:text];
+        [weakSelf textFieldDidEndEditingWithText:text];
     };
 
     textFieldItem.deleteBackwardsInEmptyFieldHandler = ^() {
@@ -248,6 +281,18 @@
     return self.collectionView.contentSize;
 }
 
+#pragma mark - Editing Text
+
+- (void)setText:(NSString *)text
+{
+    self.textFieldItem.text = text;
+}
+
+- (NSString *)text
+{
+    return self.textFieldItem.text;
+}
+
 #pragma mark - Configure Cells
 
 - (void)configureTokenViewCell:(MBTokenViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
@@ -258,7 +303,7 @@
     
     if (self.tokenCollectionItemViewNib) {
         //Instantiate new view from nib
-        itemView = (MBTokenCollectionItemView *)[self.tokenCollectionItemViewNib instantiateWithOwner:nil options:nil];
+        itemView = (MBTokenCollectionItemView *)[self.tokenCollectionItemViewNib instantiateWithOwner:nil options:nil].firstObject;
         NSAssert([itemView isKindOfClass:[MBTokenCollectionItemView class]], @"Unexpected item view: %@", itemView);
 
     } else if ([self.delegate respondsToSelector:@selector(tokenCollectionView:viewForTokenItem:)]){

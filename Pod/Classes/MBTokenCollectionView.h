@@ -40,10 +40,16 @@
 
 - (CGSize)contentSize;
 
+#pragma mark - Editing Text
+
+- (void)setText:(NSString *)text;
+- (NSString *)text;
+
 @end
 
 @protocol MBTokenCollectionViewDelegate <NSObject>
 @optional
+- (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didEndEditingText:(NSString *)text;
 - (void)tokenCollectionViewDeleteBackwardsInEmptyField:(MBTokenCollectionView *)tokenCollectionView;
 - (MBTokenCollectionItemView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForTokenItem:(MBTokenItem *)tokenItem;
