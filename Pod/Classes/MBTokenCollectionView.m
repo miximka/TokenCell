@@ -147,6 +147,13 @@
     [self notifyDelegateDidEndEditingText:text];
 }
 
+- (void)textFieldShouldReturn
+{
+    if ([self.delegate respondsToSelector:@selector(tokenCollectionViewTextFieldShouldReturn:)]) {
+        [self.delegate tokenCollectionViewTextFieldShouldReturn:self];
+    }
+}
+
 - (void)configure
 {
     MBTextFieldItem *textFieldItem = [[MBTextFieldItem alloc] init];
@@ -163,6 +170,10 @@
 
     textFieldItem.textEndEditingHandler = ^(NSString *text) {
         [weakSelf textFieldDidEndEditingWithText:text];
+    };
+
+    textFieldItem.textFieldShouldReturnHandler = ^() {
+        [weakSelf textFieldShouldReturn];
     };
 
     textFieldItem.deleteBackwardsInEmptyFieldHandler = ^() {

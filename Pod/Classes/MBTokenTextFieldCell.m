@@ -146,9 +146,6 @@
 {
     NSString *text = self.textField.text;
     
-    self.item.text = @"";
-    self.textField.text = @"";
-    
     if (self.item.textEndEditingHandler != nil) {
         self.item.textEndEditingHandler(text);
     }
@@ -156,7 +153,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    if (self.item.textFieldShouldReturnHandler != nil) {
+        self.item.textFieldShouldReturnHandler();
+    }
+
     return YES;
 }
 

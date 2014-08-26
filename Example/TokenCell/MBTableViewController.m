@@ -29,12 +29,7 @@
 
     MBRecipientTokenCollection *tokenCollection = [[MBRecipientTokenCollection alloc] initWithTitle:@"To:"];
     
-    MBRecipientToken *token = [[MBRecipientToken alloc] initWithEmail:@"fnord@fnord.com" name:@"Fnord"];
-    [tokenCollection addToken:token];
-    
-    token = [[MBRecipientToken alloc] initWithEmail:@"fnord@fnord.com" name:nil];
-    token.accessoryImage = [[UIImage imageNamed:@"Check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    token.accessoryType = kTokenAccessoryImageView;
+    MBRecipientToken *token = [[MBRecipientToken alloc] initWithEmail:nil name:@"Token"];
     [tokenCollection addToken:token];
 
     _tokenCollection = tokenCollection;
@@ -56,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,22 +82,36 @@
     return cellHeight;
 }
 
-#pragma mark - MBTokenCollectionTableViewCellDelegate
-
-- (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didEndEditingWithText:(NSString *)text
+- (void)addTokenFromContentsOfTextFieldInCell:(MBTokenCollectionTableViewCell *)cell
 {
+    NSString *text = cell.editingText;
+    
     if (text.length == 0) {
         return;
     }
     
     MBRecipientTokenCollection *collection = self.tokenCollection;
-
+    
     //Add new token to model
     MBRecipientToken *token = [[MBRecipientToken alloc] initWithEmail:text name:nil];
     [collection addToken:token];
     
     //Add token to view
     [cell addTokens:@[token] animated:YES];
+    
+    cell.editingText = @"";
+}
+
+#pragma mark - MBTokenCollectionTableViewCellDelegate
+
+- (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didEndEditingWithText:(NSString *)text
+{
+    [self addTokenFromContentsOfTextFieldInCell:cell];
+}
+
+- (void)tokenCollectionTableViewCellTextFieldShouldReturn:(MBTokenCollectionTableViewCell *)cell
+{
+    [self addTokenFromContentsOfTextFieldInCell:cell];
 }
 
 - (void)tokenCollectionTableViewCellDeleteBackwardsInEmptyField:(MBTokenCollectionTableViewCell *)cell
@@ -149,7 +158,7 @@
     MBRecipientTokenCollection *collection = self.tokenCollection;
     
     //Add new token to model
-    MBRecipientToken *token = [[MBRecipientToken alloc] initWithEmail:@"fnord@fnord.com" name:@"Fnord Fnord"];
+    MBRecipientToken *token = [[MBRecipientToken alloc] initWithEmail:@"fnord@fnord.com" name:@"Token with Accessory"];
     token.accessoryImage = [[UIImage imageNamed:@"Check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     token.accessoryType = kTokenAccessoryImageView;
     [collection addToken:token];

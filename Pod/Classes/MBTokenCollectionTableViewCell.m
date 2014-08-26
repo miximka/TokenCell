@@ -137,6 +137,13 @@
     [self.delegate tokenCollectionTableViewCell:self didEndEditingWithText:text];
 }
 
+- (void)tokenCollectionViewTextFieldShouldReturn:(MBTokenCollectionView *)tokenCollectionView
+{
+    if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCellTextFieldShouldReturn:)]) {
+        [self.delegate tokenCollectionTableViewCellTextFieldShouldReturn:self];
+    }
+}
+
 - (void)tokenCollectionViewDeleteBackwardsInEmptyField:(MBTokenCollectionView *)tokenCollectionView
 {
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCellDeleteBackwardsInEmptyField:)]) {
