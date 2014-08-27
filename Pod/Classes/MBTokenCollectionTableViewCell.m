@@ -51,14 +51,9 @@
     _collectionView = collectionView;
 }
 
-- (void)setTitle:(NSString *)title
+- (UILabel *)titleLabel
 {
-    self.collectionView.titleLabel.text = title;
-}
-
-- (NSString *)title
-{
-    return self.collectionView.titleLabel.text;
+    return self.collectionView.titleLabel;
 }
 
 - (IBAction)addContact:(id)sender

@@ -18,8 +18,7 @@
 @property (nonatomic) IBOutlet MBTokenCollectionView *collectionView;
 @property (weak, nonatomic) id<MBTokenCollectionTableViewCellDelegate> delegate;
 
-- (void)setTitle:(NSString *)title;
-- (NSString *)title;
+@property (nonatomic, readonly) UILabel *titleLabel;
 
 #pragma mark - Handling Tokens
 
