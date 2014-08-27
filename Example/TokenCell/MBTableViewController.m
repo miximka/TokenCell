@@ -43,7 +43,7 @@
     MBRecipientTokenCollection *collection = self.tokenCollection;
     
     cell.delegate = self;
-    cell.title = collection.title;
+    cell.titleLabel.text = collection.title;
     [cell addTokens:collection.tokens animated:NO];
 }
 
