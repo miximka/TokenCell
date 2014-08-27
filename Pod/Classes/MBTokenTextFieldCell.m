@@ -40,6 +40,7 @@
 {
     MBTextField *textField = [[MBTextField alloc] init];
     textField.translatesAutoresizingMaskIntoConstraints = NO;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     textField.borderStyle = UITextBorderStyleNone;
     textField.returnKeyType = UIReturnKeyDone;
     textField.keyboardType = UIKeyboardTypeEmailAddress;
