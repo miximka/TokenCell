@@ -154,8 +154,16 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    NSString *text = textField.text;
+
+    _updatingItem = YES;
+    //Automatically cleanup the text field content
+    self.item.text = @"";
+    textField.text = @"";
+    _updatingItem = NO;
+
     if (self.item.textFieldShouldReturnHandler != nil) {
-        self.item.textFieldShouldReturnHandler();
+        self.item.textFieldShouldReturnHandler(text);
     }
 
     return YES;

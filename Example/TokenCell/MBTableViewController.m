@@ -82,10 +82,8 @@
     return cellHeight;
 }
 
-- (void)addTokenFromContentsOfTextFieldInCell:(MBTokenCollectionTableViewCell *)cell
+- (void)addTokenForCell:(MBTokenCollectionTableViewCell *)cell withText:(NSString *)text
 {
-    NSString *text = cell.editingText;
-    
     if (text.length == 0) {
         return;
     }
@@ -98,20 +96,18 @@
     
     //Add token to view
     [cell addTokens:@[token] animated:YES];
-    
-    cell.editingText = @"";
 }
 
 #pragma mark - MBTokenCollectionTableViewCellDelegate
 
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didEndEditingWithText:(NSString *)text
 {
-    [self addTokenFromContentsOfTextFieldInCell:cell];
+    [self addTokenForCell:cell withText:text];
 }
 
-- (void)tokenCollectionTableViewCellTextFieldShouldReturn:(MBTokenCollectionTableViewCell *)cell
+- (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell textFieldShouldReturnWithText:(NSString *)text
 {
-    [self addTokenFromContentsOfTextFieldInCell:cell];
+    [self addTokenForCell:cell withText:text];
 }
 
 - (void)tokenCollectionTableViewCellDeleteBackwardsInEmptyField:(MBTokenCollectionTableViewCell *)cell
