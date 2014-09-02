@@ -7,7 +7,7 @@
 //
 
 #import "MBTokenCollectionItemLabel.h"
-#import "MBTokenItem.h"
+#import "MBToken.h"
 
 @interface MBTokenCollectionItemLabel ()
 @property (weak, nonatomic) UILabel *label;
@@ -15,11 +15,11 @@
 
 @implementation MBTokenCollectionItemLabel
 
-- (instancetype)initWithTokenItem:(MBTokenItem *)tokenItem
+- (instancetype)initWithToken:(id<MBToken>)token
 {
     self = [super init];
     if (self) {
-        _tokenItem = tokenItem;
+        _token = token;
         [self addLabel];
         [self updateLabelText];
     }
@@ -41,7 +41,7 @@
 
 - (void)updateLabelText
 {
-    NSString *title = _tokenItem.title;
+    NSString *title = _token.title;
     self.label.text = title;
 }
 

@@ -10,6 +10,6 @@
 
 @protocol MBToken <NSObject>
 
-@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic, copy) NSString *title;
 
 @end

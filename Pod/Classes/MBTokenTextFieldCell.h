@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class MBTextFieldItem;
+@class MBTextFieldToken;
 
 @interface MBTokenTextFieldCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (nonatomic) MBTextFieldItem *item;
+@property (nonatomic) MBTextFieldToken *token;
 
 @end

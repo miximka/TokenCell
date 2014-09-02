@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MBTokenItem;
-@class MBTokenCollectionItemView;
+@protocol MBToken;
 @protocol MBTokenCollectionViewDelegate;
+@class MBTokenCollectionTokenView;
 
 @interface MBTokenCollectionView : UIView
 
@@ -19,16 +19,14 @@
 @property (weak, nonatomic, readonly) UILabel *titleLabel;
 @property (weak, nonatomic, readonly) UIButton *addButton;
 
-#pragma mark - Manage Token Items
+#pragma mark - Manage Tokens
 
-@property (nonatomic, readonly) NSArray *tokenItems;
+@property (nonatomic, readonly) NSArray *tokens;
 
-- (void)addTokenItem:(MBTokenItem *)item animated:(BOOL)animated;
-- (void)addTokenItems:(NSArray *)items animated:(BOOL)animated;
-- (void)removeTokenItem:(MBTokenItem *)item animated:(BOOL)animated;
-- (void)removeTokenItemsAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated;
+- (void)addTokens:(NSArray *)tokens animated:(BOOL)animated;
+- (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated;
 
-- (void)removeAllTokenItems;
+- (void)removeAllTokens;
 
 - (NSIndexSet *)selectedItemIndexes;
 
@@ -45,6 +43,8 @@
 - (void)setText:(NSString *)text;
 - (NSString *)text;
 
+- (void)startEditing;
+
 @end
 
 @protocol MBTokenCollectionViewDelegate <NSObject>
@@ -53,6 +53,6 @@
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didEndEditingText:(NSString *)text;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView textFieldShouldReturnWithText:(NSString *)text;
 - (void)tokenCollectionViewDeleteBackwardsInEmptyField:(MBTokenCollectionView *)tokenCollectionView;
-- (MBTokenCollectionItemView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForTokenItem:(MBTokenItem *)tokenItem;
+- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token;
 - (void)tokenCollectionViewDidChangeContentSize:(MBTokenCollectionView *)tokenCollectionView;
 @end

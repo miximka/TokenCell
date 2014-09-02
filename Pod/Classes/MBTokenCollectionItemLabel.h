@@ -6,12 +6,13 @@
 //  Copyright (c) 2014 miximka. All rights reserved.
 //
 
-#import "MBTokenCollectionItemView.h"
+#import "MBTokenCollectionTokenView.h"
+#import "MBToken.h"
 
-@interface MBTokenCollectionItemLabel : MBTokenCollectionItemView
+@interface MBTokenCollectionItemLabel : MBTokenCollectionTokenView
 
-- (instancetype)initWithTokenItem:(MBTokenItem *)tokenItem;
+- (instancetype)initWithToken:(id<MBToken>)token;
 
-@property (nonatomic) MBTokenItem *tokenItem;
+@property (nonatomic) id<MBToken> token;
 
 @end

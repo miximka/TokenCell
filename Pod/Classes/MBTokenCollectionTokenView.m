@@ -1,16 +1,17 @@
 //
-//  MBTokenCollectionItemView.m
+//  MBTokenCollectionTokenView.m
 //  MBTokenFieldTableViewCell
 //
 //  Created by miximka on 23/08/14.
 //  Copyright (c) 2014 miximka. All rights reserved.
 //
 
-#import "MBTokenCollectionItemView.h"
-#import "MBTokenItem.h"
+#import "MBTokenCollectionTokenView.h"
 #import "MBTokenViewCell.h"
 
-@implementation MBTokenCollectionItemView
+#define CORNER_RADIUS 15.0
+
+@implementation MBTokenCollectionTokenView
 
 - (MBTokenViewCell *)parentCell
 {

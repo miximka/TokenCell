@@ -8,11 +8,9 @@
 
 #import "MBTokenCollectionTableViewCell.h"
 #import "MBTokenCollectionView.h"
-#import "MBTokenItem.h"
 #import "MBToken.h"
 
 @interface MBTokenCollectionTableViewCell () <MBTokenCollectionViewDelegate>
-@property (nonatomic) NSMutableArray *tokens;
 @end
 
 @implementation MBTokenCollectionTableViewCell
@@ -37,8 +35,6 @@
 
 - (void)configure
 {
-    _tokens = [NSMutableArray new];
-    
     MBTokenCollectionView *collectionView = [[MBTokenCollectionView alloc] init];
     collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [collectionView.addButton addTarget:self action:@selector(addContact:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,21 +63,12 @@
 
 - (void)addTokens:(NSArray *)tokens animated:(BOOL)animated
 {
-    [_tokens addObjectsFromArray:tokens];
-    
-    for (id<MBToken> each in tokens) {
-        
-        MBTokenItem *tokenItem = [[MBTokenItem alloc] init];
-        tokenItem.title = each.title;
-        
-        [self.collectionView addTokenItem:tokenItem animated:animated];
-    }
+    [self.collectionView addTokens:tokens animated:animated];
 }
 
 - (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated
 {
-    [_tokens removeObjectsAtIndexes:indexes];
-    [self.collectionView removeTokenItemsAtIndexes:indexes animated:animated];
+    [self.collectionView removeTokensAtIndexes:indexes animated:animated];
 }
 
 - (NSIndexSet *)selectedTokenIndexes
@@ -108,14 +95,17 @@
     return [self.collectionView text];
 }
 
+- (void)startEditing
+{
+    [self.collectionView startEditing];
+}
+
 #pragma mark - Overridden Methods
 
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-
-    [self.collectionView removeAllTokenItems];
-    [_tokens removeAllObjects];
+    [self.collectionView removeAllTokens];
 }
 
 #pragma mark - MBTokenCollectionViewDelegate
@@ -146,15 +136,11 @@
     }
 }
 
-- (MBTokenCollectionItemView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForTokenItem:(MBTokenItem *)tokenItem
+- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token
 {
-    NSUInteger index = [self.collectionView.tokenItems indexOfObject:tokenItem];
+    NSUInteger index = [self.collectionView.tokens indexOfObject:token];
 
     NSAssert(index != NSNotFound, @"TokenItem not found");
-    NSAssert(index < self.tokens.count, @"Index out of bounds: %lu (count: %lu)", (unsigned long)index, (unsigned long)self.tokens.count);
-    
-    id<MBToken> token = self.tokens[index];
-    
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCell:viewForToken:)]) {
         return [self.delegate tokenCollectionTableViewCell:self viewForToken:token];
     }

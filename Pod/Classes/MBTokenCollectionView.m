@@ -8,8 +8,7 @@
 
 #import "MBTokenCollectionView.h"
 #import "MBTokenCollectionViewTokenLayout.h"
-#import "MBTokenItem.h"
-#import "MBTextFieldItem.h"
+#import "MBTextFieldToken.h"
 #import "MBTokenViewCell.h"
 #import "MBTokenTextFieldCell.h"
 #import "MBTokenCollectionItemLabel.h"
@@ -19,15 +18,15 @@
 
 @interface MBTokenCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, MBTokenCollectionViewDelegateTokenLayout>
 @property (weak, nonatomic, readonly) UICollectionView *collectionView;
-@property (nonatomic) MBTokenViewCell *tokenItemSizingCell;
-@property (nonatomic) MBTokenTextFieldCell *tokenTextFieldItemSizingCell;
-@property (nonatomic) MBTextFieldItem *textFieldItem;
+@property (nonatomic) MBTokenViewCell *tokenSizingCell;
+@property (nonatomic) MBTokenTextFieldCell *textFieldTokenSizingCell;
+@property (nonatomic) MBTextFieldToken *textFieldToken;
 @property (nonatomic) UINib *tokenCollectionItemViewNib;
 @end
 
 @implementation MBTokenCollectionView
 {
-    NSMutableArray *_items;
+    NSMutableArray *_tokens;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -71,8 +70,8 @@
     [collectionView registerClass:[MBTokenTextFieldCell class] forCellWithReuseIdentifier:TEXT_FIELD_CELL_IDENTIFIER];
 
     //Instantiate cells to be used for intrinsic cell content size calculations
-    self.tokenItemSizingCell = [[MBTokenViewCell alloc] init];
-    self.tokenTextFieldItemSizingCell = [[MBTokenTextFieldCell alloc] init];
+    self.tokenSizingCell = [[MBTokenViewCell alloc] init];
+    self.textFieldTokenSizingCell = [[MBTokenTextFieldCell alloc] init];
 
     //Add collection view to view hierarchy and attach constraints
     [self addSubview:collectionView];
@@ -156,34 +155,34 @@
 
 - (void)configure
 {
-    MBTextFieldItem *textFieldItem = [[MBTextFieldItem alloc] init];
+    MBTextFieldToken *textFieldToken = [[MBTextFieldToken alloc] init];
     
     __weak MBTokenCollectionView *weakSelf = self;
 
-    textFieldItem.textBeginEditingHandler = ^{
+    textFieldToken.textBeginEditingHandler = ^{
         [weakSelf textFieldDidBeginEditing];
     };
 
-    textFieldItem.textDidChangeHandler = ^(NSString *text){
+    textFieldToken.textDidChangeHandler = ^(NSString *text){
         [weakSelf notifyDelegateTextDidChange:text];
     };
 
-    textFieldItem.textEndEditingHandler = ^(NSString *text) {
+    textFieldToken.textEndEditingHandler = ^(NSString *text) {
         [weakSelf textFieldDidEndEditingWithText:text];
     };
 
-    textFieldItem.textFieldShouldReturnHandler = ^(NSString *text) {
+    textFieldToken.textFieldShouldReturnHandler = ^(NSString *text) {
         [weakSelf textFieldShouldReturnWithText:text];
     };
 
-    textFieldItem.deleteBackwardsInEmptyFieldHandler = ^() {
+    textFieldToken.deleteBackwardsInEmptyFieldHandler = ^() {
         [weakSelf notifyDelegateDeleteBackwardsInEmptyField];
     };
 
-    _textFieldItem = textFieldItem;
+    _textFieldToken = textFieldToken;
     
-    NSMutableArray *items = [NSMutableArray arrayWithObject:textFieldItem];
-    _items = items;
+    NSMutableArray *items = [NSMutableArray arrayWithObject:textFieldToken];
+    _tokens = items;
     
     [self addCollectionView];
     [self addTitleLabel];
@@ -199,29 +198,24 @@
 
 #pragma mark - Manage Token Items
 
-- (NSArray *)tokenItems
+- (NSArray *)tokens
 {
-    NSMutableArray *tokens = [_items mutableCopy];
-    [tokens removeObject:self.textFieldItem];
+    NSMutableArray *tokens = [_tokens mutableCopy];
+    [tokens removeObject:self.textFieldToken];
     
     return tokens;
 }
 
-- (void)addTokenItem:(MBTokenItem *)item animated:(BOOL)animated
+- (void)addTokens:(NSArray *)tokens animated:(BOOL)animated
 {
-    [self addTokenItems:@[item] animated:animated];
-}
-
-- (void)addTokenItems:(NSArray *)items animated:(BOOL)animated
-{
-    NSInteger index = [_items indexOfObject:self.textFieldItem];
+    NSInteger index = [_tokens indexOfObject:self.textFieldToken];
 
     //Add token always before text field
     NSAssert(index != NSNotFound, @"Text field item not found");
 
-    for (MBTokenItem *each in items) {
+    for (id<MBToken> each in tokens) {
         
-        [_items insertObject:each atIndex:index];
+        [_tokens insertObject:each atIndex:index];
         
         if (animated) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
@@ -232,20 +226,9 @@
     }
 }
 
-- (void)removeTokenItem:(MBTokenItem *)item animated:(BOOL)animated
+- (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated
 {
-    if (!item)
-        return;
-    
-    NSUInteger index = [_items indexOfObject:item];
-    NSAssert(index != NSNotFound, @"Item not found");
-    
-    [self removeTokenItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] animated:animated];
-}
-
-- (void)removeTokenItemsAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated
-{
-    [_items removeObjectsAtIndexes:indexes];
+    [_tokens removeObjectsAtIndexes:indexes];
 
     NSMutableArray *indexPaths = [NSMutableArray new];
     [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
@@ -258,10 +241,10 @@
     }
 }
 
-- (void)removeAllTokenItems
+- (void)removeAllTokens
 {
-    [_items removeAllObjects];
-    [_items addObject:self.textFieldItem];
+    [_tokens removeAllObjects];
+    [_tokens addObject:self.textFieldToken];
     
     [self.collectionView reloadData];
 }
@@ -296,69 +279,79 @@
 
 - (void)setText:(NSString *)text
 {
-    self.textFieldItem.text = text;
+    self.textFieldToken.text = text;
 }
 
 - (NSString *)text
 {
-    return self.textFieldItem.text;
+    return self.textFieldToken.text;
+}
+
+- (void)startEditing
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[_tokens indexOfObject:self.textFieldToken] inSection:0];
+    MBTokenTextFieldCell *cell = (MBTokenTextFieldCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+
+    [cell.textField becomeFirstResponder];
 }
 
 #pragma mark - Configure Cells
 
 - (void)configureTokenViewCell:(MBTokenViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    MBTokenItem *item = _items[indexPath.item];
+    id<MBToken> token = _tokens[indexPath.item];
     
-    MBTokenCollectionItemView *itemView = nil;
+    MBTokenCollectionTokenView *tokenView = nil;
     
     if (self.tokenCollectionItemViewNib) {
         //Instantiate new view from nib
-        itemView = (MBTokenCollectionItemView *)[self.tokenCollectionItemViewNib instantiateWithOwner:nil options:nil].firstObject;
-        NSAssert([itemView isKindOfClass:[MBTokenCollectionItemView class]], @"Unexpected item view: %@", itemView);
+        tokenView = (MBTokenCollectionTokenView *)[self.tokenCollectionItemViewNib instantiateWithOwner:nil options:nil].firstObject;
+        NSAssert([tokenView isKindOfClass:[MBTokenCollectionTokenView class]], @"Unexpected token view: %@", tokenView);
 
-    } else if ([self.delegate respondsToSelector:@selector(tokenCollectionView:viewForTokenItem:)]){
+    } else if ([self.delegate respondsToSelector:@selector(tokenCollectionView:viewForToken:)]){
         //Ask delegate for the view
-        itemView = [self.delegate tokenCollectionView:self viewForTokenItem:item];
+        tokenView = [self.delegate tokenCollectionView:self viewForToken:token];
     }
 
-    if (!itemView) {
+    if (!tokenView) {
         //Instantiate default view
-        itemView = [[MBTokenCollectionItemLabel alloc] initWithTokenItem:item];
+        tokenView = [[MBTokenCollectionItemLabel alloc] initWithToken:token];
     }
     
-    cell.itemView = itemView;
+    cell.tokenView = tokenView;
 }
 
 - (void)configureTokenTextFieldCell:(MBTokenTextFieldCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    MBTextFieldItem *item = _items[indexPath.item];
-    cell.item = item;
+    MBTextFieldToken *token = _tokens[indexPath.item];
+    cell.token = token;
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _items.count;
+    return _tokens.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id item = [_items objectAtIndex:indexPath.item];
+    id item = [_tokens objectAtIndex:indexPath.item];
     
-    if ([item isKindOfClass:[MBTokenItem class]]) {
+    if ([item isKindOfClass:[MBTextFieldToken class]]) {
+        
+        MBTokenTextFieldCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TEXT_FIELD_CELL_IDENTIFIER forIndexPath:indexPath];
+        [self configureTokenTextFieldCell:cell forItemAtIndexPath:indexPath];
+        return cell;
+    }
+    
+    if ([item conformsToProtocol:@protocol(MBToken)]) {
 
         MBTokenViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TOKEN_VIEW_CELL_IDENTIFIER forIndexPath:indexPath];
         [self configureTokenViewCell:cell forItemAtIndexPath:indexPath];
         return cell;
         
-    } else if ([item isKindOfClass:[MBTextFieldItem class]]) {
-        
-        MBTokenTextFieldCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TEXT_FIELD_CELL_IDENTIFIER forIndexPath:indexPath];
-        [self configureTokenTextFieldCell:cell forItemAtIndexPath:indexPath];
-        return cell;
     }
 
     return nil;
@@ -378,42 +371,29 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout intrinsicItemSizeAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize size = CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric);
+    id token = [_tokens objectAtIndex:indexPath.item];
     
-    id item = [_items objectAtIndex:indexPath.item];
-    
-    if ([item isKindOfClass:[MBTokenItem class]]) {
-        
-        [self configureTokenViewCell:self.tokenItemSizingCell forItemAtIndexPath:indexPath];
-        size = self.tokenItemSizingCell.intrinsicContentSize;
-        
-    } else if ([item isKindOfClass:[MBTextFieldItem class]]) {
-
-        [self configureTokenTextFieldCell:self.tokenTextFieldItemSizingCell forItemAtIndexPath:indexPath];
-        size = self.tokenTextFieldItemSizingCell.intrinsicContentSize;
+    if ([token isKindOfClass:[MBTextFieldToken class]]) {
+        [self configureTokenTextFieldCell:self.textFieldTokenSizingCell forItemAtIndexPath:indexPath];
+        return self.textFieldTokenSizingCell.intrinsicContentSize;
     }
     
-    return size;
+    [self configureTokenViewCell:self.tokenSizingCell forItemAtIndexPath:indexPath];
+    return self.tokenSizingCell.intrinsicContentSize;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeThatFits:(CGSize)size forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize fitSize = size;
-    
-    id item = [_items objectAtIndex:indexPath.item];
-    
-    if ([item isKindOfClass:[MBTokenItem class]]) {
+    id token = [_tokens objectAtIndex:indexPath.item];
+
+    if ([token isKindOfClass:[MBTextFieldToken class]]) {
         
-        [self configureTokenViewCell:self.tokenItemSizingCell forItemAtIndexPath:indexPath];
-        fitSize = [self.tokenItemSizingCell sizeThatFits:size];
-        
-    } else if ([item isKindOfClass:[MBTextFieldItem class]]) {
-        
-        [self configureTokenTextFieldCell:self.tokenTextFieldItemSizingCell forItemAtIndexPath:indexPath];
-        fitSize = [self.tokenTextFieldItemSizingCell sizeThatFits:size];
+        [self configureTokenTextFieldCell:self.textFieldTokenSizingCell forItemAtIndexPath:indexPath];
+        return [self.textFieldTokenSizingCell sizeThatFits:size];
     }
     
-    return fitSize;
+    [self configureTokenViewCell:self.tokenSizingCell forItemAtIndexPath:indexPath];
+    return [self.tokenSizingCell sizeThatFits:size];
 }
 
 #pragma mark KVO Notifications
