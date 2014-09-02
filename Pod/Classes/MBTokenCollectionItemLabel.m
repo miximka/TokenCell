@@ -9,6 +9,8 @@
 #import "MBTokenCollectionItemLabel.h"
 #import "MBToken.h"
 
+#define HORIZONTAL_INSET 2
+
 @interface MBTokenCollectionItemLabel ()
 @property (weak, nonatomic) UILabel *label;
 @end
@@ -22,6 +24,7 @@
         _token = token;
         [self addLabel];
         [self updateLabelText];
+        self.layer.cornerRadius = 5.0;
     }
     return self;
 }
@@ -33,7 +36,8 @@
     
     [self addSubview:label];
     
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[label]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
+    NSString *format = [NSString stringWithFormat:@"H:|-%i-[label]-%i-|", HORIZONTAL_INSET, HORIZONTAL_INSET];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
     
     _label = label;
@@ -49,12 +53,34 @@
 
 - (CGSize)intrinsicContentSize
 {
-    return self.label.intrinsicContentSize;
+    CGSize size = self.label.intrinsicContentSize;
+    size.width += HORIZONTAL_INSET * 2;
+    return size;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-    return [self.label sizeThatFits:size];
+    CGSize fitSize = [self.label sizeThatFits:size];
+    fitSize.width += HORIZONTAL_INSET * 2;
+    return fitSize;
+}
+
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    
+    UIColor *bgColor = nil;
+    UIColor *textColor = self.tintColor;
+    
+    if (selected) {
+        bgColor = self.tintColor;
+        textColor = [UIColor whiteColor];
+    }
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.label.textColor = textColor;
+        self.backgroundColor = bgColor;
+    }];
 }
 
 @end
