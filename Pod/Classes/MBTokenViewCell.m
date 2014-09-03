@@ -7,7 +7,7 @@
 //
 
 #import "MBTokenViewCell.h"
-#import "MBTokenCollectionItemView.h"
+#import "MBTokenCollectionTokenView.h"
 
 #define MIN_CELL_WIDTH 20
 #define MIN_CELL_HEIGHT 20
@@ -18,9 +18,9 @@
 
 @implementation MBTokenViewCell
 
-- (void)setItemView:(MBTokenCollectionItemView *)itemView
+- (void)setTokenView:(MBTokenCollectionTokenView *)itemView
 {
-    if (_itemView != itemView) {
+    if (_tokenView != itemView) {
         
         _initialiting = YES;
         
@@ -31,7 +31,7 @@
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[itemView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(itemView)]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[itemView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(itemView)]];
         
-        _itemView = itemView;
+        _tokenView = itemView;
         
         _initialiting = NO;
     }
@@ -61,25 +61,25 @@
 {
     [super prepareForReuse];
     
-    [_itemView removeFromSuperview];
-    _itemView = nil;
+    [_tokenView removeFromSuperview];
+    _tokenView = nil;
 }
 
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    [self.itemView setSelected:selected];
+    [self.tokenView setSelected:selected];
 }
 
 - (CGSize)intrinsicContentSize
 {
-    CGSize size = self.itemView.intrinsicContentSize;
+    CGSize size = self.tokenView.intrinsicContentSize;
     return size;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-    CGSize fitSize = [self.itemView sizeThatFits:size];
+    CGSize fitSize = [self.tokenView sizeThatFits:size];
 
     if (fitSize.width < MIN_CELL_WIDTH)
         fitSize.width = MIN_CELL_WIDTH;

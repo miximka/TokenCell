@@ -7,7 +7,7 @@
 //
 
 #import "MBTokenTextFieldCell.h"
-#import "MBTextFieldItem.h"
+#import "MBTextFieldToken.h"
 #import "MBTextField.h"
 
 #define MIN_CELL_WIDTH 60
@@ -33,7 +33,7 @@
 - (void)dealloc
 {
     [self unregisterFromNotifications];
-    [self setItem:nil];
+    [self setToken:nil];
 }
 
 - (void)addTextField
@@ -71,19 +71,19 @@
 
 - (void)updateTextFieldText
 {
-    self.textField.text = self.item.text;
+    self.textField.text = self.token.text;
 }
 
-- (void)setItem:(MBTextFieldItem *)item
+- (void)setToken:(MBTextFieldToken *)token
 {
-    if (_item != item) {
+    if (_token != token) {
 
-        [_item removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
+        [_token removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
         
-        _item = item;
+        _token = token;
         
-        if (item != nil) {
-            [_item addObserver:self forKeyPath:NSStringFromSelector(@selector(text)) options:0 context:nil];
+        if (_token != nil) {
+            [_token addObserver:self forKeyPath:NSStringFromSelector(@selector(text)) options:0 context:nil];
         }
         
         [self updateTextFieldText];
@@ -131,15 +131,15 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (self.item.textBeginEditingHandler != nil) {
-        self.item.textBeginEditingHandler();
+    if (self.token.textBeginEditingHandler != nil) {
+        self.token.textBeginEditingHandler();
     }
 }
 
 - (void)textFieldDeleteBackwardsInEmptyField:(MBTextField *)textField
 {
-    if (self.item.deleteBackwardsInEmptyFieldHandler != nil) {
-        self.item.deleteBackwardsInEmptyFieldHandler();
+    if (self.token.deleteBackwardsInEmptyFieldHandler != nil) {
+        self.token.deleteBackwardsInEmptyFieldHandler();
     }
 }
 
@@ -147,8 +147,8 @@
 {
     NSString *text = self.textField.text;
     
-    if (self.item.textEndEditingHandler != nil) {
-        self.item.textEndEditingHandler(text);
+    if (self.token.textEndEditingHandler != nil) {
+        self.token.textEndEditingHandler(text);
     }
 }
 
@@ -158,12 +158,12 @@
 
     _updatingItem = YES;
     //Automatically cleanup the text field content
-    self.item.text = @"";
+    self.token.text = @"";
     textField.text = @"";
     _updatingItem = NO;
 
-    if (self.item.textFieldShouldReturnHandler != nil) {
-        self.item.textFieldShouldReturnHandler(text);
+    if (self.token.textFieldShouldReturnHandler != nil) {
+        self.token.textFieldShouldReturnHandler(text);
     }
 
     return YES;
@@ -174,11 +174,11 @@
 - (void)textDidChangeNotification:(NSNotification *)notification
 {
     _updatingItem = YES;
-    self.item.text = self.textField.text;
+    self.token.text = self.textField.text;
     _updatingItem = NO;
     
-    if (self.item.textDidChangeHandler != nil) {
-        self.item.textDidChangeHandler(self.textField.text);
+    if (self.token.textDidChangeHandler != nil) {
+        self.token.textDidChangeHandler(self.textField.text);
     }
 }
 

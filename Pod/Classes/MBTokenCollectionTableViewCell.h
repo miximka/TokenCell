@@ -10,7 +10,7 @@
 
 @protocol MBToken;
 @class MBTokenCollectionView;
-@class MBTokenCollectionItemView;
+@class MBTokenCollectionTokenView;
 @protocol MBTokenCollectionTableViewCellDelegate;
 
 @interface MBTokenCollectionTableViewCell : UITableViewCell
@@ -36,6 +36,8 @@
 - (void)setEditingText:(NSString *)text;
 - (NSString *)editingText;
 
+- (void)startEditing;
+
 @end
 
 @protocol MBTokenCollectionTableViewCellDelegate <NSObject>
@@ -44,7 +46,7 @@
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didChangeText:(NSString *)text;
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell textFieldShouldReturnWithText:(NSString *)text;
 - (void)tokenCollectionTableViewCellDeleteBackwardsInEmptyField:(MBTokenCollectionTableViewCell *)cell;
-- (MBTokenCollectionItemView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token;
+- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token;
 - (void)tokenCollectionTableViewCellDidChangeContentSize:(MBTokenCollectionTableViewCell *)cell;
 - (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell;
 @end

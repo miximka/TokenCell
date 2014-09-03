@@ -1,13 +1,13 @@
 //
-//  MBTextFieldItem.m
+//  MBTextFieldToken.m
 //  MBTokenFieldTableViewCell
 //
 //  Created by miximka on 22/08/14.
 //  Copyright (c) 2014 miximka. All rights reserved.
 //
 
-#import "MBTextFieldItem.h"
+#import "MBTextFieldToken.h"
 
-@implementation MBTextFieldItem
+@implementation MBTextFieldToken
 
 @end

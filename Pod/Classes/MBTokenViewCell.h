@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class MBTokenCollectionItemView;
+@class MBTokenCollectionTokenView;
 
 @interface MBTokenViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet MBTokenCollectionItemView *itemView;
+@property (weak, nonatomic) IBOutlet MBTokenCollectionTokenView *tokenView;
 
 - (void)itemViewDidInvalidateIntrinsicContentSize;
 

@@ -1,5 +1,5 @@
 //
-//  MBTextFieldItem.h
+//  MBTextFieldToken.h
 //  MBTokenFieldTableViewCell
 //
 //  Created by miximka on 22/08/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MBTextFieldItem : NSObject
+@interface MBTextFieldToken : NSObject
 
 @property (nonatomic) NSString *text;
 @property (nonatomic, copy) void(^textBeginEditingHandler)();
