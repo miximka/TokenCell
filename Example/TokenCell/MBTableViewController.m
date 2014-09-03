@@ -130,4 +130,9 @@
     [self.tableView endUpdates];
 }
 
+- (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell
+{
+    [self addTokenForCell:cell withText:@"Plus"];
+}
+
 @end

@@ -1,21 +1,21 @@
 //
-//  MBTokenCollectionItemLabel.m
+//  MBTokenCollectionLabel.m
 //  MBTokenFieldTableViewCell
 //
 //  Created by miximka on 23/08/14.
 //  Copyright (c) 2014 miximka. All rights reserved.
 //
 
-#import "MBTokenCollectionItemLabel.h"
+#import "MBTokenCollectionLabel.h"
 #import "MBToken.h"
 
 #define HORIZONTAL_INSET 2
 
-@interface MBTokenCollectionItemLabel ()
+@interface MBTokenCollectionLabel ()
 @property (weak, nonatomic) UILabel *label;
 @end
 
-@implementation MBTokenCollectionItemLabel
+@implementation MBTokenCollectionLabel
 
 - (instancetype)initWithToken:(id<MBToken>)token
 {
@@ -23,8 +23,8 @@
     if (self) {
         _token = token;
         [self addLabel];
-        [self updateLabelText];
         self.layer.cornerRadius = 5.0;
+        self.label.text = _token.title;
     }
     return self;
 }
@@ -43,13 +43,16 @@
     _label = label;
 }
 
-- (void)updateLabelText
-{
-    NSString *title = _token.title;
-    self.label.text = title;
-}
-
 #pragma mark - Overridden Methods
+
+- (void)didMoveToWindow
+{
+    [super didMoveToWindow];
+
+    if (self.window != nil) {
+        self.label.textColor = self.tintColor;
+    }
+}
 
 - (CGSize)intrinsicContentSize
 {

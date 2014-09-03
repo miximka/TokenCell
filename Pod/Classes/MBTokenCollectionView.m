@@ -11,7 +11,7 @@
 #import "MBTextFieldToken.h"
 #import "MBTokenViewCell.h"
 #import "MBTokenTextFieldCell.h"
-#import "MBTokenCollectionItemLabel.h"
+#import "MBTokenCollectionLabel.h"
 
 #define TOKEN_VIEW_CELL_IDENTIFIER    @"TokenViewCell"
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
@@ -315,7 +315,7 @@
 
     if (!tokenView) {
         //Instantiate default view
-        tokenView = [[MBTokenCollectionItemLabel alloc] initWithToken:token];
+        tokenView = [[MBTokenCollectionLabel alloc] initWithToken:token];
     }
     
     cell.tokenView = tokenView;
