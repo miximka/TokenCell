@@ -138,9 +138,6 @@
 
 - (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token
 {
-    NSUInteger index = [self.collectionView.tokens indexOfObject:token];
-
-    NSAssert(index != NSNotFound, @"TokenItem not found");
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCell:viewForToken:)]) {
         return [self.delegate tokenCollectionTableViewCell:self viewForToken:token];
     }
