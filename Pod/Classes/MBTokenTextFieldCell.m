@@ -143,10 +143,21 @@
     }
 }
 
+- (void)clearTextFieldContent
+{
+    _updatingItem = YES;
+    self.token.text = @"";
+    self.textField.text = @"";
+    _updatingItem = NO;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     NSString *text = self.textField.text;
-    
+
+    //Automatically cleanup the text field content
+    [self clearTextFieldContent];
+
     if (self.token.textEndEditingHandler != nil) {
         self.token.textEndEditingHandler(text);
     }
@@ -156,12 +167,9 @@
 {
     NSString *text = textField.text;
 
-    _updatingItem = YES;
     //Automatically cleanup the text field content
-    self.token.text = @"";
-    textField.text = @"";
-    _updatingItem = NO;
-
+    [self clearTextFieldContent];
+    
     if (self.token.textFieldShouldReturnHandler != nil) {
         self.token.textFieldShouldReturnHandler(text);
     }

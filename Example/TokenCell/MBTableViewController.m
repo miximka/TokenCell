@@ -34,11 +34,8 @@
 
 - (void)configureTokenCollectionCell:(MBTokenCollectionTableViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row > 0)
-        return;
-    
     cell.delegate = self;
-    cell.titleLabel.text = @"Title:";
+    cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", indexPath.row + 1];
     [cell addTokens:self.tokens animated:NO];
 }
 
@@ -52,24 +49,18 @@
     _rowHeightCache = [NSMutableDictionary new];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    MBTokenCollectionTableViewCell *cell = (MBTokenCollectionTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [cell startEditing];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSUInteger row = indexPath.row;
     
-    if (row < 1) {
+    if (row < 2) {
         
         MBTokenCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MBTokenCollectionTableViewCell" forIndexPath:indexPath];
         [self configureTokenCollectionCell:cell forItemAtIndexPath:indexPath];

@@ -12,11 +12,12 @@
 #import "MBTokenViewCell.h"
 #import "MBTokenTextFieldCell.h"
 #import "MBTokenCollectionLabel.h"
+#import "MBCollectionView.h"
 
 #define TOKEN_VIEW_CELL_IDENTIFIER    @"TokenViewCell"
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
 
-@interface MBTokenCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, MBTokenCollectionViewDelegateTokenLayout>
+@interface MBTokenCollectionView () <UICollectionViewDataSource, MBCollectionViewDelegate, MBTokenCollectionViewDelegateTokenLayout>
 @property (weak, nonatomic, readonly) UICollectionView *collectionView;
 @property (nonatomic) MBTokenViewCell *tokenSizingCell;
 @property (nonatomic) MBTokenTextFieldCell *textFieldTokenSizingCell;
@@ -55,7 +56,7 @@
 - (void)addCollectionView
 {
     MBTokenCollectionViewTokenLayout *layout = [[MBTokenCollectionViewTokenLayout alloc] init];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    UICollectionView *collectionView = [[MBCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 
     //Configure collection view
     collectionView.backgroundColor = [UIColor clearColor];
@@ -133,6 +134,7 @@
 - (void)textFieldDidBeginEditing
 {
     [UIView animateWithDuration:0.3 animations:^{
+        [self.addButton setHidden:NO];
         [self.addButton setAlpha:1.0];
     }];
 }
@@ -141,9 +143,16 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         [self.addButton setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [self.addButton setHidden:YES];
     }];
     
     [self notifyDelegateDidEndEditingText:text];
+
+    //Automatically deselect all items when edit field resigns first responder
+    for (NSIndexPath *each in self.collectionView.indexPathsForSelectedItems) {
+        [self.collectionView deselectItemAtIndexPath:each animated:YES];
+    }
 }
 
 - (void)textFieldShouldReturnWithText:(NSString *)text
@@ -249,7 +258,7 @@
     [self.collectionView reloadData];
 }
 
-- (NSIndexSet *)selectedItemIndexes
+- (NSIndexSet *)selectedTokenIndexes
 {
     NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
     
@@ -327,6 +336,14 @@
     cell.token = token;
 }
 
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Whenever user selects any item in the collection view we want to focus text field to start editing
+    [self startEditing];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -396,7 +413,14 @@
     return [self.tokenSizingCell sizeThatFits:size];
 }
 
-#pragma mark KVO Notifications
+#pragma mark - MBCollectionViewDelegate
+
+- (void)collectionViewDidTouchInside:(MBCollectionView *)collectionView
+{
+    [self startEditing];
+}
+
+#pragma mark - KVO Notifications
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(NSObject *)observedObject change:(NSDictionary *)change context:(void *)context
 {

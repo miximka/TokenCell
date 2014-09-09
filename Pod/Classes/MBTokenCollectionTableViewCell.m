@@ -73,7 +73,7 @@
 
 - (NSIndexSet *)selectedTokenIndexes
 {
-    return [self.collectionView selectedItemIndexes];
+    return [self.collectionView selectedTokenIndexes];
 }
 
 #pragma mark - Cell Content Size
