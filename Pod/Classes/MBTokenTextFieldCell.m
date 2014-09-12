@@ -26,6 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self addTextField];
+        [self registerForNotifications];
     }
     return self;
 }
@@ -91,15 +92,6 @@
 }
 
 #pragma mark - Overridden Methods
-
-- (void)didMoveToWindow
-{
-    [super didMoveToWindow];
-    
-    if (self.window != nil) {
-        [self registerForNotifications];
-    }
-}
 
 - (CGSize)intrinsicContentSize
 {
