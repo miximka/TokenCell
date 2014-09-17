@@ -44,6 +44,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    _tokens = [NSMutableArray new];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _rowHeightCache = [NSMutableDictionary new];
@@ -101,7 +103,16 @@
     
     if (indexes.count > 0) {
         //Delete selected tokens
+        [self.tokens removeObjectsAtIndexes:indexes];
         [cell removeTokensAtIndexes:indexes animated:YES];
+    
+    } else {
+        NSInteger index = self.tokens.count - 1;
+        
+        if (index >= 0) {
+            //Select the last token
+            [cell selectTokenAtIndex:index animated:YES];
+        }
     }
 }
 

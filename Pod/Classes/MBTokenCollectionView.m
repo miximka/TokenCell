@@ -270,6 +270,12 @@
     return indexes;
 }
 
+- (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    [self.collectionView selectItemAtIndexPath:indexPath animated:animated scrollPosition:UICollectionViewScrollPositionNone];
+}
+
 #pragma mark - Creating Token Collection Item Views
 
 - (void)registerNibForTokenCollectionItemView:(UINib *)nib

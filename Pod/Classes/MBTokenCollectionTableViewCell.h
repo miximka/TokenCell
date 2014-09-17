@@ -26,6 +26,7 @@
 - (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated;
 
 - (NSIndexSet *)selectedTokenIndexes;
+- (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated;
 
 #pragma mark - Display Content
 

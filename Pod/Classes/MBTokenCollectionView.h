@@ -29,6 +29,7 @@
 - (void)removeAllTokens;
 
 - (NSIndexSet *)selectedTokenIndexes;
+- (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated;
 
 #pragma mark - Creating Token Collection Item Views
 

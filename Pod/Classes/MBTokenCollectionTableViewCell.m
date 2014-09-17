@@ -76,6 +76,11 @@
     return [self.collectionView selectedTokenIndexes];
 }
 
+- (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated
+{
+    [self.collectionView selectTokenAtIndex:index animated:animated];
+}
+
 #pragma mark - Cell Content Size
 
 - (CGSize)contentSize
