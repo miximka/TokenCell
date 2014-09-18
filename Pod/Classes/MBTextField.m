@@ -34,15 +34,14 @@
 
 #pragma mark - Overridden Methods
 
-- (void)deleteBackward
+//Overriden private method - required as since iOS8 -deleteBackward does not get called any more
+- (BOOL)keyboardInputShouldDelete:(UITextField *)textField
 {
-    if (self.text.length == 0)
-    {
+    if (self.text.length == 0) {
         [[self delegate] textFieldDeleteBackwardsInEmptyField:self];
-        return;
     }
-    
-    [super deleteBackward];
+
+    return YES;
 }
 
 @end

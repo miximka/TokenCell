@@ -5,7 +5,7 @@ PODS:
     - FBSnapshotTestCase
   - FBSnapshotTestCase (1.2)
   - Specta (0.2.1)
-  - TokenCell (0.3.0)
+  - TokenCell (0.3.1)
 
 DEPENDENCIES:
   - Expecta
@@ -23,6 +23,6 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: 30c28e3d8104665ee70e32df1cfc030bb37a8a6c
   FBSnapshotTestCase: 4159bdf235fdae25aa7d813f1452a4f05ad4f9cd
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
-  TokenCell: 9e29236784fd77b438adefcdf9272fcff705e7a6
+  TokenCell: 6359f7e8502df03a2978e2cdd1aaa3e1e1831ede
 
 COCOAPODS: 0.33.1
