@@ -22,8 +22,8 @@
 
 #pragma mark - Handling Tokens
 
-- (void)addTokens:(NSArray *)tokens animated:(BOOL)animated;
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated;
+- (void)addTokens:(NSArray *)tokens;
+- (void)removeTokensAtIndexes:(NSIndexSet *)indexes;
 
 - (NSIndexSet *)selectedTokenIndexes;
 - (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated;

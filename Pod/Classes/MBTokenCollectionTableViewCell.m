@@ -70,14 +70,14 @@
 
 #pragma mark - Handling Tokens
 
-- (void)addTokens:(NSArray *)tokens animated:(BOOL)animated
+- (void)addTokens:(NSArray *)tokens
 {
-    [self.collectionView addTokens:tokens animated:animated];
+    [self.collectionView addTokens:tokens];
 }
 
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated
+- (void)removeTokensAtIndexes:(NSIndexSet *)indexes
 {
-    [self.collectionView removeTokensAtIndexes:indexes animated:animated];
+    [self.collectionView removeTokensAtIndexes:indexes];
 }
 
 - (NSIndexSet *)selectedTokenIndexes

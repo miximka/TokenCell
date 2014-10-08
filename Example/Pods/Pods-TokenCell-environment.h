@@ -9,6 +9,6 @@
 // TokenCell
 #define COCOAPODS_POD_AVAILABLE_TokenCell
 #define COCOAPODS_VERSION_MAJOR_TokenCell 0
-#define COCOAPODS_VERSION_MINOR_TokenCell 3
-#define COCOAPODS_VERSION_PATCH_TokenCell 2
+#define COCOAPODS_VERSION_MINOR_TokenCell 4
+#define COCOAPODS_VERSION_PATCH_TokenCell 0
 

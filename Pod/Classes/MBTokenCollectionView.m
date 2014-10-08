@@ -28,6 +28,7 @@
 @implementation MBTokenCollectionView
 {
     NSMutableArray *_tokens;
+    BOOL _collectionViewDidReloadDataOnce;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -215,7 +216,7 @@
     return tokens;
 }
 
-- (void)addTokens:(NSArray *)tokens animated:(BOOL)animated
+- (void)addTokens:(NSArray *)tokens
 {
     NSInteger index = [_tokens indexOfObject:self.textFieldToken];
 
@@ -226,16 +227,19 @@
         
         [_tokens insertObject:each atIndex:index];
         
-        if (animated) {
+        if (_collectionViewDidReloadDataOnce) {
+            //Only directly update collection view items when it has reloaded its data at least once
+            //otherwize we get exception when triggering -insertItemsAtIndexPaths:
+            
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
             [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
         }
-        
+
         index++;
     }
 }
 
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated
+- (void)removeTokensAtIndexes:(NSIndexSet *)indexes
 {
     [_tokens removeObjectsAtIndexes:indexes];
 
@@ -245,7 +249,10 @@
         [indexPaths addObject:indexPath];
     }];
     
-    if (animated && self.window != nil) {
+    if (_collectionViewDidReloadDataOnce) {
+        //Only directly update collection view items when it has reloaded its data at least once
+        //otherwize we get exception when triggering -deleteItemsAtIndexPaths:
+
         [self.collectionView deleteItemsAtIndexPaths:indexPaths];
     }
 }
@@ -354,6 +361,9 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    //Immediately reload collection view's data to workaround the problem with exception thrown by collection view when adding items directly after initialization
+    _collectionViewDidReloadDataOnce = YES;
+    
     return _tokens.count;
 }
 

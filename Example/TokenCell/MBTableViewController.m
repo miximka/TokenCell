@@ -29,14 +29,14 @@
     [self.tokens addObject:token];
     
     //Add token to the view
-    [cell addTokens:@[token] animated:YES];
+    [cell addTokens:@[token]];
 }
 
 - (void)configureTokenCollectionCell:(MBTokenCollectionTableViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.delegate = self;
     cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", indexPath.row + 1];
-    [cell addTokens:self.tokens animated:NO];
+    [cell addTokens:self.tokens];
 }
 
 #pragma mark - Overridden Methods
@@ -104,7 +104,7 @@
     if (indexes.count > 0) {
         //Delete selected tokens
         [self.tokens removeObjectsAtIndexes:indexes];
-        [cell removeTokensAtIndexes:indexes animated:YES];
+        [cell removeTokensAtIndexes:indexes];
     
     } else {
         NSInteger index = self.tokens.count - 1;

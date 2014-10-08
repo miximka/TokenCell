@@ -23,8 +23,8 @@
 
 @property (nonatomic, readonly) NSArray *tokens;
 
-- (void)addTokens:(NSArray *)tokens animated:(BOOL)animated;
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated;
+- (void)addTokens:(NSArray *)tokens;
+- (void)removeTokensAtIndexes:(NSIndexSet *)indexes;
 
 - (void)removeAllTokens;
 
