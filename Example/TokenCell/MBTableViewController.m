@@ -35,7 +35,7 @@
 - (void)configureTokenCollectionCell:(MBTokenCollectionTableViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.delegate = self;
-    cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", indexPath.row + 1];
+    cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", (unsigned int)indexPath.row + 1];
     [cell addTokens:self.tokens];
 }
 

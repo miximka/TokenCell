@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 miximka. All rights reserved.
 //
 
-SpecBegin(InitialSpecs)
-
-describe(@"these will fail", ^{
-
+//SpecBegin(InitialSpecs)
+//
+//describe(@"these will fail", ^{
+//
 //    it(@"can do maths", ^{
 //        expect(1).to.equal(2);
 //    });
@@ -21,10 +21,10 @@ describe(@"these will fail", ^{
 //    it(@"will wait and fail", ^AsyncBlock {
 //        
 //    });
-});
-
-describe(@"these will pass", ^{
-    
+//});
+//
+//describe(@"these will pass", ^{
+//    
 //    it(@"can do maths", ^{
 //        expect(1).beLessThan(23);
 //    });
@@ -38,6 +38,6 @@ describe(@"these will pass", ^{
 //            done();
 //        });
 //    });
-});
-
-SpecEnd
+//});
+//
+//SpecEnd
