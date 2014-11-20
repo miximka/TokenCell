@@ -47,14 +47,13 @@
 - (void)configure
 {
     MBTokenCollectionView *collectionView = [[MBTokenCollectionView alloc] init];
-
+    collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     collectionView.dataSource = self;
     collectionView.delegate = self;
-
-    collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    [collectionView.addButton addTarget:self action:@selector(addContact:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.contentView addSubview:collectionView];
+    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
     
@@ -66,11 +65,14 @@
     return _collectionView.titleLabel;
 }
 
-- (IBAction)addContact:(id)sender
+- (UIView *)rightView
 {
-    if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCellDidTapAddButton:)]) {
-        [self.delegate tokenCollectionTableViewCellDidTapAddButton:self];
-    }
+    return _collectionView.rightView;
+}
+
+- (void)setRightView:(UIView *)view
+{
+    _collectionView.rightView = view;
 }
 
 #pragma mark - Reloading Content

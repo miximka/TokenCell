@@ -97,17 +97,30 @@
     _titleLabel = label;
 }
 
-- (void)addAddButton
+- (void)addRightView:(UIView *)view
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    button.translatesAutoresizingMaskIntoConstraints = NO;
-
-    button.alpha = 0.0;
-    [self addSubview:button];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[button]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)]];
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    view.alpha = 0.0;
     
-    _addButton = button;
+    [self addSubview:view];
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[view]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(view)]];
+}
+
+- (void)setRightView:(UIView *)view
+{
+    if (_rightView != view) {
+        
+        [_rightView removeFromSuperview];
+        _rightView = view;
+        
+        if (view) {
+            [self addRightView:view];
+        }
+        
+        [self.collectionView reloadData];
+    }
 }
 
 - (void)notifyDelegateTextDidChange:(NSString *)text
@@ -134,17 +147,17 @@
 - (void)textFieldDidBeginEditing
 {
     [UIView animateWithDuration:0.3 animations:^{
-        [self.addButton setHidden:NO];
-        [self.addButton setAlpha:1.0];
+        [self.rightView setHidden:NO];
+        [self.rightView setAlpha:1.0];
     }];
 }
 
 - (void)textFieldDidEndEditingWithText:(NSString *)text
 {
     [UIView animateWithDuration:0.3 animations:^{
-        [self.addButton setAlpha:0.0];
+        [self.rightView setAlpha:0.0];
     } completion:^(BOOL finished) {
-        [self.addButton setHidden:YES];
+        [self.rightView setHidden:YES];
     }];
     
     [self notifyDelegateDidEndEditingText:text];
@@ -198,7 +211,6 @@
     [self configureTextFieldToken];
     [self addCollectionView];
     [self addTitleLabel];
-    [self addAddButton];
 }
 
 - (void)notifyDelegateDeleteBackwardsInEmptyField
@@ -247,64 +259,7 @@
     [self.collectionView deleteItemsAtIndexPaths:indexPaths];
 }
 
-//#pragma mark - Manage Token Items
-//
-//- (NSArray *)tokens
-//{
-//    NSMutableArray *tokens = [_tokens mutableCopy];
-//    [tokens removeObject:self.textFieldToken];
-//    
-//    return tokens;
-//}
-//
-//- (void)addTokens:(NSArray *)tokens
-//{
-//    NSInteger index = [_tokens indexOfObject:self.textFieldToken];
-//
-//    //Add token always before text field
-//    NSAssert(index != NSNotFound, @"Text field item not found");
-//
-//    for (id<MBToken> each in tokens) {
-//        
-//        [_tokens insertObject:each atIndex:index];
-//        
-//        if (_collectionViewDidReloadDataOnce) {
-//            //Only directly update collection view items when it has reloaded its data at least once
-//            //otherwize we get exception when triggering -insertItemsAtIndexPaths:
-//            
-//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-//            [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
-//        }
-//
-//        index++;
-//    }
-//}
-//
-//- (void)removeTokensAtIndexes:(NSIndexSet *)indexes
-//{
-//    [_tokens removeObjectsAtIndexes:indexes];
-//
-//    NSMutableArray *indexPaths = [NSMutableArray new];
-//    [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-//        [indexPaths addObject:indexPath];
-//    }];
-//    
-//    if (_collectionViewDidReloadDataOnce) {
-//        //Only directly update collection view items when it has reloaded its data at least once
-//        //otherwize we get exception when triggering -deleteItemsAtIndexPaths:
-//
-//        [self.collectionView deleteItemsAtIndexPaths:indexPaths];
-//    }
-//}
-//
-//- (void)removeAllTokens
-//{
-//    [_tokens removeAllObjects];
-//    [_tokens addObject:self.textFieldToken];
-//    
-//    [self.collectionView reloadData];
-//}
+#pragma mark - Managing the Selection
 
 - (NSIndexSet *)selectedTokenIndexes
 {
@@ -449,7 +404,7 @@
 
 - (CGRect)collectionViewTopRightContentFreeRect:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
 {
-    return self.addButton.frame;
+    return self.rightView.frame;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout intrinsicItemSizeAtIndexPath:(NSIndexPath *)indexPath

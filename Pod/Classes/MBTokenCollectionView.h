@@ -19,7 +19,7 @@
 @property (weak, nonatomic) id<MBTokenCollectionViewDelegate> delegate;
 
 @property (weak, nonatomic, readonly) UILabel *titleLabel;
-@property (weak, nonatomic, readonly) UIButton *addButton;
+@property (nonatomic) UIView *rightView;
 
 #pragma mark - Reloading Content
 

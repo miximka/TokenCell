@@ -22,9 +22,14 @@
 @property (weak, nonatomic) id<MBTokenCollectionTableViewCellDelegate> delegate;
 
 /**
-    Holds the main label of the cell
+    Holds the main label of the receiver.
  */
 @property (nonatomic, readonly) UILabel *titleLabel;
+
+/**
+    Holds the supplementary view which is positioned in the right top corner of the receiver.
+ */
+@property (nonatomic) UIView *rightView;
 
 #pragma mark - Reloading Content
 
@@ -109,11 +114,6 @@
     Tells the delegate that the content size has changed.
  */
 - (void)tokenCollectionTableViewCellDidChangeContentSize:(MBTokenCollectionTableViewCell *)cell;
-
-/**
-    Tells the delegate that the embedded add button was tapped.
- */
-- (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell;
 
 @end
 

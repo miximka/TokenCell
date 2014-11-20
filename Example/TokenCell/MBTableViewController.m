@@ -35,12 +35,29 @@
     [cell insertTokensAtIndexes:[NSIndexSet indexSetWithIndex:addedIndex]];
 }
 
+- (void)addTokenForCellAtIndex:(NSUInteger)cellIndex withText:(NSString *)text
+{
+    MBTokenCollectionTableViewCell *cell = (MBTokenCollectionTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:cellIndex inSection:0]];
+    [self addTokenForCell:cell withText:text];
+}
+
+- (IBAction)addContact:(UIButton *)sender
+{
+    NSUInteger tag = sender.tag;
+    [self addTokenForCellAtIndex:tag withText:@"Plus"];
+}
+
 - (void)configureTokenCollectionCell:(MBTokenCollectionTableViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.dataSource = self;
     cell.delegate = self;
     cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", (unsigned int)indexPath.row + 1];
 
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    addButton.tag = indexPath.item;
+    [addButton addTarget:self action:@selector(addContact:) forControlEvents:UIControlEventTouchUpInside];
+    cell.rightView = addButton;
+    
     [cell reloadData];
 }
 
@@ -153,11 +170,6 @@
     //Update table view
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
-}
-
-- (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell
-{
-    [self addTokenForCell:cell withText:@"Plus"];
 }
 
 @end
