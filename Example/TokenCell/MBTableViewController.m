@@ -13,7 +13,7 @@
 
 @interface MBTableViewController () <MBTokenCollectionTableViewCellDataSource, MBTokenCollectionTableViewCellDelegate>
 @property (nonatomic) NSMutableDictionary *rowHeightCache;
-@property (nonatomic) NSMutableArray *tokens;
+@property (nonatomic) NSDictionary *cellIndexToTokens;
 @end
 
 @implementation MBTableViewController
@@ -24,13 +24,15 @@
         return;
     }
     
-    //Add token to the model
+    NSInteger cellIndex = [self.tableView indexPathForCell:cell].item;
+    NSMutableArray *tokens = self.cellIndexToTokens[@(cellIndex)];
+    
     MBSimpleToken *token = [[MBSimpleToken alloc] init];
     token.title = text;
-    [self.tokens addObject:token];
-    
-    //Add token to the view
-    [cell addTokens:@[token]];
+    [tokens addObject:token];
+
+    NSUInteger addedIndex = tokens.count - 1;
+    [cell insertTokensAtIndexes:[NSIndexSet indexSetWithIndex:addedIndex]];
 }
 
 - (void)configureTokenCollectionCell:(MBTokenCollectionTableViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
@@ -38,7 +40,8 @@
     cell.dataSource = self;
     cell.delegate = self;
     cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", (unsigned int)indexPath.row + 1];
-    [cell addTokens:self.tokens];
+
+    [cell reloadData];
 }
 
 #pragma mark - Overridden Methods
@@ -47,7 +50,8 @@
 {
     [super viewDidLoad];
 
-    _tokens = [NSMutableArray new];
+    _cellIndexToTokens = @{ @(0) : [NSMutableArray new],
+                            @(1) : [NSMutableArray new]};
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _rowHeightCache = [NSMutableDictionary new];
@@ -57,7 +61,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return _cellIndexToTokens.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,9 +85,22 @@
 
 #pragma mark - MBTokenCollectionTableViewCellDataSource
 
-- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token
+- (NSUInteger)numberOfTokensInTokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell
 {
+    NSInteger cellIndex = [self.tableView indexPathForCell:cell].item;
+    NSArray *tokens = self.cellIndexToTokens[@(cellIndex)];
+
+    return tokens.count;
+}
+
+- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForTokenAtIndex:(NSUInteger)index
+{
+    NSInteger cellIndex = [self.tableView indexPathForCell:cell].item;
+    NSArray *tokens = self.cellIndexToTokens[@(cellIndex)];
+
+    MBSimpleToken *token = [tokens objectAtIndex:index];
     MBSimpleTokenView *view = [[MBSimpleTokenView alloc] initWithToken:token];
+
     return view;
 }
 
@@ -102,15 +119,18 @@
 
 - (void)tokenCollectionTableViewCellDeleteBackwardsInEmptyField:(MBTokenCollectionTableViewCell *)cell
 {
+    NSInteger cellIndex = [self.tableView indexPathForCell:cell].item;
+    NSMutableArray *tokens = self.cellIndexToTokens[@(cellIndex)];
+
     NSIndexSet *indexes = [cell selectedTokenIndexes];
     
     if (indexes.count > 0) {
         //Delete selected tokens
-        [self.tokens removeObjectsAtIndexes:indexes];
-        [cell removeTokensAtIndexes:indexes];
+        [tokens removeObjectsAtIndexes:indexes];
+        [cell deleteTokensAtIndexes:indexes];
     
     } else {
-        NSInteger index = self.tokens.count - 1;
+        NSInteger index = tokens.count - 1;
         
         if (index >= 0) {
             //Select the last token

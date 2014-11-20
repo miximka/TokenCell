@@ -21,14 +21,16 @@
 @property (weak, nonatomic, readonly) UILabel *titleLabel;
 @property (weak, nonatomic, readonly) UIButton *addButton;
 
-#pragma mark - Manage Tokens
+#pragma mark - Reloading Content
 
-@property (nonatomic, readonly) NSArray *tokens;
+- (void)reloadData;
 
-- (void)addTokens:(NSArray *)tokens;
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes;
+#pragma mark - Inserting and Deleting Tokens
 
-- (void)removeAllTokens;
+- (void)insertTokensAtIndexes:(NSIndexSet *)indexes;
+- (void)deleteTokensAtIndexes:(NSIndexSet *)indexes;
+
+#pragma mark - Managing the Selection
 
 - (NSIndexSet *)selectedTokenIndexes;
 - (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated;
@@ -52,6 +54,7 @@
 
 @protocol MBTokenCollectionViewDelegate <NSObject>
 @optional
+- (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView willDisplayTokenView:(MBTokenCollectionTokenView *)view forTokenAtIndex:(NSUInteger)index;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didEndEditingText:(NSString *)text;
 - (BOOL)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView textFieldShouldReturnWithText:(NSString *)text;
@@ -61,5 +64,6 @@
 
 @protocol MBTokenCollectionViewDataSource <NSObject>
 @required
-- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token;
+- (NSUInteger)numberOfTokensInCollectionView:(MBTokenCollectionView *)tokenCollectionView;
+- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForTokenAtIndex:(NSUInteger)index;
 @end

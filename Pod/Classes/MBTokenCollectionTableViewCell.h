@@ -26,19 +26,24 @@
  */
 @property (nonatomic, readonly) UILabel *titleLabel;
 
-#pragma mark - Handling Tokens
+#pragma mark - Reloading Content
+
+- (void)reloadData;
+
+#pragma mark - Inserting and Deleting Tokens
 
 /**
-    Add token to the receiver.
+    Inserts new tokens at the specified indexes.
  */
-- (void)addTokens:(NSArray *)tokens;
+- (void)insertTokensAtIndexes:(NSIndexSet *)indexes;
 
 /**
-    Remove tokens at specified indexes
+    Deletes the tokens at the specified indexes.
  */
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes;
 
-#pragma mark - Handling Token Selection
+- (void)deleteTokensAtIndexes:(NSIndexSet *)indexes;
+
+#pragma mark - Managing the Selection
 
 /**
     Returns the indexes of selected tokens.
@@ -117,9 +122,15 @@
 @protocol MBTokenCollectionTableViewCellDataSource <NSObject>
 
 @required
+
+/**
+    Asks the data source for the number of tokens.
+ */
+- (NSUInteger)numberOfTokensInTokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell;
+
 /**
     Asks the data source to provide a view to display the token.
  */
-- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token;
+- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForTokenAtIndex:(NSUInteger)index;
 
 @end

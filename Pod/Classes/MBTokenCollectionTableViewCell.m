@@ -74,17 +74,26 @@
     }
 }
 
-#pragma mark - Handling Tokens
+#pragma mark - Reloading Content
 
-- (void)addTokens:(NSArray *)tokens
+- (void)reloadData
 {
-    [_collectionView addTokens:tokens];
+    [_collectionView reloadData];
 }
 
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes
+#pragma mark - Inserting and Deleting Tokens
+
+- (void)insertTokensAtIndexes:(NSIndexSet *)indexes
 {
-    [_collectionView removeTokensAtIndexes:indexes];
+    [_collectionView insertTokensAtIndexes:indexes];
 }
+
+- (void)deleteTokensAtIndexes:(NSIndexSet *)indexes
+{
+    [_collectionView deleteTokensAtIndexes:indexes];
+}
+
+#pragma mark - Managing the Selection
 
 - (NSIndexSet *)selectedTokenIndexes
 {
@@ -120,19 +129,16 @@
     [_collectionView startEditing];
 }
 
-#pragma mark - Overridden Methods
-
-- (void)prepareForReuse
-{
-    [super prepareForReuse];
-    [_collectionView removeAllTokens];
-}
-
 #pragma mark - MBTokenCollectionViewDataSource
 
-- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token
+- (NSUInteger)numberOfTokensInCollectionView:(MBTokenCollectionView *)tokenCollectionView
 {
-    return [self.dataSource tokenCollectionTableViewCell:self viewForToken:token];
+    return [self.dataSource numberOfTokensInTokenCollectionTableViewCell:self];
+}
+
+- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForTokenAtIndex:(NSUInteger)index
+{
+    return [self.dataSource tokenCollectionTableViewCell:self viewForTokenAtIndex:index];
 }
 
 #pragma mark - MBTokenCollectionViewDelegate

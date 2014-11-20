@@ -169,14 +169,14 @@
 		0838A7971A1DDC2B00610EA6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2D22EC98CB34058ED835300C /* MBTokenCollectionView.h */,
+				57816B446D7D3F11CC38D9BC /* MBTokenCollectionView.m */,
 				E0E75573405A0D19C279B2B6 /* MBCollectionView.h */,
 				E2DD3CB60CB1B97A4114A5EE /* MBCollectionView.m */,
 				469BA062DCFBC439905CA91D /* MBTextField.h */,
 				AEE1FC1835839A0531281399 /* MBTextField.m */,
 				BDB2FEDAEE113B9D5ECF764C /* MBTextFieldToken.h */,
 				541026BAB4F92371D4898525 /* MBTextFieldToken.m */,
-				2D22EC98CB34058ED835300C /* MBTokenCollectionView.h */,
-				57816B446D7D3F11CC38D9BC /* MBTokenCollectionView.m */,
 				3C83425DF26DDBC7531BB1D3 /* MBTokenCollectionViewTokenLayout.h */,
 				A3E4FB016836F2A1F9A094B2 /* MBTokenCollectionViewTokenLayout.m */,
 				52CCA8DC590B560F28889D83 /* MBTokenTextFieldCell.h */,

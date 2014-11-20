@@ -27,7 +27,6 @@
 
 @implementation MBTokenCollectionView
 {
-    NSMutableArray *_tokens;
     BOOL _collectionViewDidReloadDataOnce;
 }
 
@@ -165,37 +164,38 @@
     return YES;
 }
 
-- (void)configure
+- (void)configureTextFieldToken
 {
     MBTextFieldToken *textFieldToken = [[MBTextFieldToken alloc] init];
     
     __weak MBTokenCollectionView *weakSelf = self;
-
+    
     textFieldToken.textBeginEditingHandler = ^{
         [weakSelf textFieldDidBeginEditing];
     };
-
+    
     textFieldToken.textDidChangeHandler = ^(NSString *text){
         [weakSelf notifyDelegateTextDidChange:text];
     };
-
+    
     textFieldToken.textEndEditingHandler = ^(NSString *text) {
         [weakSelf textFieldDidEndEditingWithText:text];
     };
-
+    
     textFieldToken.textFieldShouldReturnHandler = ^BOOL(NSString *text) {
         return [weakSelf textFieldShouldReturnWithText:text];
     };
-
+    
     textFieldToken.deleteBackwardsInEmptyFieldHandler = ^() {
         [weakSelf notifyDelegateDeleteBackwardsInEmptyField];
     };
-
+    
     _textFieldToken = textFieldToken;
-    
-    NSMutableArray *items = [NSMutableArray arrayWithObject:textFieldToken];
-    _tokens = items;
-    
+}
+
+- (void)configure
+{
+    [self configureTextFieldToken];
     [self addCollectionView];
     [self addTitleLabel];
     [self addAddButton];
@@ -208,64 +208,103 @@
     }
 }
 
-#pragma mark - Manage Token Items
-
-- (NSArray *)tokens
+- (NSUInteger)numberOfTokens
 {
-    NSMutableArray *tokens = [_tokens mutableCopy];
-    [tokens removeObject:self.textFieldToken];
+    NSUInteger count = [self.dataSource numberOfTokensInCollectionView:self];
+    return count + 1; //Account for the embedded text field
+}
+
+#pragma mark - Reloading Content
+
+- (void)reloadData
+{
+    [_collectionView reloadData];
+}
+
+#pragma mark - Inserting and Deleting Tokens
+
+- (NSArray *)indexPathsFromIndexes:(NSIndexSet *)indexes
+{
+    __block NSMutableArray *indexPaths = [NSMutableArray new];
     
-    return tokens;
-}
-
-- (void)addTokens:(NSArray *)tokens
-{
-    NSInteger index = [_tokens indexOfObject:self.textFieldToken];
-
-    //Add token always before text field
-    NSAssert(index != NSNotFound, @"Text field item not found");
-
-    for (id<MBToken> each in tokens) {
-        
-        [_tokens insertObject:each atIndex:index];
-        
-        if (_collectionViewDidReloadDataOnce) {
-            //Only directly update collection view items when it has reloaded its data at least once
-            //otherwize we get exception when triggering -insertItemsAtIndexPaths:
-            
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-            [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
-        }
-
-        index++;
-    }
-}
-
-- (void)removeTokensAtIndexes:(NSIndexSet *)indexes
-{
-    [_tokens removeObjectsAtIndexes:indexes];
-
-    NSMutableArray *indexPaths = [NSMutableArray new];
     [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
         [indexPaths addObject:indexPath];
     }];
     
-    if (_collectionViewDidReloadDataOnce) {
-        //Only directly update collection view items when it has reloaded its data at least once
-        //otherwize we get exception when triggering -deleteItemsAtIndexPaths:
-
-        [self.collectionView deleteItemsAtIndexPaths:indexPaths];
-    }
+    return indexPaths;
 }
 
-- (void)removeAllTokens
+- (void)insertTokensAtIndexes:(NSIndexSet *)indexes
 {
-    [_tokens removeAllObjects];
-    [_tokens addObject:self.textFieldToken];
-    
-    [self.collectionView reloadData];
+    NSArray *indexPaths = [self indexPathsFromIndexes:indexes];
+    [self.collectionView insertItemsAtIndexPaths:indexPaths];
 }
+
+- (void)deleteTokensAtIndexes:(NSIndexSet *)indexes
+{
+    NSArray *indexPaths = [self indexPathsFromIndexes:indexes];
+    [self.collectionView deleteItemsAtIndexPaths:indexPaths];
+}
+
+//#pragma mark - Manage Token Items
+//
+//- (NSArray *)tokens
+//{
+//    NSMutableArray *tokens = [_tokens mutableCopy];
+//    [tokens removeObject:self.textFieldToken];
+//    
+//    return tokens;
+//}
+//
+//- (void)addTokens:(NSArray *)tokens
+//{
+//    NSInteger index = [_tokens indexOfObject:self.textFieldToken];
+//
+//    //Add token always before text field
+//    NSAssert(index != NSNotFound, @"Text field item not found");
+//
+//    for (id<MBToken> each in tokens) {
+//        
+//        [_tokens insertObject:each atIndex:index];
+//        
+//        if (_collectionViewDidReloadDataOnce) {
+//            //Only directly update collection view items when it has reloaded its data at least once
+//            //otherwize we get exception when triggering -insertItemsAtIndexPaths:
+//            
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+//            [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+//        }
+//
+//        index++;
+//    }
+//}
+//
+//- (void)removeTokensAtIndexes:(NSIndexSet *)indexes
+//{
+//    [_tokens removeObjectsAtIndexes:indexes];
+//
+//    NSMutableArray *indexPaths = [NSMutableArray new];
+//    [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+//        [indexPaths addObject:indexPath];
+//    }];
+//    
+//    if (_collectionViewDidReloadDataOnce) {
+//        //Only directly update collection view items when it has reloaded its data at least once
+//        //otherwize we get exception when triggering -deleteItemsAtIndexPaths:
+//
+//        [self.collectionView deleteItemsAtIndexPaths:indexPaths];
+//    }
+//}
+//
+//- (void)removeAllTokens
+//{
+//    [_tokens removeAllObjects];
+//    [_tokens addObject:self.textFieldToken];
+//    
+//    [self.collectionView reloadData];
+//}
 
 - (NSIndexSet *)selectedTokenIndexes
 {
@@ -313,7 +352,8 @@
 
 - (void)startEditing
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[_tokens indexOfObject:self.textFieldToken] inSection:0];
+    NSUInteger textFieldIndex = [self numberOfTokens] - 1;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:textFieldIndex inSection:0];
     MBTokenTextFieldCell *cell = (MBTokenTextFieldCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
 
     [cell.textField becomeFirstResponder];
@@ -321,10 +361,8 @@
 
 #pragma mark - Configure Cells
 
-- (void)configureTokenViewCell:(MBTokenViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)configureTokenViewCell:(MBTokenViewCell *)cell forTokenAtIndex:(NSUInteger)index
 {
-    id<MBToken> token = _tokens[indexPath.item];
-    
     MBTokenCollectionTokenView *tokenView = nil;
     
     if (self.tokenCollectionItemViewNib) {
@@ -333,17 +371,50 @@
         NSAssert([tokenView isKindOfClass:[MBTokenCollectionTokenView class]], @"Unexpected token view: %@", tokenView);
     } else {
         //Ask delegate for the view
-        tokenView = [self.dataSource tokenCollectionView:self viewForToken:token];
+        tokenView = [self.dataSource tokenCollectionView:self viewForTokenAtIndex:index];
     }
     
     NSAssert(tokenView != nil, @"tokenView != nil not satisfied");
     cell.tokenView = tokenView;
 }
 
-- (void)configureTokenTextFieldCell:(MBTokenTextFieldCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)configureTokenTextFieldCell:(MBTokenTextFieldCell *)cell
 {
-    MBTextFieldToken *token = _tokens[indexPath.item];
-    cell.token = token;
+    cell.token = _textFieldToken;
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    //Immediately reload collection view's data to workaround the problem with exception thrown by collection view when adding items directly after initialization
+    _collectionViewDidReloadDataOnce = YES;
+    return [self numberOfTokens];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger index = indexPath.item;
+    
+    BOOL isTextFieldIndex = index == [self numberOfTokens] - 1;
+    
+    if (isTextFieldIndex) {
+        //Should return cell for embedded text field token
+
+        MBTokenTextFieldCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TEXT_FIELD_CELL_IDENTIFIER forIndexPath:indexPath];
+        [self configureTokenTextFieldCell:cell];
+        return cell;
+
+    } else {
+        //Should return cell for custom token
+
+        MBTokenViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TOKEN_VIEW_CELL_IDENTIFIER forIndexPath:indexPath];
+        [self configureTokenViewCell:cell forTokenAtIndex:index];
+        
+        return cell;
+    }
+    
+    return nil;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -354,37 +425,19 @@
     [self startEditing];
 }
 
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Immediately reload collection view's data to workaround the problem with exception thrown by collection view when adding items directly after initialization
-    _collectionViewDidReloadDataOnce = YES;
-    
-    return _tokens.count;
-}
-
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    id item = [_tokens objectAtIndex:indexPath.item];
-    
-    if ([item isKindOfClass:[MBTextFieldToken class]]) {
-        
-        MBTokenTextFieldCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TEXT_FIELD_CELL_IDENTIFIER forIndexPath:indexPath];
-        [self configureTokenTextFieldCell:cell forItemAtIndexPath:indexPath];
-        return cell;
+    if (![self.delegate respondsToSelector:@selector(tokenCollectionView:willDisplayTokenView:forTokenAtIndex:)]) {
+        return;
     }
     
-    if ([item conformsToProtocol:@protocol(MBToken)]) {
+    BOOL isTextFieldIndex = indexPath.item == [self numberOfTokens] - 1;
 
-        MBTokenViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TOKEN_VIEW_CELL_IDENTIFIER forIndexPath:indexPath];
-        [self configureTokenViewCell:cell forItemAtIndexPath:indexPath];
-        return cell;
-        
+    if (!isTextFieldIndex) {
+        MBTokenViewCell *tokenViewCell = (MBTokenViewCell *)cell;
+        NSAssert([tokenViewCell isKindOfClass:[MBTokenViewCell class]], @"Unexpected cell class");
+        [self.delegate tokenCollectionView:self willDisplayTokenView:tokenViewCell.tokenView forTokenAtIndex:indexPath.item];
     }
-
-    return nil;
 }
 
 #pragma mark - MBTokenCollectionViewDelegateTokenLayout
@@ -401,28 +454,31 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout intrinsicItemSizeAtIndexPath:(NSIndexPath *)indexPath
 {
-    id token = [_tokens objectAtIndex:indexPath.item];
-    
-    if ([token isKindOfClass:[MBTextFieldToken class]]) {
-        [self configureTokenTextFieldCell:self.textFieldTokenSizingCell forItemAtIndexPath:indexPath];
-        return self.textFieldTokenSizingCell.intrinsicContentSize;
+    BOOL isTextFieldIndex = indexPath.item == [self numberOfTokens] - 1;
+
+    if (isTextFieldIndex) {
+        
+        MBTokenTextFieldCell *cell = self.textFieldTokenSizingCell;
+        [self configureTokenTextFieldCell:cell];
+        return cell.intrinsicContentSize;
     }
     
-    [self configureTokenViewCell:self.tokenSizingCell forItemAtIndexPath:indexPath];
+    [self configureTokenViewCell:self.tokenSizingCell forTokenAtIndex:indexPath.item];
     return self.tokenSizingCell.intrinsicContentSize;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeThatFits:(CGSize)size forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id token = [_tokens objectAtIndex:indexPath.item];
-
-    if ([token isKindOfClass:[MBTextFieldToken class]]) {
+    BOOL isTextFieldIndex = indexPath.item == [self numberOfTokens] - 1;
+    
+    if (isTextFieldIndex) {
         
-        [self configureTokenTextFieldCell:self.textFieldTokenSizingCell forItemAtIndexPath:indexPath];
-        return [self.textFieldTokenSizingCell sizeThatFits:size];
+        MBTokenTextFieldCell *cell = self.textFieldTokenSizingCell;
+        [self configureTokenTextFieldCell:cell];
+        return [cell sizeThatFits:size];
     }
     
-    [self configureTokenViewCell:self.tokenSizingCell forItemAtIndexPath:indexPath];
+    [self configureTokenViewCell:self.tokenSizingCell forTokenAtIndex:indexPath.item];
     return [self.tokenSizingCell sizeThatFits:size];
 }
 
