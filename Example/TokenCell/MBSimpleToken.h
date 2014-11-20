@@ -6,9 +6,9 @@
 //
 //
 
-#import "MBToken.h"
+#import <Foundation/Foundation.h>
 
-@interface MBSimpleToken : NSObject <MBToken>
+@interface MBSimpleToken : NSObject
 
 @property (nonatomic, copy) NSString *title;
 

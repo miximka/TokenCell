@@ -7,12 +7,13 @@
 //
 
 #import "MBTokenCollectionTokenView.h"
-#import "MBToken.h"
+
+@class MBSimpleToken;
 
 @interface MBSimpleTokenView : MBTokenCollectionTokenView
 
-- (instancetype)initWithToken:(id<MBToken>)token;
+- (instancetype)initWithToken:(MBSimpleToken *)token;
 
-@property (nonatomic) id<MBToken> token;
+@property (nonatomic) MBSimpleToken *token;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "MBTokenCollectionTableViewCell.h"
 #import "MBTokenCollectionView.h"
-#import "MBToken.h"
 
 @interface MBTokenCollectionTableViewCell () <MBTokenCollectionViewDataSource, MBTokenCollectionViewDelegate>
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MBSimpleTokenView.h"
-#import "MBToken.h"
+#import "MBSimpleToken.h"
 
 #define HORIZONTAL_INSET 2
 
@@ -17,7 +17,7 @@
 
 @implementation MBSimpleTokenView
 
-- (instancetype)initWithToken:(id<MBToken>)token
+- (instancetype)initWithToken:(MBSimpleToken *)token
 {
     self = [super init];
     if (self) {
