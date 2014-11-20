@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15AE1B6183EECBC309062BD1 /* MBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = E0E75573405A0D19C279B2B6 /* MBCollectionView.h */; };
-		16E7B99CCC1B77D13435E13E /* MBSimpleToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237848DFA3BD220229B95CF /* MBSimpleToken.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1F08ADAE9631419A9DC48C01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA3D4192DBBBC2554E61BD /* Foundation.framework */; };
 		253C045A2DA44364A54E78DF /* MBTokenTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E127DE641E8D03F66EB19EA1 /* MBTokenTextFieldCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		29ED2A89149F763DE2D37293 /* MBTokenCollectionTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE34FAADECF6D1E2FDB3EC3 /* MBTokenCollectionTokenView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -29,7 +28,6 @@
 		6543E084F01AAD1A89F5E768 /* MBToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 19293A743629215989212B43 /* MBToken.h */; };
 		69B1E81036A65DBD5CDF2B72 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE1FC1835839A0531281399 /* MBTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6AC3524BCDCBD93F1431334C /* MBTokenCollectionTokenView.h in Headers */ = {isa = PBXBuildFile; fileRef = 91660FA5D76CC232BC2E2490 /* MBTokenCollectionTokenView.h */; };
-		6C99510B00134A55997F3F2D /* MBSimpleToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B2FB6312A843658C35DA5C4 /* MBSimpleToken.h */; };
 		6EBC0285C547B2971AB3B4A4 /* MBTokenCollectionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A3838F91CA233DD919FB92CB /* MBTokenCollectionTableViewCell.h */; };
 		78217773151568D1FEC75C54 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE1FC1835839A0531281399 /* MBTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7A2CA79DE25E63798537CAB8 /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 541026BAB4F92371D4898525 /* MBTextFieldToken.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -42,7 +40,6 @@
 		A437FCC197CF6363AA79A3E6 /* MBTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 469BA062DCFBC439905CA91D /* MBTextField.h */; };
 		A5A99DE066E4CF2B33C8C531 /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 541026BAB4F92371D4898525 /* MBTextFieldToken.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		A7BA35D2E484789EAA3F21BE /* MBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DD3CB60CB1B97A4114A5EE /* MBCollectionView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A900F451B47ABFE52C7C65FD /* MBSimpleToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B2FB6312A843658C35DA5C4 /* MBSimpleToken.h */; };
 		BBB34F923B99AA5021895632 /* MBTokenCollectionViewTokenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E4FB016836F2A1F9A094B2 /* MBTokenCollectionViewTokenLayout.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		BF5B034CE808C4609437C117 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA3D4192DBBBC2554E61BD /* Foundation.framework */; };
 		C07AD6E8F989B4D29A329576 /* MBTokenCollectionViewTokenLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C83425DF26DDBC7531BB1D3 /* MBTokenCollectionViewTokenLayout.h */; };
@@ -51,7 +48,6 @@
 		D79CF707568CAF759D49CDA8 /* MBTokenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB94FAC5A7CB1C760140174D /* MBTokenViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D9AD2485942674B3282B199E /* MBTokenCollectionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A3838F91CA233DD919FB92CB /* MBTokenCollectionTableViewCell.h */; };
 		DC9B65FEE6D1F15319F643C2 /* MBTokenCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5FA0EA05E3FE986DA5472 /* MBTokenCollectionTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		E43B77FF9E7EDE0AE927E865 /* MBSimpleToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237848DFA3BD220229B95CF /* MBSimpleToken.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		EA6CE39AAF030C3C0250B46B /* MBTokenCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D22EC98CB34058ED835300C /* MBTokenCollectionView.h */; };
 		ECBDCFAA8AAF2C311EA9B07D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA3D4192DBBBC2554E61BD /* Foundation.framework */; };
 		F5AB784D3A3D528BFE841041 /* MBTokenTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CCA8DC590B560F28889D83 /* MBTokenTextFieldCell.h */; };
@@ -86,9 +82,7 @@
 		19293A743629215989212B43 /* MBToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBToken.h; path = Pod/Classes/MBToken.h; sourceTree = "<group>"; };
 		1C2FE3AEE1D5969DA87937E6 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		26F48CF47772B9428E249CBC /* Pods-TokenCell-TokenCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenCell-TokenCell.xcconfig"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell.xcconfig"; sourceTree = "<group>"; };
-		2B2FB6312A843658C35DA5C4 /* MBSimpleToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBSimpleToken.h; path = Pod/Classes/MBSimpleToken.h; sourceTree = "<group>"; };
 		2D22EC98CB34058ED835300C /* MBTokenCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTokenCollectionView.h; path = Pod/Classes/MBTokenCollectionView.h; sourceTree = "<group>"; };
-		3237848DFA3BD220229B95CF /* MBSimpleToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBSimpleToken.m; path = Pod/Classes/MBSimpleToken.m; sourceTree = "<group>"; };
 		32D579FB232B57285AE7B1E2 /* Pods-TokenCell-TokenCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-TokenCell-TokenCell-prefix.pch"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch"; sourceTree = "<group>"; };
 		3B3BFE0B38818E308D30BEA0 /* Pods-TokenCell-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TokenCell-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3C83425DF26DDBC7531BB1D3 /* MBTokenCollectionViewTokenLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTokenCollectionViewTokenLayout.h; path = Pod/Classes/MBTokenCollectionViewTokenLayout.h; sourceTree = "<group>"; };
@@ -175,8 +169,6 @@
 		0838A7971A1DDC2B00610EA6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2B2FB6312A843658C35DA5C4 /* MBSimpleToken.h */,
-				3237848DFA3BD220229B95CF /* MBSimpleToken.m */,
 				E0E75573405A0D19C279B2B6 /* MBCollectionView.h */,
 				E2DD3CB60CB1B97A4114A5EE /* MBCollectionView.m */,
 				469BA062DCFBC439905CA91D /* MBTextField.h */,
@@ -311,7 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				524B811AA7AA2DF81F669984 /* MBCollectionView.h in Headers */,
-				6C99510B00134A55997F3F2D /* MBSimpleToken.h in Headers */,
 				46531212D04839BF9980D872 /* MBTextField.h in Headers */,
 				464EAA3410DCC8010BD4D7AC /* MBTextFieldToken.h in Headers */,
 				6543E084F01AAD1A89F5E768 /* MBToken.h in Headers */,
@@ -329,7 +320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15AE1B6183EECBC309062BD1 /* MBCollectionView.h in Headers */,
-				A900F451B47ABFE52C7C65FD /* MBSimpleToken.h in Headers */,
 				A437FCC197CF6363AA79A3E6 /* MBTextField.h in Headers */,
 				A294B35FFA6588B0FCED7EF7 /* MBTextFieldToken.h in Headers */,
 				7AB9C4A59E5A852634E145C6 /* MBToken.h in Headers */,
@@ -455,7 +445,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBE0C14D4F5AE40F14CD343D /* MBCollectionView.m in Sources */,
-				E43B77FF9E7EDE0AE927E865 /* MBSimpleToken.m in Sources */,
 				69B1E81036A65DBD5CDF2B72 /* MBTextField.m in Sources */,
 				7A2CA79DE25E63798537CAB8 /* MBTextFieldToken.m in Sources */,
 				5C4FDC6D69DC4C6FD1EA003A /* MBTokenCollectionTableViewCell.m in Sources */,
@@ -473,7 +462,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7BA35D2E484789EAA3F21BE /* MBCollectionView.m in Sources */,
-				16E7B99CCC1B77D13435E13E /* MBSimpleToken.m in Sources */,
 				78217773151568D1FEC75C54 /* MBTextField.m in Sources */,
 				A5A99DE066E4CF2B33C8C531 /* MBTextFieldToken.m in Sources */,
 				DC9B65FEE6D1F15319F643C2 /* MBTokenCollectionTableViewCell.m in Sources */,
