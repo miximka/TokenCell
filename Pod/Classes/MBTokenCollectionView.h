@@ -10,10 +10,12 @@
 
 @protocol MBToken;
 @protocol MBTokenCollectionViewDelegate;
+@protocol MBTokenCollectionViewDataSource;
 @class MBTokenCollectionTokenView;
 
 @interface MBTokenCollectionView : UIView
 
+@property (weak, nonatomic) id<MBTokenCollectionViewDataSource> dataSource;
 @property (weak, nonatomic) id<MBTokenCollectionViewDelegate> delegate;
 
 @property (weak, nonatomic, readonly) UILabel *titleLabel;
@@ -49,12 +51,15 @@
 @end
 
 @protocol MBTokenCollectionViewDelegate <NSObject>
-@required
-- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token;
 @optional
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didEndEditingText:(NSString *)text;
 - (BOOL)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView textFieldShouldReturnWithText:(NSString *)text;
 - (void)tokenCollectionViewDeleteBackwardsInEmptyField:(MBTokenCollectionView *)tokenCollectionView;
 - (void)tokenCollectionViewDidChangeContentSize:(MBTokenCollectionView *)tokenCollectionView;
+@end
+
+@protocol MBTokenCollectionViewDataSource <NSObject>
+@required
+- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token;
 @end

@@ -79,6 +79,14 @@
     return 44.0;
 }
 
+#pragma mark - MBTokenCollectionTableViewCellDataSource
+
+- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token
+{
+    MBTokenCollectionLabel *view = [[MBTokenCollectionLabel alloc] initWithToken:token];
+    return view;
+}
+
 #pragma mark - MBTokenCollectionTableViewCellDelegate
 
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didEndEditingWithText:(NSString *)text
@@ -130,14 +138,6 @@
 - (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell
 {
     [self addTokenForCell:cell withText:@"Plus"];
-}
-
-#pragma mark - MBTokenCollectionTableViewCellDataSource
-
-- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token
-{
-    MBTokenCollectionLabel *view = [[MBTokenCollectionLabel alloc] initWithToken:token];
-    return view;
 }
 
 @end

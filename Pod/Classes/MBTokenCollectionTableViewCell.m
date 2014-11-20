@@ -10,7 +10,7 @@
 #import "MBTokenCollectionView.h"
 #import "MBToken.h"
 
-@interface MBTokenCollectionTableViewCell () <MBTokenCollectionViewDelegate>
+@interface MBTokenCollectionTableViewCell () <MBTokenCollectionViewDataSource, MBTokenCollectionViewDelegate>
 @end
 
 @implementation MBTokenCollectionTableViewCell
@@ -48,9 +48,12 @@
 - (void)configure
 {
     MBTokenCollectionView *collectionView = [[MBTokenCollectionView alloc] init];
+
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+
     collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [collectionView.addButton addTarget:self action:@selector(addContact:) forControlEvents:UIControlEventTouchUpInside];
-    collectionView.delegate = self;
     
     [self.contentView addSubview:collectionView];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
@@ -125,6 +128,13 @@
     [_collectionView removeAllTokens];
 }
 
+#pragma mark - MBTokenCollectionViewDataSource
+
+- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token
+{
+    return [self.dataSource tokenCollectionTableViewCell:self viewForToken:token];
+}
+
 #pragma mark - MBTokenCollectionViewDelegate
 
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text
@@ -153,11 +163,6 @@
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCellDeleteBackwardsInEmptyField:)]) {
         [self.delegate tokenCollectionTableViewCellDeleteBackwardsInEmptyField:self];
     }
-}
-
-- (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token
-{
-    return [self.dataSource tokenCollectionTableViewCell:self viewForToken:token];
 }
 
 - (void)tokenCollectionViewDidChangeContentSize:(MBTokenCollectionView *)tokenCollectionView

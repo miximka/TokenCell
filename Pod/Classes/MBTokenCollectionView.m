@@ -333,7 +333,7 @@
         NSAssert([tokenView isKindOfClass:[MBTokenCollectionTokenView class]], @"Unexpected token view: %@", tokenView);
     } else {
         //Ask delegate for the view
-        tokenView = [self.delegate tokenCollectionView:self viewForToken:token];
+        tokenView = [self.dataSource tokenCollectionView:self viewForToken:token];
     }
     
     NSAssert(tokenView != nil, @"tokenView != nil not satisfied");
