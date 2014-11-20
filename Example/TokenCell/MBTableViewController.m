@@ -60,17 +60,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSUInteger row = indexPath.row;
+    MBTokenCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MBTokenCollectionTableViewCell" forIndexPath:indexPath];
+    [self configureTokenCollectionCell:cell forItemAtIndexPath:indexPath];
     
-    if (row < 2) {
-        
-        MBTokenCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MBTokenCollectionTableViewCell" forIndexPath:indexPath];
-        [self configureTokenCollectionCell:cell forItemAtIndexPath:indexPath];
-        
-        return cell;
-    }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     return cell;
 }
 

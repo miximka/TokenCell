@@ -14,6 +14,9 @@
 @end
 
 @implementation MBTokenCollectionTableViewCell
+{
+    MBTokenCollectionView *_collectionView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -58,7 +61,7 @@
 
 - (UILabel *)titleLabel
 {
-    return self.collectionView.titleLabel;
+    return _collectionView.titleLabel;
 }
 
 - (IBAction)addContact:(id)sender
@@ -72,46 +75,46 @@
 
 - (void)addTokens:(NSArray *)tokens
 {
-    [self.collectionView addTokens:tokens];
+    [_collectionView addTokens:tokens];
 }
 
 - (void)removeTokensAtIndexes:(NSIndexSet *)indexes
 {
-    [self.collectionView removeTokensAtIndexes:indexes];
+    [_collectionView removeTokensAtIndexes:indexes];
 }
 
 - (NSIndexSet *)selectedTokenIndexes
 {
-    return [self.collectionView selectedTokenIndexes];
+    return [_collectionView selectedTokenIndexes];
 }
 
 - (void)selectTokenAtIndex:(NSInteger)index animated:(BOOL)animated
 {
-    [self.collectionView selectTokenAtIndex:index animated:animated];
+    [_collectionView selectTokenAtIndex:index animated:animated];
 }
 
 #pragma mark - Cell Content Size
 
 - (CGSize)contentSize
 {
-    return self.collectionView.contentSize;
+    return _collectionView.contentSize;
 }
 
 #pragma mark - Editing Text
 
 - (void)setEditingText:(NSString *)text
 {
-    [self.collectionView setText:text];
+    [_collectionView setText:text];
 }
 
 - (NSString *)editingText
 {
-    return [self.collectionView text];
+    return [_collectionView text];
 }
 
 - (void)startEditing
 {
-    [self.collectionView startEditing];
+    [_collectionView startEditing];
 }
 
 #pragma mark - Overridden Methods
@@ -119,7 +122,7 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    [self.collectionView removeAllTokens];
+    [_collectionView removeAllTokens];
 }
 
 #pragma mark - MBTokenCollectionViewDelegate
