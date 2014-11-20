@@ -113,12 +113,12 @@
 
 #pragma mark - Editing Text
 
-- (void)setEditingText:(NSString *)text
+- (void)setTextFieldText:(NSString *)text
 {
     [_collectionView setText:text];
 }
 
-- (NSString *)editingText
+- (NSString *)textFieldText
 {
     return [_collectionView text];
 }

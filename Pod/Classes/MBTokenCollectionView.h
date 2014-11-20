@@ -45,8 +45,7 @@
 
 #pragma mark - Editing Text
 
-- (void)setText:(NSString *)text;
-- (NSString *)text;
+@property (nonatomic) NSString *text;
 
 - (void)startEditing;
 

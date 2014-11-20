@@ -67,7 +67,7 @@
 /**
     The text displayed by the embedded editor text field
  */
-@property (nonatomic) NSString *text;
+@property (nonatomic) NSString *textFieldText;
 
 /**
     Makes the embedded text field first responder, i.e. begins editing
