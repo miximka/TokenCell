@@ -84,9 +84,10 @@
     [self addTokenForCell:cell withText:text];
 }
 
-- (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell textFieldShouldReturnWithText:(NSString *)text
+- (BOOL)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell textFieldShouldReturnWithText:(NSString *)text
 {
     [self addTokenForCell:cell withText:text];
+    return YES;
 }
 
 - (void)tokenCollectionTableViewCellDeleteBackwardsInEmptyField:(MBTokenCollectionTableViewCell *)cell

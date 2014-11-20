@@ -157,16 +157,19 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSString *text = textField.text;
-
-    //Automatically cleanup the text field content
-    [self clearTextFieldContent];
+    BOOL shouldReturn = YES;
     
     if (self.token.textFieldShouldReturnHandler != nil) {
-        self.token.textFieldShouldReturnHandler(text);
+        NSString *text = textField.text;
+        shouldReturn = self.token.textFieldShouldReturnHandler(text);
     }
 
-    return YES;
+    if (shouldReturn) {
+        //Automatically cleanup the text field content
+        [self clearTextFieldContent];
+    }
+
+    return shouldReturn;
 }
 
 #pragma mark - Notifications

@@ -139,11 +139,13 @@
     [self.delegate tokenCollectionTableViewCell:self didEndEditingWithText:text];
 }
 
-- (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView textFieldShouldReturnWithText:(NSString *)text
+- (BOOL)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView textFieldShouldReturnWithText:(NSString *)text
 {
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCell:textFieldShouldReturnWithText:)]) {
-        [self.delegate tokenCollectionTableViewCell:self textFieldShouldReturnWithText:text];
+        return [self.delegate tokenCollectionTableViewCell:self textFieldShouldReturnWithText:text];
     }
+    
+    return YES;
 }
 
 - (void)tokenCollectionViewDeleteBackwardsInEmptyField:(MBTokenCollectionView *)tokenCollectionView

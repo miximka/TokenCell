@@ -69,13 +69,47 @@
 
 @end
 
+#pragma mark - MBTokenCollectionTableViewCellDelegate
+
 @protocol MBTokenCollectionTableViewCellDelegate <NSObject>
+
+/**
+    Tells the delegate that the embedded text field has left editing mode.
+    The delegate may want to use the returned text to add the token to the cell.
+ */
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didEndEditingWithText:(NSString *)text;
+
 @optional
+
+/**
+    Tells the delegate that the text in the embedded text field has changed.
+ */
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didChangeText:(NSString *)text;
-- (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell textFieldShouldReturnWithText:(NSString *)text;
+
+/**
+    Asks the delegate if the embedded text field should process the pressing of the return button.
+    Default would clear the text field.
+ */
+- (BOOL)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell textFieldShouldReturnWithText:(NSString *)text;
+
+/**
+    Tells the delegate that the embedded text field has just processed a delete character event while the text field was empty.
+ */
 - (void)tokenCollectionTableViewCellDeleteBackwardsInEmptyField:(MBTokenCollectionTableViewCell *)cell;
-- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token;
+
+/**
+    Tells the delegate that the content size has changed.
+ */
 - (void)tokenCollectionTableViewCellDidChangeContentSize:(MBTokenCollectionTableViewCell *)cell;
+
+/**
+    Tells the delegate that the embedded add button was tapped.
+ */
 - (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell;
+
+/**
+    Asks the data source to provide a view to display the token.
+ */
+- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token;
+
 @end

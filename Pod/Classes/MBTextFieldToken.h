@@ -14,6 +14,6 @@
 @property (nonatomic, copy) void(^textBeginEditingHandler)();
 @property (nonatomic, copy) void(^textDidChangeHandler)(NSString *text);
 @property (nonatomic, copy) void(^textEndEditingHandler)(NSString *text);
-@property (nonatomic, copy) void(^textFieldShouldReturnHandler)(NSString *text);
+@property (nonatomic, copy) BOOL(^textFieldShouldReturnHandler)(NSString *text);
 @property (nonatomic, copy) void(^deleteBackwardsInEmptyFieldHandler)();
 @end

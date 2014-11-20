@@ -156,11 +156,13 @@
     }
 }
 
-- (void)textFieldShouldReturnWithText:(NSString *)text
+- (BOOL)textFieldShouldReturnWithText:(NSString *)text
 {
     if ([self.delegate respondsToSelector:@selector(tokenCollectionView:textFieldShouldReturnWithText:)]) {
-        [self.delegate tokenCollectionView:self textFieldShouldReturnWithText:text];
+        return [self.delegate tokenCollectionView:self textFieldShouldReturnWithText:text];
     }
+    
+    return YES;
 }
 
 - (void)configure
@@ -181,8 +183,8 @@
         [weakSelf textFieldDidEndEditingWithText:text];
     };
 
-    textFieldToken.textFieldShouldReturnHandler = ^(NSString *text) {
-        [weakSelf textFieldShouldReturnWithText:text];
+    textFieldToken.textFieldShouldReturnHandler = ^BOOL(NSString *text) {
+        return [weakSelf textFieldShouldReturnWithText:text];
     };
 
     textFieldToken.deleteBackwardsInEmptyFieldHandler = ^() {
