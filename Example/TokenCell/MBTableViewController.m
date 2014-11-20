@@ -9,8 +9,9 @@
 #import "MBTableViewController.h"
 #import "MBTokenCollectionTableViewCell.h"
 #import "MBSimpleToken.h"
+#import "MBTokenCollectionLabel.h"
 
-@interface MBTableViewController () <MBTokenCollectionTableViewCellDelegate>
+@interface MBTableViewController () <MBTokenCollectionTableViewCellDataSource, MBTokenCollectionTableViewCellDelegate>
 @property (nonatomic) NSMutableDictionary *rowHeightCache;
 @property (nonatomic) NSMutableArray *tokens;
 @end
@@ -34,6 +35,7 @@
 
 - (void)configureTokenCollectionCell:(MBTokenCollectionTableViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    cell.dataSource = self;
     cell.delegate = self;
     cell.titleLabel.text = [NSString stringWithFormat:@"Title %i:", (unsigned int)indexPath.row + 1];
     [cell addTokens:self.tokens];
@@ -128,6 +130,14 @@
 - (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell
 {
     [self addTokenForCell:cell withText:@"Plus"];
+}
+
+#pragma mark - MBTokenCollectionTableViewCellDataSource
+
+- (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token
+{
+    MBTokenCollectionLabel *view = [[MBTokenCollectionLabel alloc] initWithToken:token];
+    return view;
 }
 
 @end

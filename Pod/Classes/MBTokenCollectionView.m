@@ -11,8 +11,8 @@
 #import "MBTextFieldToken.h"
 #import "MBTokenViewCell.h"
 #import "MBTokenTextFieldCell.h"
-#import "MBTokenCollectionLabel.h"
 #import "MBCollectionView.h"
+#import "MBTokenCollectionTokenView.h"
 
 #define TOKEN_VIEW_CELL_IDENTIFIER    @"TokenViewCell"
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
@@ -331,17 +331,12 @@
         //Instantiate new view from nib
         tokenView = (MBTokenCollectionTokenView *)[self.tokenCollectionItemViewNib instantiateWithOwner:nil options:nil].firstObject;
         NSAssert([tokenView isKindOfClass:[MBTokenCollectionTokenView class]], @"Unexpected token view: %@", tokenView);
-
-    } else if ([self.delegate respondsToSelector:@selector(tokenCollectionView:viewForToken:)]){
+    } else {
         //Ask delegate for the view
         tokenView = [self.delegate tokenCollectionView:self viewForToken:token];
     }
-
-    if (!tokenView) {
-        //Instantiate default view
-        tokenView = [[MBTokenCollectionLabel alloc] initWithToken:token];
-    }
     
+    NSAssert(tokenView != nil, @"tokenView != nil not satisfied");
     cell.tokenView = tokenView;
 }
 

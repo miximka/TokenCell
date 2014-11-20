@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @protocol MBToken;
-@class MBTokenCollectionTokenView;
+@protocol MBTokenCollectionTableViewCellDataSource;
 @protocol MBTokenCollectionTableViewCellDelegate;
+@class MBTokenCollectionTokenView;
 
 /**
     MBTokenCollectionTableViewCell is a subclass of UITableViewCell which can present and edit tokens.
  */
 @interface MBTokenCollectionTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) id<MBTokenCollectionTableViewCellDataSource> dataSource;
 @property (weak, nonatomic) id<MBTokenCollectionTableViewCellDelegate> delegate;
 
 /**
@@ -72,6 +74,7 @@
 #pragma mark - MBTokenCollectionTableViewCellDelegate
 
 @protocol MBTokenCollectionTableViewCellDelegate <NSObject>
+@required
 
 /**
     Tells the delegate that the embedded text field has left editing mode.
@@ -107,6 +110,13 @@
  */
 - (void)tokenCollectionTableViewCellDidTapAddButton:(MBTokenCollectionTableViewCell *)cell;
 
+@end
+
+#pragma mark - MBTokenCollectionTableViewCellDelegate
+
+@protocol MBTokenCollectionTableViewCellDataSource <NSObject>
+
+@required
 /**
     Asks the data source to provide a view to display the token.
  */

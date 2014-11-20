@@ -157,11 +157,7 @@
 
 - (MBTokenCollectionTokenView *)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView viewForToken:(id<MBToken>)token
 {
-    if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCell:viewForToken:)]) {
-        return [self.delegate tokenCollectionTableViewCell:self viewForToken:token];
-    }
-    
-    return nil;
+    return [self.dataSource tokenCollectionTableViewCell:self viewForToken:token];
 }
 
 - (void)tokenCollectionViewDidChangeContentSize:(MBTokenCollectionView *)tokenCollectionView

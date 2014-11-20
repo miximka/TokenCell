@@ -12,7 +12,7 @@
 
 @interface MBTokenCollectionTokenView : UIView
 
-//Do not set selection status manually - use the selection methods of UICollectionView
+//Do not set selection status manually - use the selection methods of MBTokenCollectionTableViewCell
 @property(nonatomic, getter=isSelected) BOOL selected;
 
 @end

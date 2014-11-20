@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04EE7A3B6FC01420C1367590 /* MBTokenCollectionLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA5FA12CD12C2FB3776C414 /* MBTokenCollectionLabel.h */; };
 		15AE1B6183EECBC309062BD1 /* MBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = E0E75573405A0D19C279B2B6 /* MBCollectionView.h */; };
 		16E7B99CCC1B77D13435E13E /* MBSimpleToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237848DFA3BD220229B95CF /* MBSimpleToken.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1F08ADAE9631419A9DC48C01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA3D4192DBBBC2554E61BD /* Foundation.framework */; };
@@ -15,7 +14,6 @@
 		29ED2A89149F763DE2D37293 /* MBTokenCollectionTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE34FAADECF6D1E2FDB3EC3 /* MBTokenCollectionTokenView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2DC296F63F91D1B3D4E73213 /* MBTokenViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B924AD20E6F6AC503B471089 /* MBTokenViewCell.h */; };
 		32EEAFA50CA11CCD9124F070 /* MBTokenTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E127DE641E8D03F66EB19EA1 /* MBTokenTextFieldCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		36B503174A0256C9AF0A7689 /* MBTokenCollectionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 568B84CD27A94CB6D5F42BFF /* MBTokenCollectionLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3FA4347859F1B991DF142398 /* MBTokenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB94FAC5A7CB1C760140174D /* MBTokenViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		43566FA1B039A2833B2C6983 /* Pods-Tests-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208A658A6D2C1BE42E96E9D /* Pods-Tests-TokenCell-dummy.m */; };
 		464EAA3410DCC8010BD4D7AC /* MBTextFieldToken.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB2FEDAEE113B9D5ECF764C /* MBTextFieldToken.h */; };
@@ -27,7 +25,6 @@
 		5B0926B6493732A46B71B7AF /* MBTokenCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57816B446D7D3F11CC38D9BC /* MBTokenCollectionView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5C4FDC6D69DC4C6FD1EA003A /* MBTokenCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5FA0EA05E3FE986DA5472 /* MBTokenCollectionTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5C87ECBF653ABB0963FA9199 /* MBTokenCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57816B446D7D3F11CC38D9BC /* MBTokenCollectionView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5EA8CE8C8A2412D2E58F9A94 /* MBTokenCollectionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 568B84CD27A94CB6D5F42BFF /* MBTokenCollectionLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6312AE285996AD34A8A69E28 /* MBTokenTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CCA8DC590B560F28889D83 /* MBTokenTextFieldCell.h */; };
 		6543E084F01AAD1A89F5E768 /* MBToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 19293A743629215989212B43 /* MBToken.h */; };
 		69B1E81036A65DBD5CDF2B72 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE1FC1835839A0531281399 /* MBTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -38,7 +35,6 @@
 		7A2CA79DE25E63798537CAB8 /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 541026BAB4F92371D4898525 /* MBTextFieldToken.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7AB9C4A59E5A852634E145C6 /* MBToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 19293A743629215989212B43 /* MBToken.h */; };
 		886DD282698312AD2F46E166 /* MBTokenCollectionViewTokenLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C83425DF26DDBC7531BB1D3 /* MBTokenCollectionViewTokenLayout.h */; };
-		8ED7A8B7338F371A5C41F743 /* MBTokenCollectionLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA5FA12CD12C2FB3776C414 /* MBTokenCollectionLabel.h */; };
 		937D1AFB667D6EAF1C99C656 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA3D4192DBBBC2554E61BD /* Foundation.framework */; };
 		95494FB590CB25732D129553 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C28B01E7C1AA408F4BD4F /* Pods-Tests-dummy.m */; };
 		A20C7D2F537FB388C3BCCBE4 /* MBTokenCollectionViewTokenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E4FB016836F2A1F9A094B2 /* MBTokenCollectionViewTokenLayout.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -89,7 +85,6 @@
 		17D35A9C22ADD203DD772945 /* Pods-TokenCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TokenCell.debug.xcconfig"; sourceTree = "<group>"; };
 		19293A743629215989212B43 /* MBToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBToken.h; path = Pod/Classes/MBToken.h; sourceTree = "<group>"; };
 		1C2FE3AEE1D5969DA87937E6 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		1FA5FA12CD12C2FB3776C414 /* MBTokenCollectionLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTokenCollectionLabel.h; path = Pod/Classes/MBTokenCollectionLabel.h; sourceTree = "<group>"; };
 		26F48CF47772B9428E249CBC /* Pods-TokenCell-TokenCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenCell-TokenCell.xcconfig"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell.xcconfig"; sourceTree = "<group>"; };
 		2B2FB6312A843658C35DA5C4 /* MBSimpleToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBSimpleToken.h; path = Pod/Classes/MBSimpleToken.h; sourceTree = "<group>"; };
 		2D22EC98CB34058ED835300C /* MBTokenCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTokenCollectionView.h; path = Pod/Classes/MBTokenCollectionView.h; sourceTree = "<group>"; };
@@ -101,7 +96,6 @@
 		52CCA8DC590B560F28889D83 /* MBTokenTextFieldCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTokenTextFieldCell.h; path = Pod/Classes/MBTokenTextFieldCell.h; sourceTree = "<group>"; };
 		541026BAB4F92371D4898525 /* MBTextFieldToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBTextFieldToken.m; path = Pod/Classes/MBTextFieldToken.m; sourceTree = "<group>"; };
 		54524A87CFC12E6BE2E8B8C0 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		568B84CD27A94CB6D5F42BFF /* MBTokenCollectionLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBTokenCollectionLabel.m; path = Pod/Classes/MBTokenCollectionLabel.m; sourceTree = "<group>"; };
 		57816B446D7D3F11CC38D9BC /* MBTokenCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBTokenCollectionView.m; path = Pod/Classes/MBTokenCollectionView.m; sourceTree = "<group>"; };
 		582DCF71F3021A024A0244CD /* Pods-TokenCell-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TokenCell-acknowledgements.plist"; sourceTree = "<group>"; };
 		58D1877465D32790E067A20A /* libPods-TokenCell-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TokenCell-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,10 +183,6 @@
 				AEE1FC1835839A0531281399 /* MBTextField.m */,
 				BDB2FEDAEE113B9D5ECF764C /* MBTextFieldToken.h */,
 				541026BAB4F92371D4898525 /* MBTextFieldToken.m */,
-				1FA5FA12CD12C2FB3776C414 /* MBTokenCollectionLabel.h */,
-				568B84CD27A94CB6D5F42BFF /* MBTokenCollectionLabel.m */,
-				91660FA5D76CC232BC2E2490 /* MBTokenCollectionTokenView.h */,
-				8AE34FAADECF6D1E2FDB3EC3 /* MBTokenCollectionTokenView.m */,
 				2D22EC98CB34058ED835300C /* MBTokenCollectionView.h */,
 				57816B446D7D3F11CC38D9BC /* MBTokenCollectionView.m */,
 				3C83425DF26DDBC7531BB1D3 /* MBTokenCollectionViewTokenLayout.h */,
@@ -281,6 +271,8 @@
 				19293A743629215989212B43 /* MBToken.h */,
 				A3838F91CA233DD919FB92CB /* MBTokenCollectionTableViewCell.h */,
 				B1A5FA0EA05E3FE986DA5472 /* MBTokenCollectionTableViewCell.m */,
+				91660FA5D76CC232BC2E2490 /* MBTokenCollectionTokenView.h */,
+				8AE34FAADECF6D1E2FDB3EC3 /* MBTokenCollectionTokenView.m */,
 				0838A7971A1DDC2B00610EA6 /* Helpers */,
 				77BCA4B8AA61F0C9A8FA8168 /* Support Files */,
 			);
@@ -323,7 +315,6 @@
 				46531212D04839BF9980D872 /* MBTextField.h in Headers */,
 				464EAA3410DCC8010BD4D7AC /* MBTextFieldToken.h in Headers */,
 				6543E084F01AAD1A89F5E768 /* MBToken.h in Headers */,
-				8ED7A8B7338F371A5C41F743 /* MBTokenCollectionLabel.h in Headers */,
 				D9AD2485942674B3282B199E /* MBTokenCollectionTableViewCell.h in Headers */,
 				6AC3524BCDCBD93F1431334C /* MBTokenCollectionTokenView.h in Headers */,
 				EA6CE39AAF030C3C0250B46B /* MBTokenCollectionView.h in Headers */,
@@ -342,7 +333,6 @@
 				A437FCC197CF6363AA79A3E6 /* MBTextField.h in Headers */,
 				A294B35FFA6588B0FCED7EF7 /* MBTextFieldToken.h in Headers */,
 				7AB9C4A59E5A852634E145C6 /* MBToken.h in Headers */,
-				04EE7A3B6FC01420C1367590 /* MBTokenCollectionLabel.h in Headers */,
 				6EBC0285C547B2971AB3B4A4 /* MBTokenCollectionTableViewCell.h in Headers */,
 				F978DBEB61684C39FC302492 /* MBTokenCollectionTokenView.h in Headers */,
 				D4D4E10BC8F06B977211A32D /* MBTokenCollectionView.h in Headers */,
@@ -468,7 +458,6 @@
 				E43B77FF9E7EDE0AE927E865 /* MBSimpleToken.m in Sources */,
 				69B1E81036A65DBD5CDF2B72 /* MBTextField.m in Sources */,
 				7A2CA79DE25E63798537CAB8 /* MBTextFieldToken.m in Sources */,
-				36B503174A0256C9AF0A7689 /* MBTokenCollectionLabel.m in Sources */,
 				5C4FDC6D69DC4C6FD1EA003A /* MBTokenCollectionTableViewCell.m in Sources */,
 				5355E0A54EF1785D3B3DBCD1 /* MBTokenCollectionTokenView.m in Sources */,
 				5C87ECBF653ABB0963FA9199 /* MBTokenCollectionView.m in Sources */,
@@ -487,7 +476,6 @@
 				16E7B99CCC1B77D13435E13E /* MBSimpleToken.m in Sources */,
 				78217773151568D1FEC75C54 /* MBTextField.m in Sources */,
 				A5A99DE066E4CF2B33C8C531 /* MBTextFieldToken.m in Sources */,
-				5EA8CE8C8A2412D2E58F9A94 /* MBTokenCollectionLabel.m in Sources */,
 				DC9B65FEE6D1F15319F643C2 /* MBTokenCollectionTableViewCell.m in Sources */,
 				29ED2A89149F763DE2D37293 /* MBTokenCollectionTokenView.m in Sources */,
 				5B0926B6493732A46B71B7AF /* MBTokenCollectionView.m in Sources */,
