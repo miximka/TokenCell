@@ -1,21 +1,21 @@
 //
-//  MBTokenCollectionLabel.m
+//  MBSimpleTokenView.m
 //  MBTokenFieldTableViewCell
 //
 //  Created by miximka on 23/08/14.
 //  Copyright (c) 2014 miximka. All rights reserved.
 //
 
-#import "MBTokenCollectionLabel.h"
+#import "MBSimpleTokenView.h"
 #import "MBToken.h"
 
 #define HORIZONTAL_INSET 2
 
-@interface MBTokenCollectionLabel ()
+@interface MBSimpleTokenView ()
 @property (weak, nonatomic) UILabel *label;
 @end
 
-@implementation MBTokenCollectionLabel
+@implementation MBSimpleTokenView
 
 - (instancetype)initWithToken:(id<MBToken>)token
 {

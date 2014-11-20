@@ -1,5 +1,5 @@
 //
-//  MBTokenCollectionLabel.h
+//  MBSimpleTokenView.h
 //  MBTokenFieldTableViewCell
 //
 //  Created by miximka on 23/08/14.
@@ -9,7 +9,7 @@
 #import "MBTokenCollectionTokenView.h"
 #import "MBToken.h"
 
-@interface MBTokenCollectionLabel : MBTokenCollectionTokenView
+@interface MBSimpleTokenView : MBTokenCollectionTokenView
 
 - (instancetype)initWithToken:(id<MBToken>)token;
 

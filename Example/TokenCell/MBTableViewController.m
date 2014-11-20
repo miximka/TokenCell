@@ -9,7 +9,7 @@
 #import "MBTableViewController.h"
 #import "MBTokenCollectionTableViewCell.h"
 #import "MBSimpleToken.h"
-#import "MBTokenCollectionLabel.h"
+#import "MBSimpleTokenView.h"
 
 @interface MBTableViewController () <MBTokenCollectionTableViewCellDataSource, MBTokenCollectionTableViewCellDelegate>
 @property (nonatomic) NSMutableDictionary *rowHeightCache;
@@ -83,7 +83,7 @@
 
 - (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForToken:(id<MBToken>)token
 {
-    MBTokenCollectionLabel *view = [[MBTokenCollectionLabel alloc] initWithToken:token];
+    MBSimpleTokenView *view = [[MBSimpleTokenView alloc] initWithToken:token];
     return view;
 }
 
