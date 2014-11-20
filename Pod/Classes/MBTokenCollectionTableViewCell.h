@@ -120,7 +120,6 @@
 #pragma mark - MBTokenCollectionTableViewCellDelegate
 
 @protocol MBTokenCollectionTableViewCellDataSource <NSObject>
-
 @required
 
 /**
