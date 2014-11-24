@@ -8,7 +8,25 @@
 
 #import "MBCollectionView.h"
 
+@interface MBCollectionView ()
+@property (nonatomic) BOOL shouldInvalidateLayout;
+@end
+
 @implementation MBCollectionView
+
+- (void)setNeedsInvalidateLayout
+{
+    if (_shouldInvalidateLayout) {
+        return;
+    }
+    
+    _shouldInvalidateLayout = YES;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _shouldInvalidateLayout = NO;
+        [[self collectionViewLayout] invalidateLayout];
+    });
+}
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {

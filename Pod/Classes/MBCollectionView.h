@@ -10,6 +10,8 @@
 
 @interface MBCollectionView : UICollectionView
 
+- (void)setNeedsInvalidateLayout;
+
 @end
 
 @protocol MBCollectionViewDelegate <UICollectionViewDelegate>

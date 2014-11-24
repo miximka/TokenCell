@@ -8,6 +8,7 @@
 
 #import "MBTokenViewCell.h"
 #import "MBTokenCollectionTokenView.h"
+#import "MBCollectionView.h"
 
 #define MIN_CELL_WIDTH 20
 #define MIN_CELL_HEIGHT 20
@@ -37,21 +38,21 @@
     }
 }
 
-- (UICollectionView *)collectionView
+- (MBCollectionView *)collectionView
 {
     UIView *view = self.superview;
     
-    while (view != nil && ![view isKindOfClass:[UICollectionView class]]) {
+    while (view != nil && ![view isKindOfClass:[MBCollectionView class]]) {
         view = view.superview;
     }
     
-    return (UICollectionView *)view;
+    return (MBCollectionView *)view;
 }
 
 - (void)itemViewDidInvalidateIntrinsicContentSize
 {
     if (!_initialiting) {
-        [[[self collectionView] collectionViewLayout] invalidateLayout];
+        [[self collectionView] setNeedsInvalidateLayout];
     }
 }
 

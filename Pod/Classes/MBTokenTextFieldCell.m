@@ -158,15 +158,15 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     BOOL shouldReturn = YES;
-    
-    if (self.token.textFieldShouldReturnHandler != nil) {
-        NSString *text = textField.text;
-        shouldReturn = self.token.textFieldShouldReturnHandler(text);
-    }
 
-    if (shouldReturn) {
-        //Automatically cleanup the text field content
-        [self clearTextFieldContent];
+    NSString *text = textField.text;
+
+    //Automatically cleanup the text field content _before_ calling the handler to workaround layout problems with
+    //UICollectionView where layout won't be performed correctly if -invalidateLayout called multiple times in a very short period of time
+    [self clearTextFieldContent];
+
+    if (self.token.textFieldShouldReturnHandler != nil) {
+        shouldReturn = self.token.textFieldShouldReturnHandler(text);
     }
 
     return shouldReturn;
