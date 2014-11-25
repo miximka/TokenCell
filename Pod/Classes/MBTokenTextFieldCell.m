@@ -10,7 +10,6 @@
 #import "MBTextFieldToken.h"
 #import "MBTextField.h"
 
-#define MIN_CELL_WIDTH 60
 #define MIN_CELL_HEIGHT 20
 
 @interface MBTokenTextFieldCell () <MBTextFieldDelegate>
@@ -37,25 +36,10 @@
     [self setToken:nil];
 }
 
-- (void)setTextField:(UITextField *)textField
-{
-    if (_textField != textField) {
-        [_textField removeFromSuperview];
-        
-        _textField = textField;
-        
-        textField.delegate = self;
-        
-        [self addSubview:textField];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[textField]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(textField)]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(textField)]];
-    }
-}
-
 - (void)addTextField
 {
     MBTextField *textField = [[MBTextField alloc] init];
-    textField.translatesAutoresizingMaskIntoConstraints = NO;
+    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     textField.borderStyle = UITextBorderStyleNone;
     textField.returnKeyType = UIReturnKeyDone;
@@ -65,10 +49,9 @@
     
     textField.delegate = self;
 
-    [self addSubview:textField];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[textField]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(textField)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(textField)]];
-    
+    textField.frame = self.contentView.bounds;
+    [self.contentView addSubview:textField];
+
     _textField = textField;
 }
 
@@ -125,9 +108,6 @@
 {
     CGSize size = self.textField.intrinsicContentSize;
 
-    if (size.width < MIN_CELL_WIDTH)
-        size.width = MIN_CELL_WIDTH;
-    
     if (size.height < MIN_CELL_HEIGHT)
         size.height = MIN_CELL_HEIGHT;
 
@@ -137,9 +117,6 @@
 - (CGSize)sizeThatFits:(CGSize)size
 {
     CGSize fitSize = [self.textField sizeThatFits:size];
-    
-    if (fitSize.width < MIN_CELL_WIDTH)
-        fitSize.width = MIN_CELL_WIDTH;
     
     if (fitSize.height < MIN_CELL_HEIGHT)
         fitSize.height = MIN_CELL_HEIGHT;

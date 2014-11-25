@@ -24,7 +24,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         _shouldInvalidateLayout = NO;
-        [[self collectionViewLayout] invalidateLayout];
+        [self.collectionViewLayout invalidateLayout];
     });
 }
 

@@ -142,10 +142,29 @@
     }
 }
 
-- (void)notifyDelegateTextDidChange:(NSString *)text
+- (void)textDidChange:(NSString *)text
 {
     if ([self.delegate respondsToSelector:@selector(tokenCollectionView:didChangeText:)]) {
         [self.delegate tokenCollectionView:self didChangeText:text];
+    }
+    
+    NSInteger index = [self textFieldTokenIndex];
+    NSAssert(index != NSNotFound, @"Invalid token index");
+    MBTokenTextFieldCell *cell = [self textFieldCell];
+    
+    UICollectionViewLayout *layout = self.collectionView.collectionViewLayout;
+    UICollectionViewLayoutAttributes *attributes = [layout layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+    
+    BOOL textFits = cell.intrinsicContentSize.width < cell.bounds.size.width;
+    
+    //Quick hack to find out whether the text field cell is alone in the line
+    //TODO: Do it correctly
+//    BOOL textFieldIsAloneInLine = attributes.frame.size.width > self.bounds.size.width / 3;
+    
+    if (!textFits /* && !textFieldIsAloneInLine*/) {
+//        [self.collectionView setNeedsInvalidateLayout];
+        
+        [self.collectionView reloadData];
     }
 }
 
@@ -214,7 +233,7 @@
     };
     
     textFieldToken.textDidChangeHandler = ^(NSString *text){
-        [weakSelf notifyDelegateTextDidChange:text];
+        [weakSelf textDidChange:text];
     };
     
     textFieldToken.textEndEditingHandler = ^(NSString *text) {
