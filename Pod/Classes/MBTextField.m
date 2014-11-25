@@ -7,30 +7,8 @@
 //
 
 #import "MBTextField.h"
-#import "MBTokenTextFieldCell.h"
 
 @implementation MBTextField
-
-- (void)setDelegate:(id<MBTextFieldDelegate>)object
-{
-    [super setDelegate:object];
-}
-
-- (id<MBTextFieldDelegate>)delegate
-{
-    return (id<MBTextFieldDelegate>)[super delegate];
-}
-
-- (MBTokenTextFieldCell *)parentCell
-{
-    UIView *view = self.superview;
-    
-    while (view != nil && [view isKindOfClass:[MBTokenTextFieldCell class]] == NO) {
-        view = view.superview;
-    }
-    
-    return (MBTokenTextFieldCell *)view;
-}
 
 #pragma mark - Overridden Methods
 
