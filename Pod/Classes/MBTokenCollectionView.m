@@ -162,9 +162,7 @@
 //    BOOL textFieldIsAloneInLine = attributes.frame.size.width > self.bounds.size.width / 3;
     
     if (!textFits /* && !textFieldIsAloneInLine*/) {
-//        [self.collectionView setNeedsInvalidateLayout];
-        
-        [self.collectionView reloadData];
+        [self.collectionView setNeedsInvalidateLayout];
     }
 }
 

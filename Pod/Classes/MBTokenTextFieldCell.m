@@ -30,6 +30,18 @@
     return self;
 }
 
+- (void)setFrame:(CGRect)frame
+{
+    NSLog(@"%@", NSStringFromCGRect(frame));
+    [super setFrame:frame];
+}
+
+- (void)setBounds:(CGRect)bounds
+{
+    NSLog(@"%@", NSStringFromCGRect(bounds));
+    [super setBounds:bounds];
+}
+
 - (void)dealloc
 {
     [self unregisterFromNotifications];
