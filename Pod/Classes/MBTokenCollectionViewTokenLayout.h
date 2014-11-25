@@ -18,4 +18,5 @@
 - (CGRect)collectionViewTopRightContentFreeRect:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout intrinsicItemSizeAtIndexPath:(NSIndexPath *)indexPath;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeThatFits:(CGSize)size forItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)collectionViewShouldOccupyRemainingFreeSpace:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout forItemAtIndexPath:(NSIndexPath *)indexPath;
 @end

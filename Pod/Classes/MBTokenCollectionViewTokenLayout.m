@@ -10,7 +10,7 @@
 
 #define INSET 10.0
 #define TOP_INSET 10.0
-#define ITEM_HEIGHT 25.0
+#define ITEM_HEIGHT 24.0
 #define INTERITEM_SPACING 5.0
 
 #define ITEM_CELL_KIND @"ItemCell"
@@ -126,8 +126,12 @@
         
         BOOL isLastItem = item == numItems - 1;
         if (isLastItem) {
-            //Last item should occupy entire free space
-            itemFrame = freeSpaceRect;
+            
+            BOOL occupyFreeSpaceInLine = [self.delegate collectionViewShouldOccupyRemainingFreeSpace:self.collectionView layout:self forItemAtIndexPath:indexPath];
+            if (occupyFreeSpaceInLine) {
+                //Last item may occupy entire free space in line
+                itemFrame = freeSpaceRect;
+            }
         }
 
         //Create item attributes

@@ -37,6 +37,21 @@
     [self setToken:nil];
 }
 
+- (void)setTextField:(UITextField *)textField
+{
+    if (_textField != textField) {
+        [_textField removeFromSuperview];
+        
+        _textField = textField;
+        
+        textField.delegate = self;
+        
+        [self addSubview:textField];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[textField]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(textField)]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(textField)]];
+    }
+}
+
 - (void)addTextField
 {
     MBTextField *textField = [[MBTextField alloc] init];
@@ -97,6 +112,11 @@
     self.token.text = @"";
     self.textField.text = @"";
     _updatingItem = NO;
+}
+
+- (void)startEditing
+{
+    [self.textField becomeFirstResponder];
 }
 
 #pragma mark - Overridden Methods

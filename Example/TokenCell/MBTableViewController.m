@@ -165,7 +165,12 @@
     }
     
     //Cache cell's height
-    [_rowHeightCache setObject:@(cell.contentSize.height) forKey:@(indexPath.row)];
+    CGFloat height = cell.contentSize.height;
+    if (height > 0) {
+        [_rowHeightCache setObject:@(height) forKey:@(indexPath.row)];
+    } else {
+        [_rowHeightCache removeObjectForKey:@(indexPath.row)];
+    }
     
     //Update table view
     [self.tableView beginUpdates];

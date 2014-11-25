@@ -17,6 +17,25 @@
 #define TOKEN_VIEW_CELL_IDENTIFIER    @"TokenViewCell"
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
 
+@interface UIView (FindFirstResponder)
+@end
+
+@implementation UIView (FindFirstResponder)
+- (id)findFirstResponder
+{
+    if (self.isFirstResponder) {
+        return self;
+    }
+    for (UIView *subView in self.subviews) {
+        id responder = [subView findFirstResponder];
+        if (responder) return responder;
+    }
+    return nil;
+}
+@end
+
+#pragma mark -
+
 @interface MBTokenCollectionView () <UICollectionViewDataSource, MBCollectionViewDelegate, MBTokenCollectionViewDelegateTokenLayout>
 @property (weak, nonatomic) MBCollectionView *collectionView;
 @property (nonatomic) MBTokenViewCell *tokenSizingCell;
@@ -73,7 +92,7 @@
     //Instantiate cells to be used for intrinsic cell content size calculations
     self.tokenSizingCell = [[MBTokenViewCell alloc] init];
     self.textFieldTokenSizingCell = [[MBTokenTextFieldCell alloc] init];
-
+    
     //Add collection view to view hierarchy and attach constraints
     [self addSubview:collectionView];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
@@ -154,19 +173,25 @@
 
 - (void)textFieldDidEndEditingWithText:(NSString *)text
 {
-    //Hide right supplementary view
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.rightView setAlpha:0.0];
-    } completion:^(BOOL finished) {
-        [self.rightView setHidden:YES];
-    }];
-    
     [self notifyDelegateDidEndEditingText:text];
 
     //Automatically deselect all items when edit field resigns first responder
     for (NSIndexPath *each in self.collectionView.indexPathsForSelectedItems) {
         [self.collectionView deselectItemAtIndexPath:each animated:YES];
     }
+
+    //Hide right supplementary view
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.rightView setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [self.rightView setHidden:YES];
+    }];
+
+    NSUInteger textFieldIndex = [self numberOfTokens] - 1;
+
+    //Remove text field token when it resigns first responder
+    self.textFieldToken = nil;
+    [self deleteTokensAtIndexes:[NSIndexSet indexSetWithIndex:textFieldIndex]];
 }
 
 - (BOOL)textFieldShouldReturnWithText:(NSString *)text
@@ -178,7 +203,7 @@
     return YES;
 }
 
-- (void)configureTextFieldToken
+- (MBTextFieldToken *)preparedTextFieldToken
 {
     MBTextFieldToken *textFieldToken = [[MBTextFieldToken alloc] init];
     
@@ -204,12 +229,11 @@
         [weakSelf notifyDelegateDeleteBackwardsInEmptyField];
     };
     
-    _textFieldToken = textFieldToken;
+    return textFieldToken;
 }
 
 - (void)configure
 {
-    [self configureTextFieldToken];
     [self addCollectionView];
     [self addTitleLabel];
 }
@@ -224,7 +248,13 @@
 - (NSUInteger)numberOfTokens
 {
     NSUInteger count = [self.dataSource numberOfTokensInCollectionView:self];
-    return count + 1; //Account for the embedded text field token
+
+    if (self.textFieldToken != nil) {
+        //Account for the embedded text field token
+        count++;
+    }
+    
+    return count;
 }
 
 #pragma mark - Reloading Content
@@ -306,13 +336,61 @@
     return self.textFieldToken.text;
 }
 
+- (NSInteger)textFieldTokenIndex
+{
+    if (self.textFieldToken) {
+        return [self numberOfTokens] - 1;
+    }
+    
+    return NSNotFound;
+}
+
+- (BOOL)isTextFieldTokenAtIndex:(NSInteger)index
+{
+    if (index == NSNotFound) {
+        return NO;
+    }
+    
+    return index == [self textFieldTokenIndex];
+}
+
+- (MBTokenTextFieldCell *)textFieldCell
+{
+    if (!self.textFieldToken) {
+        return nil;
+    }
+    
+    NSUInteger index = [self numberOfTokens] - 1;
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    MBTokenTextFieldCell *cell = (MBTokenTextFieldCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    return cell;
+}
+
 - (void)startEditing
 {
-    NSUInteger textFieldIndex = [self numberOfTokens] - 1;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:textFieldIndex inSection:0];
-    MBTokenTextFieldCell *cell = (MBTokenTextFieldCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    if (self.textFieldToken != nil) {
+        //Already editing
+        return;
+    }
 
-    [cell.textField becomeFirstResponder];
+    //Create text field token and add it to the collection view
+    self.textFieldToken = [self preparedTextFieldToken];
+    [self insertTokensAtIndexes:[NSIndexSet indexSetWithIndex:[self textFieldTokenIndex]]];
+
+    //Resign first responder status of any active view
+    [[self.window findFirstResponder] resignFirstResponder];
+    
+    //Immediately start editing
+    [[self textFieldCell] startEditing];
+    
+    //Workaround for the problem where the text field won't become first responder until the ce
+    //Make text field first responder during next runloop cycle to workaround the issue where the text field won't become first responder if
+    //it was added with frame which is not visible on screen yet (e.g. when cell's height is not enough yet to present text field)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[self textFieldCell] startEditing];
+    });
 }
 
 #pragma mark - Configure Cells
@@ -336,7 +414,7 @@
 
 - (void)configureTokenTextFieldCell:(MBTokenTextFieldCell *)cell
 {
-    cell.token = _textFieldToken;
+    cell.token = self.textFieldToken;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -351,19 +429,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger index = indexPath.item;
-    
-    BOOL isTextFieldIndex = index == [self numberOfTokens] - 1;
-    
-    if (isTextFieldIndex) {
-        //Should return cell for embedded text field token
 
+    if ([self isTextFieldTokenAtIndex:index]) {
+        //Should return cell for embedded text field token
         MBTokenTextFieldCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TEXT_FIELD_CELL_IDENTIFIER forIndexPath:indexPath];
         [self configureTokenTextFieldCell:cell];
         return cell;
 
     } else {
         //Should return cell for custom token
-
         MBTokenViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TOKEN_VIEW_CELL_IDENTIFIER forIndexPath:indexPath];
         [self configureTokenViewCell:cell forTokenAtIndex:index];
         
@@ -387,13 +461,14 @@
         return;
     }
     
-    BOOL isTextFieldIndex = indexPath.item == [self numberOfTokens] - 1;
-
-    if (!isTextFieldIndex) {
-        MBTokenViewCell *tokenViewCell = (MBTokenViewCell *)cell;
-        NSAssert([tokenViewCell isKindOfClass:[MBTokenViewCell class]], @"Unexpected cell class");
-        [self.delegate tokenCollectionView:self willDisplayTokenView:tokenViewCell.tokenView forTokenAtIndex:indexPath.item];
+    NSUInteger index = indexPath.item;
+    if ([self isTextFieldTokenAtIndex:index]) {
+        return;
     }
+
+    MBTokenViewCell *tokenViewCell = (MBTokenViewCell *)cell;
+    NSAssert([tokenViewCell isKindOfClass:[MBTokenViewCell class]], @"Unexpected cell class");
+    [self.delegate tokenCollectionView:self willDisplayTokenView:tokenViewCell.tokenView forTokenAtIndex:indexPath.item];
 }
 
 #pragma mark - MBTokenCollectionViewDelegateTokenLayout
@@ -410,24 +485,29 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout intrinsicItemSizeAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL isTextFieldIndex = indexPath.item == [self numberOfTokens] - 1;
+    CGSize size = CGSizeZero;
+    NSUInteger index = indexPath.item;
+    
+    if ([self isTextFieldTokenAtIndex:index]) {
 
-    if (isTextFieldIndex) {
-        
         MBTokenTextFieldCell *cell = self.textFieldTokenSizingCell;
         [self configureTokenTextFieldCell:cell];
-        return cell.intrinsicContentSize;
+        size = cell.intrinsicContentSize;
+        
+    } else {
+
+        [self configureTokenViewCell:self.tokenSizingCell forTokenAtIndex:indexPath.item];
+        size = self.tokenSizingCell.intrinsicContentSize;
     }
     
-    [self configureTokenViewCell:self.tokenSizingCell forTokenAtIndex:indexPath.item];
-    return self.tokenSizingCell.intrinsicContentSize;
+    return size;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeThatFits:(CGSize)size forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL isTextFieldIndex = indexPath.item == [self numberOfTokens] - 1;
-    
-    if (isTextFieldIndex) {
+    NSUInteger index = indexPath.item;
+
+    if ([self isTextFieldTokenAtIndex:index]) {
         
         MBTokenTextFieldCell *cell = self.textFieldTokenSizingCell;
         [self configureTokenTextFieldCell:cell];
@@ -436,6 +516,12 @@
     
     [self configureTokenViewCell:self.tokenSizingCell forTokenAtIndex:indexPath.item];
     return [self.tokenSizingCell sizeThatFits:size];
+}
+
+- (BOOL)collectionViewShouldOccupyRemainingFreeSpace:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger index = indexPath.item;
+    return [self isTextFieldTokenAtIndex:index];
 }
 
 #pragma mark - MBCollectionViewDelegate
