@@ -18,7 +18,7 @@
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
 
 @interface MBTokenCollectionView () <UICollectionViewDataSource, MBCollectionViewDelegate, MBTokenCollectionViewDelegateTokenLayout>
-@property (weak, nonatomic, readonly) UICollectionView *collectionView;
+@property (weak, nonatomic) MBCollectionView *collectionView;
 @property (nonatomic) MBTokenViewCell *tokenSizingCell;
 @property (nonatomic) MBTokenTextFieldCell *textFieldTokenSizingCell;
 @property (nonatomic) MBTextFieldToken *textFieldToken;
@@ -56,7 +56,7 @@
 - (void)addCollectionView
 {
     MBTokenCollectionViewTokenLayout *layout = [[MBTokenCollectionViewTokenLayout alloc] init];
-    UICollectionView *collectionView = [[MBCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    MBCollectionView *collectionView = [[MBCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
 
     //Configure collection view
     collectionView.backgroundColor = [UIColor clearColor];
@@ -119,7 +119,7 @@
             [self addRightView:view];
         }
         
-        [self.collectionView reloadData];
+        [self.collectionView setNeedsInvalidateLayout];
     }
 }
 
@@ -154,6 +154,7 @@
 
 - (void)textFieldDidEndEditingWithText:(NSString *)text
 {
+    //Hide right supplementary view
     [UIView animateWithDuration:0.3 animations:^{
         [self.rightView setAlpha:0.0];
     } completion:^(BOOL finished) {
@@ -223,7 +224,7 @@
 - (NSUInteger)numberOfTokens
 {
     NSUInteger count = [self.dataSource numberOfTokensInCollectionView:self];
-    return count + 1; //Account for the embedded text field
+    return count + 1; //Account for the embedded text field token
 }
 
 #pragma mark - Reloading Content

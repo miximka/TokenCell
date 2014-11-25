@@ -91,6 +91,14 @@
     }
 }
 
+- (void)clearTextFieldContent
+{
+    _updatingItem = YES;
+    self.token.text = @"";
+    self.textField.text = @"";
+    _updatingItem = NO;
+}
+
 #pragma mark - Overridden Methods
 
 - (CGSize)intrinsicContentSize
@@ -133,14 +141,6 @@
     if (self.token.deleteBackwardsInEmptyFieldHandler != nil) {
         self.token.deleteBackwardsInEmptyFieldHandler();
     }
-}
-
-- (void)clearTextFieldContent
-{
-    _updatingItem = YES;
-    self.token.text = @"";
-    self.textField.text = @"";
-    _updatingItem = NO;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField

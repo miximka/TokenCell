@@ -18,7 +18,10 @@
 @property (weak, nonatomic) id<MBTokenCollectionViewDataSource> dataSource;
 @property (weak, nonatomic) id<MBTokenCollectionViewDelegate> delegate;
 
+//Contains left supplementary view
 @property (weak, nonatomic, readonly) UILabel *titleLabel;
+
+//Contains right supplementary view
 @property (nonatomic) UIView *rightView;
 
 #pragma mark - Reloading Content

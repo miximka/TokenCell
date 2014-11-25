@@ -13,6 +13,10 @@
 @interface MBTokenTextFieldCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+
+/**
+    Represented token
+ */
 @property (nonatomic) MBTextFieldToken *token;
 
 @end
