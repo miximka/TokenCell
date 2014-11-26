@@ -154,6 +154,15 @@
 
 - (void)textFieldDidEndEditingWithText:(NSString *)text
 {
+    NSUInteger textFieldIndex = [self textFieldTokenIndex];
+    if (textFieldIndex == NSNotFound) {
+        return;
+    }
+
+    //Remove text field token when it resigns first responder
+    self.textFieldToken = nil;
+    [self deleteTokensAtIndexes:[NSIndexSet indexSetWithIndex:textFieldIndex]];
+
     [self notifyDelegateDidEndEditingText:text];
 
     //Automatically deselect all items when edit field resigns first responder
@@ -167,12 +176,6 @@
     } completion:^(BOOL finished) {
         [self.rightView setHidden:YES];
     }];
-
-    NSUInteger textFieldIndex = [self numberOfTokens] - 1;
-
-    //Remove text field token when it resigns first responder
-    self.textFieldToken = nil;
-    [self deleteTokensAtIndexes:[NSIndexSet indexSetWithIndex:textFieldIndex]];
 }
 
 - (BOOL)textFieldShouldReturnWithText:(NSString *)text
@@ -341,7 +344,10 @@
         return nil;
     }
     
-    NSUInteger index = [self numberOfTokens] - 1;
+    NSUInteger index = [self textFieldTokenIndex];
+    if (index == NSNotFound) {
+        return nil;
+    }
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
     MBTokenTextFieldCell *cell = (MBTokenTextFieldCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
