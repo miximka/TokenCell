@@ -65,6 +65,8 @@
 
 - (void)prepareLayout
 {
+    [super prepareLayout];
+    
     NSMutableDictionary *layoutInfo = [NSMutableDictionary new];
     NSMutableDictionary *cellInfo = [NSMutableDictionary new];
     

@@ -17,25 +17,6 @@
 #define TOKEN_VIEW_CELL_IDENTIFIER    @"TokenViewCell"
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
 
-@interface UIView (FindFirstResponder)
-@end
-
-@implementation UIView (FindFirstResponder)
-- (id)findFirstResponder
-{
-    if (self.isFirstResponder) {
-        return self;
-    }
-    for (UIView *subView in self.subviews) {
-        id responder = [subView findFirstResponder];
-        if (responder) return responder;
-    }
-    return nil;
-}
-@end
-
-#pragma mark -
-
 @interface MBTokenCollectionView () <UICollectionViewDataSource, MBCollectionViewDelegate, MBTokenCollectionViewDelegateTokenLayout>
 @property (weak, nonatomic) MBCollectionView *collectionView;
 @property (nonatomic) MBTokenViewCell *tokenSizingCell;
@@ -379,9 +360,6 @@
     self.textFieldToken = [self preparedTextFieldToken];
     [self insertTokensAtIndexes:[NSIndexSet indexSetWithIndex:[self textFieldTokenIndex]]];
 
-    //Resign first responder status of any active view
-    [[self.window findFirstResponder] resignFirstResponder];
-    
     //Immediately start editing
     [[self textFieldCell] startEditing];
     
