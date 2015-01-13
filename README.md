@@ -1,11 +1,11 @@
 # TokenCell
 
-```MBTokenCollectionTableViewCell``` is a simple recipient token field.
-
 [![CI Status](http://img.shields.io/travis/miximka/TokenCell.svg?style=flat)](https://travis-ci.org/miximka/TokenCell)
 [![Version](https://img.shields.io/cocoapods/v/TokenCell.svg?style=flat)](http://cocoadocs.org/docsets/TokenCell)
 [![License](https://img.shields.io/cocoapods/l/TokenCell.svg?style=flat)](http://cocoadocs.org/docsets/TokenCell)
 [![Platform](https://img.shields.io/cocoapods/p/TokenCell.svg?style=flat)](http://cocoadocs.org/docsets/TokenCell)
+
+```MBTokenCollectionTableViewCell``` is a simple recipient token field.
 
 ![TokenCell](https://www.dropbox.com/s/y1sqaf4m7s3lmfq/TokenCell.gif?dl=1)
 
