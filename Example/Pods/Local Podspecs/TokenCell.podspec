@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TokenCell"
-  s.version          = "1.1.3"
+  s.version          = "1.1.4"
   s.summary          = "Subclass of UITableViewCell to present and edit tokens similar to the iOS mail app."
   s.description      = <<-DESC
                        Subclass of UITableViewCell to present and edit tokens similar to the iOS mail app.

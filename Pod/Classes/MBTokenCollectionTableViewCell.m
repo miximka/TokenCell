@@ -55,7 +55,18 @@
     [self.contentView addSubview:collectionView];
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
+
+    //Make collection view slightly bigger than the cell it is wrapped into.
+    //This workaround fixes the problem with wrongly positioned UITextField when table view cell is resized (gets bigger with animation) and the text field token (always the last one) is
+    //forced to go to the next line, but fails to do so and remains on the same place...
+    //I think the problem happends because at the time when "update layout" is called on the collection view, the collection view rect has not yet been resized
+    //and collection view thinks that the text view token will be invisible anyway and doesn't push it into correct position.
+    //I did not find satisfactory solution for this problem yet, so this is the warkaround: increase the size of the underlying collection view so it thinks the next line is
+    //visible and correctly puts the text field token when cell is resized.
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]-(-20)-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(collectionView)]];
+    
+    //Clip bot bounds to not draw above other ui elements when cell is being resized
+    self.clipsToBounds = YES;
     
     _collectionView = collectionView;
 }
