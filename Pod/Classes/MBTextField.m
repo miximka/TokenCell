@@ -10,6 +10,8 @@
 
 @implementation MBTextField
 
+@dynamic delegate;
+
 #pragma mark - Overridden Methods
 
 //Overriden private method - required as since iOS8 -deleteBackward does not get called any more
