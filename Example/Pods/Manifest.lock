@@ -1,5 +1,5 @@
 PODS:
-  - TokenCell (1.1.4)
+  - TokenCell (1.1.5)
 
 DEPENDENCIES:
   - TokenCell (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  TokenCell: ec2be43529fbde8c37e8c6f82b38e14d9e5cd57a
+  TokenCell: fa9b0230895ccccc8fb0c85440985bc73ca21f56
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0
