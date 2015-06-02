@@ -22,18 +22,16 @@
 - (void)setTokenView:(MBTokenCollectionTokenView *)itemView
 {
     if (_tokenView != itemView) {
-        
+
         _initialiting = YES;
+        [_tokenView removeFromSuperview];
         
         itemView.translatesAutoresizingMaskIntoConstraints = NO;
-
         [self.contentView addSubview:itemView];
-        
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[itemView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(itemView)]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[itemView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(itemView)]];
         
         _tokenView = itemView;
-        
         _initialiting = NO;
     }
 }
