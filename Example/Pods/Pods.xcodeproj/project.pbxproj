@@ -7,377 +7,343 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0138F200ADFB13168A66E6A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C209C8EF8745D9D1F64ED04 /* Foundation.framework */; };
-		05DC21A46A43B34CFAC199BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C209C8EF8745D9D1F64ED04 /* Foundation.framework */; };
-		06CE934629BAC9A0D367D592 /* MBTokenCollectionViewTokenLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF55E1CD06AE7CDFDA37E1F /* MBTokenCollectionViewTokenLayout.h */; };
-		0847AB54BA3EDB022C3A39E0 /* MBTokenCollectionViewTokenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA917ED93A303AFB722F169E /* MBTokenCollectionViewTokenLayout.m */; };
-		28B35615894433533C9D458A /* MBTokenCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA274C205F63CF124CD6DF32 /* MBTokenCollectionView.m */; };
-		2AD4801BC46ED7B0CD063F2F /* MBTokenViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3319F1C9EA7DB3E9ECA5C /* MBTokenViewCell.h */; };
-		2E337DE66ED7131541EDCD4F /* MBTokenCollectionTokenView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9412C45DE7BFD2CCE1E41363 /* MBTokenCollectionTokenView.h */; };
-		33943CFB36366A8F9EC28D5C /* MBTokenTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B3F8ECCDC8E9DB08B93CE4 /* MBTokenTextFieldCell.h */; };
-		384DFF2E147294A32DCA3A9F /* MBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B6DF4E6205574A832D5DB1 /* MBCollectionView.h */; };
-		38C303B1F83A36B566A53FD3 /* MBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AC377E06E950FC1B2D4B63 /* MBCollectionView.m */; };
-		5F0E13E055FB352A2B84CC18 /* MBTokenCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 482A777E62E086CCA5E9818B /* MBTokenCollectionTableViewCell.m */; };
-		638CCC6C368262B68C049902 /* MBTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 927B9E96873AC956EF5DBA3A /* MBTextField.h */; };
-		672625A15AA340F1A623B6D3 /* MBTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 927B9E96873AC956EF5DBA3A /* MBTextField.h */; };
-		68E773551C096A92868125CC /* MBTokenViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3319F1C9EA7DB3E9ECA5C /* MBTokenViewCell.h */; };
-		69E08894332AAD5C2BECBE1F /* MBTokenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A31850F4930715C22FEC /* MBTokenViewCell.m */; };
-		6A51F939B5DEF743767CCC21 /* Pods-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B7496A7F0E7D646E390E88 /* Pods-TokenCell-dummy.m */; };
-		7D19B4CBA38ABA2F28A1AB10 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 645BE4266579AF947922D132 /* Pods-Tests-dummy.m */; };
-		843C41D7790D389718D5F65B /* MBTokenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A31850F4930715C22FEC /* MBTokenViewCell.m */; };
-		899D90BCA4C5AFF97F44179A /* MBTextFieldToken.h in Headers */ = {isa = PBXBuildFile; fileRef = DC69F30F4EE818A5AA3CD10D /* MBTextFieldToken.h */; };
-		966D32D10483997F0C9A6249 /* MBTokenCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = F58BC98390A4F85FC19A4713 /* MBTokenCollectionView.h */; };
-		9B8B0424C13CE808A1223E9F /* MBTokenCollectionViewTokenLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF55E1CD06AE7CDFDA37E1F /* MBTokenCollectionViewTokenLayout.h */; };
-		B7CC3A784BCAD3F0A056E4F1 /* MBTokenCollectionTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B00137E806E4611E318589 /* MBTokenCollectionTokenView.m */; };
-		B8FF16098BE84B350B5DF96A /* MBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AC377E06E950FC1B2D4B63 /* MBCollectionView.m */; };
-		B93BB47E2A2A76BFCE668F1E /* MBTextFieldToken.h in Headers */ = {isa = PBXBuildFile; fileRef = DC69F30F4EE818A5AA3CD10D /* MBTextFieldToken.h */; };
-		BAB4AA9D048ED4BE9292BB32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C209C8EF8745D9D1F64ED04 /* Foundation.framework */; };
-		BAC2CF5F920D4DAFEDC94CC7 /* MBTokenCollectionTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B00137E806E4611E318589 /* MBTokenCollectionTokenView.m */; };
-		C2BACCC84DF93CB647FB791C /* MBTokenCollectionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 08634E2781BE8953D9793E8F /* MBTokenCollectionTableViewCell.h */; };
-		C961AC2F6C467AFFBC385CEC /* MBTokenCollectionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 08634E2781BE8953D9793E8F /* MBTokenCollectionTableViewCell.h */; };
-		D2466918604B3D8F1C5D0246 /* MBTokenCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = F58BC98390A4F85FC19A4713 /* MBTokenCollectionView.h */; };
-		D26D194520B7366CCAE04AAE /* MBTokenCollectionViewTokenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA917ED93A303AFB722F169E /* MBTokenCollectionViewTokenLayout.m */; };
-		D29EAC348E1CAA796B34ABD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C209C8EF8745D9D1F64ED04 /* Foundation.framework */; };
-		D4293845D9BC03A0949E710E /* MBTokenCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA274C205F63CF124CD6DF32 /* MBTokenCollectionView.m */; };
-		D5DF4AE80490638380838277 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D936FB0FE8DB91A4DD5D29D6 /* MBTextField.m */; };
-		DB43E579B0811EEAF147DDBB /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D936FB0FE8DB91A4DD5D29D6 /* MBTextField.m */; };
-		DC212F1565823F3867E82863 /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 295D2ED621A38F2FE5AC71C6 /* MBTextFieldToken.m */; };
-		E1533DF3E71CA122EA898E68 /* Pods-Tests-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC58DC474B337EDE5A51521B /* Pods-Tests-TokenCell-dummy.m */; };
-		E8BCCE88AEF32591EC87B1AD /* MBTokenTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C7B3F8ECCDC8E9DB08B93CE4 /* MBTokenTextFieldCell.h */; };
-		EC1B57DD870FC8525EC3558D /* MBTokenCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 482A777E62E086CCA5E9818B /* MBTokenCollectionTableViewCell.m */; };
-		F002C1872454D4FAD4911306 /* MBTokenTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3153E2C230BCFC19F7915FE7 /* MBTokenTextFieldCell.m */; };
-		F8A2C3B5134694B64B242FF2 /* MBTokenCollectionTokenView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9412C45DE7BFD2CCE1E41363 /* MBTokenCollectionTokenView.h */; };
-		F9FFF1235ED4DF2BF98FF862 /* MBTokenTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3153E2C230BCFC19F7915FE7 /* MBTokenTextFieldCell.m */; };
-		FCC3BCE0B649E2DDB74EF183 /* MBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B6DF4E6205574A832D5DB1 /* MBCollectionView.h */; };
-		FE54AEEDC932CC830D789258 /* Pods-TokenCell-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C07132AAD46C0D8E7E9AB5 /* Pods-TokenCell-TokenCell-dummy.m */; };
-		FFF79664DD45C23EAED68EC2 /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 295D2ED621A38F2FE5AC71C6 /* MBTextFieldToken.m */; };
+		0144405B347D8FA4AF6EC059 /* MBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0330E8A4C715EDA6E3FA0564 /* MBCollectionView.h */; };
+		01693EAECDFF079B52405EC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5C1B6C78FDB5857F987CF /* Foundation.framework */; };
+		02F68FBB7C7BA9905E744D40 /* MBTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 666E0B18B77BFC36AD0F7EE0 /* MBTextField.h */; };
+		0646C673D22EFD357897FADA /* MBTokenTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A12FDFFCDC65A085A49A0 /* MBTokenTextFieldCell.m */; };
+		0F6DB899DBA026AB58648538 /* MBTokenTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A12FDFFCDC65A085A49A0 /* MBTokenTextFieldCell.m */; };
+		1A33D3AA953DCAC59E83FE7E /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F77BEF0D0745059E6B3F053B /* Pods-Tests-dummy.m */; };
+		217D594FF4D64E340CA6EA76 /* MBTokenCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E78C75D245CB0D3CAC876958 /* MBTokenCollectionView.m */; };
+		2195F423FFA2116C3E3847DA /* MBTokenCollectionViewTokenLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DCCAB1BC79BE809A903A4643 /* MBTokenCollectionViewTokenLayout.h */; };
+		2E8001434D127BEC3350AB4D /* Pods-TokenCell-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E73F88757C98447A444E1FD /* Pods-TokenCell-TokenCell-dummy.m */; };
+		308323DC12D4FF770077BEE4 /* MBTokenCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E78C75D245CB0D3CAC876958 /* MBTokenCollectionView.m */; };
+		31FCD75CFBBEB5F258959726 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5C1B6C78FDB5857F987CF /* Foundation.framework */; };
+		3B433FB47FC93E90D37DC1A6 /* MBTokenTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1377E1997E13A048C312FB /* MBTokenTextFieldCell.h */; };
+		3FABB4D077A04F64DC89190D /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FF3B72B4291E6AE409CCBA /* MBTextFieldToken.m */; };
+		410C9E1AB4292D48C5328987 /* MBTokenCollectionTokenView.h in Headers */ = {isa = PBXBuildFile; fileRef = E8E960AFD332FAE48FE4DCA2 /* MBTokenCollectionTokenView.h */; };
+		484022F92352DA2321F74B77 /* MBTokenCollectionTokenView.h in Headers */ = {isa = PBXBuildFile; fileRef = E8E960AFD332FAE48FE4DCA2 /* MBTokenCollectionTokenView.h */; };
+		4BB24D06B3AA32D2583538B4 /* Pods-Tests-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CD4729C8215A923D224554 /* Pods-Tests-TokenCell-dummy.m */; };
+		55E8525F076DDD94F88D02EE /* MBTokenCollectionViewTokenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DCCCB24D95033D366C7AD5 /* MBTokenCollectionViewTokenLayout.m */; };
+		57BECC53A119EA6076FD6E5A /* MBTokenCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3108D52B1433051A894AF7C6 /* MBTokenCollectionTableViewCell.m */; };
+		61124C3BD9A89BB6928C9983 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2641A9375F1012DA72AC7D /* MBTextField.m */; };
+		65D761F0972AF8F8399A3E80 /* MBTokenCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C9296947267AA53770A22B /* MBTokenCollectionView.h */; };
+		6604044BE553D760F85A6AC5 /* MBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0330E8A4C715EDA6E3FA0564 /* MBCollectionView.h */; };
+		79D59015A429E54FBE7D1194 /* MBTokenCollectionTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD38D3F7BAD725F66B7000 /* MBTokenCollectionTokenView.m */; };
+		85225A3A7E97F9299A68A8B7 /* MBTokenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A13AC1AE8F6FBEB44F7502 /* MBTokenViewCell.m */; };
+		85A87E3C9024C03EAB26B9C5 /* MBTokenViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4CD26B4613E89347C15A17 /* MBTokenViewCell.h */; };
+		8B53993F5AEFAC22FEAAB998 /* MBTextFieldToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 01369955CB5C911AD9CDD52E /* MBTextFieldToken.h */; };
+		8FE122262DAE2DBB6B0155E2 /* MBTokenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A13AC1AE8F6FBEB44F7502 /* MBTokenViewCell.m */; };
+		9BCF88B3FF861E138F58EA77 /* MBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 401191C28176CAA81D1F55CC /* MBCollectionView.m */; };
+		9C91FE64294AB290CC2AF89C /* MBTokenCollectionViewTokenLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DCCCB24D95033D366C7AD5 /* MBTokenCollectionViewTokenLayout.m */; };
+		A6FA28B1F746F0309661834B /* MBTokenTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1377E1997E13A048C312FB /* MBTokenTextFieldCell.h */; };
+		ABD22F98CA9C2BAA356BC860 /* MBTokenCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3108D52B1433051A894AF7C6 /* MBTokenCollectionTableViewCell.m */; };
+		ACB15FD3E0322CFF7BC2E394 /* Pods-TokenCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F22C1E00193F966E7F795 /* Pods-TokenCell-dummy.m */; };
+		AD7CF07482FE992D1EF620A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5C1B6C78FDB5857F987CF /* Foundation.framework */; };
+		B7603BF2BC67E32D630F4A53 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2641A9375F1012DA72AC7D /* MBTextField.m */; };
+		BA1FCE0136540A86127741AE /* MBTokenCollectionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A970B0E228A87184AF2CCFAC /* MBTokenCollectionTableViewCell.h */; };
+		BE8B012812F17CA76CEA075C /* MBTokenCollectionViewTokenLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = DCCAB1BC79BE809A903A4643 /* MBTokenCollectionViewTokenLayout.h */; };
+		D220F6288DC6D2E392BFCB1A /* MBTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 666E0B18B77BFC36AD0F7EE0 /* MBTextField.h */; };
+		D390505F4EBAF59FDB7202CD /* MBTextFieldToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FF3B72B4291E6AE409CCBA /* MBTextFieldToken.m */; };
+		D6BED5124DCF1B8EF74030D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5C1B6C78FDB5857F987CF /* Foundation.framework */; };
+		DAA039A9A370FD8948E5818B /* MBTextFieldToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 01369955CB5C911AD9CDD52E /* MBTextFieldToken.h */; };
+		DF8CF7A4A5B0373104FB7B2D /* MBTokenCollectionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A970B0E228A87184AF2CCFAC /* MBTokenCollectionTableViewCell.h */; };
+		E7B97DAFC73AD3D02CA024DF /* MBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 401191C28176CAA81D1F55CC /* MBCollectionView.m */; };
+		F346014016F0F07FAC51B537 /* MBTokenCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C9296947267AA53770A22B /* MBTokenCollectionView.h */; };
+		F9C293065E7F3DD3A57B21CB /* MBTokenCollectionTokenView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD38D3F7BAD725F66B7000 /* MBTokenCollectionTokenView.m */; };
+		F9FEC03B45C369645CBB1653 /* MBTokenViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4CD26B4613E89347C15A17 /* MBTokenViewCell.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		19B57754EDFE673B2FD27C37 /* PBXContainerItemProxy */ = {
+		2B0E596AB9DB16F036CC573B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 43B5AB9E7DAAC7FDAD028B3D /* Project object */;
+			containerPortal = A9507A431CD158E5E525F210 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A1E929C18698F677C77A46D4;
+			remoteGlobalIDString = 4CBA42D566E91E68A704C536;
 			remoteInfo = "Pods-TokenCell-TokenCell";
 		};
-		363F46C7744CD1A0938B0B2D /* PBXContainerItemProxy */ = {
+		6A1BA06FE0BE699F7E021ADB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 43B5AB9E7DAAC7FDAD028B3D /* Project object */;
+			containerPortal = A9507A431CD158E5E525F210 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4CA41485D0247FB9BAED28EC;
+			remoteGlobalIDString = F99F31E1DE25DECFB0BF5E9B;
 			remoteInfo = "Pods-Tests-TokenCell";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08634E2781BE8953D9793E8F /* MBTokenCollectionTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionTableViewCell.h; sourceTree = "<group>"; };
-		2104A633BB3DDD0E6DCF022E /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		217EBA270845B2D9695DDEE4 /* libPods-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		295D2ED621A38F2FE5AC71C6 /* MBTextFieldToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTextFieldToken.m; sourceTree = "<group>"; };
-		3153E2C230BCFC19F7915FE7 /* MBTokenTextFieldCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenTextFieldCell.m; sourceTree = "<group>"; };
-		33C07132AAD46C0D8E7E9AB5 /* Pods-TokenCell-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-TokenCell-TokenCell-dummy.m"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-dummy.m"; sourceTree = "<group>"; };
-		35AC377E06E950FC1B2D4B63 /* MBCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBCollectionView.m; sourceTree = "<group>"; };
-		3A4E45308B6CF4E774A18E71 /* Pods-Tests-TokenCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-TokenCell-Private.xcconfig"; sourceTree = "<group>"; };
-		3E659232B907662CEA638D1D /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
-		43A3319F1C9EA7DB3E9ECA5C /* MBTokenViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenViewCell.h; sourceTree = "<group>"; };
-		482A777E62E086CCA5E9818B /* MBTokenCollectionTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionTableViewCell.m; sourceTree = "<group>"; };
-		4ED743489910EF63CDFFF4C0 /* Pods-Tests-TokenCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-TokenCell-prefix.pch"; sourceTree = "<group>"; };
-		59BD76E59C5367ED4595697D /* Pods-TokenCell-TokenCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenCell-TokenCell.xcconfig"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell.xcconfig"; sourceTree = "<group>"; };
-		5B11A31850F4930715C22FEC /* MBTokenViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenViewCell.m; sourceTree = "<group>"; };
-		5CB725F27E297C13798913CA /* Pods-TokenCell-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TokenCell-acknowledgements.markdown"; sourceTree = "<group>"; };
-		645BE4266579AF947922D132 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		75E2CC156B24F42EE87BCD3E /* Pods-TokenCell-TokenCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenCell-TokenCell-Private.xcconfig"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-Private.xcconfig"; sourceTree = "<group>"; };
-		7C209C8EF8745D9D1F64ED04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7EC10F13E7DE9F754FB9C370 /* libPods-Tests-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82BA1CAB01A4B130F77073A6 /* Pods-TokenCell-TokenCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-TokenCell-TokenCell-prefix.pch"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch"; sourceTree = "<group>"; };
-		87B00137E806E4611E318589 /* MBTokenCollectionTokenView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionTokenView.m; sourceTree = "<group>"; };
-		8F735FDCB03E19AE7E2D2836 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		927B9E96873AC956EF5DBA3A /* MBTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTextField.h; sourceTree = "<group>"; };
-		9412C45DE7BFD2CCE1E41363 /* MBTokenCollectionTokenView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionTokenView.h; sourceTree = "<group>"; };
-		943273E9921291083E8B45F8 /* Pods-TokenCell-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TokenCell-acknowledgements.plist"; sourceTree = "<group>"; };
-		94E434E886D766F90C273EAA /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9CF55E1CD06AE7CDFDA37E1F /* MBTokenCollectionViewTokenLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionViewTokenLayout.h; sourceTree = "<group>"; };
-		A6BDE514BBD3698DB5136141 /* Pods-TokenCell-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TokenCell-environment.h"; sourceTree = "<group>"; };
-		A7B6DF4E6205574A832D5DB1 /* MBCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBCollectionView.h; sourceTree = "<group>"; };
-		BC3CFD852BADAB74A0EABB5B /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C4FBB8D9780759D421DECD8D /* Pods-TokenCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TokenCell.debug.xcconfig"; sourceTree = "<group>"; };
-		C7B3F8ECCDC8E9DB08B93CE4 /* MBTokenTextFieldCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenTextFieldCell.h; sourceTree = "<group>"; };
-		C8B7496A7F0E7D646E390E88 /* Pods-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TokenCell-dummy.m"; sourceTree = "<group>"; };
-		CAA9DA87E7BBA615D1B6D997 /* libPods-TokenCell-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TokenCell-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D936FB0FE8DB91A4DD5D29D6 /* MBTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTextField.m; sourceTree = "<group>"; };
-		DC69F30F4EE818A5AA3CD10D /* MBTextFieldToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTextFieldToken.h; sourceTree = "<group>"; };
-		DE4C8F544148B0D282C8D8DA /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		DF6CA83D3AB48CC645494F60 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		DFD114A074213AF736F69F20 /* Pods-TokenCell-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TokenCell-resources.sh"; sourceTree = "<group>"; };
-		E42567B4319A7C8BB8749275 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA274C205F63CF124CD6DF32 /* MBTokenCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionView.m; sourceTree = "<group>"; };
-		EC58DC474B337EDE5A51521B /* Pods-Tests-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-TokenCell-dummy.m"; sourceTree = "<group>"; };
-		F1DD99C0A118A4E86FE0C505 /* Pods-TokenCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TokenCell.release.xcconfig"; sourceTree = "<group>"; };
-		F58BC98390A4F85FC19A4713 /* MBTokenCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionView.h; sourceTree = "<group>"; };
-		FA917ED93A303AFB722F169E /* MBTokenCollectionViewTokenLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionViewTokenLayout.m; sourceTree = "<group>"; };
-		FFC0DD340E6578697F65FE60 /* Pods-Tests-TokenCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-TokenCell.xcconfig"; sourceTree = "<group>"; };
+		009A71260D7A0CDD1D569816 /* Pods-Tests-TokenCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-TokenCell.xcconfig"; sourceTree = "<group>"; };
+		01369955CB5C911AD9CDD52E /* MBTextFieldToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTextFieldToken.h; sourceTree = "<group>"; };
+		02CD4729C8215A923D224554 /* Pods-Tests-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-TokenCell-dummy.m"; sourceTree = "<group>"; };
+		0330E8A4C715EDA6E3FA0564 /* MBCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBCollectionView.h; sourceTree = "<group>"; };
+		150CDDBCAF94B99783E707E5 /* Pods-TokenCell-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TokenCell-environment.h"; sourceTree = "<group>"; };
+		1C9A006987CDFAFBA2BD3E77 /* Pods-Tests-TokenCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-TokenCell-prefix.pch"; sourceTree = "<group>"; };
+		27A13AC1AE8F6FBEB44F7502 /* MBTokenViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenViewCell.m; sourceTree = "<group>"; };
+		2C90FF8AEA612E110D2FAAC5 /* Pods-TokenCell-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TokenCell-resources.sh"; sourceTree = "<group>"; };
+		2D7AE33EAC26370B4CE5681A /* Pods-TokenCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TokenCell.release.xcconfig"; sourceTree = "<group>"; };
+		3108D52B1433051A894AF7C6 /* MBTokenCollectionTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionTableViewCell.m; sourceTree = "<group>"; };
+		314AB3B6F178B6F9F110B6EE /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		347CE2E14A5DCF1E147D9B28 /* Pods-TokenCell-TokenCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenCell-TokenCell-Private.xcconfig"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-Private.xcconfig"; sourceTree = "<group>"; };
+		3AD5C1B6C78FDB5857F987CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		401191C28176CAA81D1F55CC /* MBCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBCollectionView.m; sourceTree = "<group>"; };
+		43FEA525D9B088633669B020 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		45B05C155B17EFE0F82BA6EE /* libPods-Tests-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C7DFD690CFB591C33F069C9 /* libPods-TokenCell-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TokenCell-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F5B7CA7DE895FA61845C155 /* Pods-Tests-TokenCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-TokenCell-Private.xcconfig"; sourceTree = "<group>"; };
+		51237C38AC09FE4AD50A8B07 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C1377E1997E13A048C312FB /* MBTokenTextFieldCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenTextFieldCell.h; sourceTree = "<group>"; };
+		5FB6C8F2F29C5AA1C6C5551D /* Pods-TokenCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TokenCell.debug.xcconfig"; sourceTree = "<group>"; };
+		666E0B18B77BFC36AD0F7EE0 /* MBTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTextField.h; sourceTree = "<group>"; };
+		669FBFB6B26A3921F8417B7C /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		76DCCCB24D95033D366C7AD5 /* MBTokenCollectionViewTokenLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionViewTokenLayout.m; sourceTree = "<group>"; };
+		81C9296947267AA53770A22B /* MBTokenCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionView.h; sourceTree = "<group>"; };
+		8E0584908DEF266F0A0E4184 /* Pods-TokenCell-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TokenCell-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8E73F88757C98447A444E1FD /* Pods-TokenCell-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-TokenCell-TokenCell-dummy.m"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-dummy.m"; sourceTree = "<group>"; };
+		90C774415598DB015AC2ED22 /* Pods-TokenCell-TokenCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-TokenCell-TokenCell-prefix.pch"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch"; sourceTree = "<group>"; };
+		9191B0F232D320CB8082D8B4 /* libPods-TokenCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TokenCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D1195E19BF09C0E8C425B5 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A970B0E228A87184AF2CCFAC /* MBTokenCollectionTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionTableViewCell.h; sourceTree = "<group>"; };
+		AB4CD26B4613E89347C15A17 /* MBTokenViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenViewCell.h; sourceTree = "<group>"; };
+		BB2641A9375F1012DA72AC7D /* MBTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTextField.m; sourceTree = "<group>"; };
+		D2CCE13E499ED42086733822 /* Pods-TokenCell-TokenCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenCell-TokenCell.xcconfig"; path = "../Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell.xcconfig"; sourceTree = "<group>"; };
+		D5FF3B72B4291E6AE409CCBA /* MBTextFieldToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTextFieldToken.m; sourceTree = "<group>"; };
+		D62A12FDFFCDC65A085A49A0 /* MBTokenTextFieldCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenTextFieldCell.m; sourceTree = "<group>"; };
+		D9EBB1413177DE93099537B1 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		DCCAB1BC79BE809A903A4643 /* MBTokenCollectionViewTokenLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionViewTokenLayout.h; sourceTree = "<group>"; };
+		E19F22C1E00193F966E7F795 /* Pods-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TokenCell-dummy.m"; sourceTree = "<group>"; };
+		E2901195F00DFB9ACB8428D8 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E5AD38D3F7BAD725F66B7000 /* MBTokenCollectionTokenView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionTokenView.m; sourceTree = "<group>"; };
+		E78C75D245CB0D3CAC876958 /* MBTokenCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBTokenCollectionView.m; sourceTree = "<group>"; };
+		E8CF9E44265FBD4BCE6D4473 /* Pods-TokenCell-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TokenCell-acknowledgements.plist"; sourceTree = "<group>"; };
+		E8E960AFD332FAE48FE4DCA2 /* MBTokenCollectionTokenView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBTokenCollectionTokenView.h; sourceTree = "<group>"; };
+		F77BEF0D0745059E6B3F053B /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		F80375ED18B4E20E7937C2C4 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		27AD4E8AFA3F29245C44FFBC /* Frameworks */ = {
+		089E0C69A5B6587D42674894 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0138F200ADFB13168A66E6A5 /* Foundation.framework in Frameworks */,
+				01693EAECDFF079B52405EC0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4328AC9B2DF15AF509353DDE /* Frameworks */ = {
+		7606AC5D4EF674ABE2A3E62A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB4AA9D048ED4BE9292BB32 /* Foundation.framework in Frameworks */,
+				AD7CF07482FE992D1EF620A2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85263419F4AA9188F518D3AE /* Frameworks */ = {
+		85EE0BB34265250C669FCED3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D29EAC348E1CAA796B34ABD0 /* Foundation.framework in Frameworks */,
+				D6BED5124DCF1B8EF74030D8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDBFFC9E017083CFF3052BAE /* Frameworks */ = {
+		9D418BA12B8E5639589E8A2B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05DC21A46A43B34CFAC199BE /* Foundation.framework in Frameworks */,
+				31FCD75CFBBEB5F258959726 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16EBCA8DA92E09113A2E76A2 /* Frameworks */ = {
+		2AFBC189077D6079AD739B88 /* Pods-TokenCell */ = {
 			isa = PBXGroup;
 			children = (
-				23621ABE6D3D4AF0B1FB0EF6 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		23621ABE6D3D4AF0B1FB0EF6 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				7C209C8EF8745D9D1F64ED04 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		319F6A46C892296CE225D28E /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				A7B6DF4E6205574A832D5DB1 /* MBCollectionView.h */,
-				35AC377E06E950FC1B2D4B63 /* MBCollectionView.m */,
-				927B9E96873AC956EF5DBA3A /* MBTextField.h */,
-				D936FB0FE8DB91A4DD5D29D6 /* MBTextField.m */,
-				DC69F30F4EE818A5AA3CD10D /* MBTextFieldToken.h */,
-				295D2ED621A38F2FE5AC71C6 /* MBTextFieldToken.m */,
-				08634E2781BE8953D9793E8F /* MBTokenCollectionTableViewCell.h */,
-				482A777E62E086CCA5E9818B /* MBTokenCollectionTableViewCell.m */,
-				9412C45DE7BFD2CCE1E41363 /* MBTokenCollectionTokenView.h */,
-				87B00137E806E4611E318589 /* MBTokenCollectionTokenView.m */,
-				F58BC98390A4F85FC19A4713 /* MBTokenCollectionView.h */,
-				EA274C205F63CF124CD6DF32 /* MBTokenCollectionView.m */,
-				9CF55E1CD06AE7CDFDA37E1F /* MBTokenCollectionViewTokenLayout.h */,
-				FA917ED93A303AFB722F169E /* MBTokenCollectionViewTokenLayout.m */,
-				C7B3F8ECCDC8E9DB08B93CE4 /* MBTokenTextFieldCell.h */,
-				3153E2C230BCFC19F7915FE7 /* MBTokenTextFieldCell.m */,
-				43A3319F1C9EA7DB3E9ECA5C /* MBTokenViewCell.h */,
-				5B11A31850F4930715C22FEC /* MBTokenViewCell.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		441979A39ED379B9082B615F /* Pods-TokenCell */ = {
-			isa = PBXGroup;
-			children = (
-				5CB725F27E297C13798913CA /* Pods-TokenCell-acknowledgements.markdown */,
-				943273E9921291083E8B45F8 /* Pods-TokenCell-acknowledgements.plist */,
-				C8B7496A7F0E7D646E390E88 /* Pods-TokenCell-dummy.m */,
-				A6BDE514BBD3698DB5136141 /* Pods-TokenCell-environment.h */,
-				DFD114A074213AF736F69F20 /* Pods-TokenCell-resources.sh */,
-				C4FBB8D9780759D421DECD8D /* Pods-TokenCell.debug.xcconfig */,
-				F1DD99C0A118A4E86FE0C505 /* Pods-TokenCell.release.xcconfig */,
+				8E0584908DEF266F0A0E4184 /* Pods-TokenCell-acknowledgements.markdown */,
+				E8CF9E44265FBD4BCE6D4473 /* Pods-TokenCell-acknowledgements.plist */,
+				E19F22C1E00193F966E7F795 /* Pods-TokenCell-dummy.m */,
+				150CDDBCAF94B99783E707E5 /* Pods-TokenCell-environment.h */,
+				2C90FF8AEA612E110D2FAAC5 /* Pods-TokenCell-resources.sh */,
+				5FB6C8F2F29C5AA1C6C5551D /* Pods-TokenCell.debug.xcconfig */,
+				2D7AE33EAC26370B4CE5681A /* Pods-TokenCell.release.xcconfig */,
 			);
 			name = "Pods-TokenCell";
 			path = "Target Support Files/Pods-TokenCell";
 			sourceTree = "<group>";
 		};
-		55B137740D432B59533EAD08 /* Products */ = {
+		2EF0757CBCA4AF22BE6229E3 = {
 			isa = PBXGroup;
 			children = (
-				E42567B4319A7C8BB8749275 /* libPods-Tests.a */,
-				7EC10F13E7DE9F754FB9C370 /* libPods-Tests-TokenCell.a */,
-				217EBA270845B2D9695DDEE4 /* libPods-TokenCell.a */,
-				CAA9DA87E7BBA615D1B6D997 /* libPods-TokenCell-TokenCell.a */,
+				669FBFB6B26A3921F8417B7C /* Podfile */,
+				EA852FD9DDCA744E76427493 /* Development Pods */,
+				D4528BDE5839C6156ACAA2B1 /* Frameworks */,
+				33A2B05EEEF755A7052A9A69 /* Products */,
+				AC769B616CBD8ECDF1E99C03 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		33A2B05EEEF755A7052A9A69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92D1195E19BF09C0E8C425B5 /* libPods-Tests.a */,
+				45B05C155B17EFE0F82BA6EE /* libPods-Tests-TokenCell.a */,
+				9191B0F232D320CB8082D8B4 /* libPods-TokenCell.a */,
+				4C7DFD690CFB591C33F069C9 /* libPods-TokenCell-TokenCell.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		78828C6BACCF64DFC3BA0202 /* Pods-Tests */ = {
+		4257892EF589A9206404B5EA /* TokenCell */ = {
 			isa = PBXGroup;
 			children = (
-				8F735FDCB03E19AE7E2D2836 /* Pods-Tests-acknowledgements.markdown */,
-				DF6CA83D3AB48CC645494F60 /* Pods-Tests-acknowledgements.plist */,
-				645BE4266579AF947922D132 /* Pods-Tests-dummy.m */,
-				3E659232B907662CEA638D1D /* Pods-Tests-environment.h */,
-				2104A633BB3DDD0E6DCF022E /* Pods-Tests-resources.sh */,
-				DE4C8F544148B0D282C8D8DA /* Pods-Tests.debug.xcconfig */,
-				BC3CFD852BADAB74A0EABB5B /* Pods-Tests.release.xcconfig */,
-			);
-			name = "Pods-Tests";
-			path = "Target Support Files/Pods-Tests";
-			sourceTree = "<group>";
-		};
-		AADFF12C066736A424C6A307 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FFC0DD340E6578697F65FE60 /* Pods-Tests-TokenCell.xcconfig */,
-				3A4E45308B6CF4E774A18E71 /* Pods-Tests-TokenCell-Private.xcconfig */,
-				EC58DC474B337EDE5A51521B /* Pods-Tests-TokenCell-dummy.m */,
-				4ED743489910EF63CDFFF4C0 /* Pods-Tests-TokenCell-prefix.pch */,
-				59BD76E59C5367ED4595697D /* Pods-TokenCell-TokenCell.xcconfig */,
-				75E2CC156B24F42EE87BCD3E /* Pods-TokenCell-TokenCell-Private.xcconfig */,
-				33C07132AAD46C0D8E7E9AB5 /* Pods-TokenCell-TokenCell-dummy.m */,
-				82BA1CAB01A4B130F77073A6 /* Pods-TokenCell-TokenCell-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Pods-Tests-TokenCell";
-			sourceTree = "<group>";
-		};
-		ADF9D7E25B9E43006AD8A754 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CA1DCA9C3B7E7AA97D910E06 /* TokenCell */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		CA1DCA9C3B7E7AA97D910E06 /* TokenCell */ = {
-			isa = PBXGroup;
-			children = (
-				D9684D2176314F38EDB06767 /* Pod */,
-				AADFF12C066736A424C6A307 /* Support Files */,
+				9E0FC22EBF5D759014685FEA /* Pod */,
+				A3D34648C47EF5FF4570E9AC /* Support Files */,
 			);
 			name = TokenCell;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		D9684D2176314F38EDB06767 /* Pod */ = {
+		729EF426A6DC0197C70B3CB1 /* Pods-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				319F6A46C892296CE225D28E /* Classes */,
+				43FEA525D9B088633669B020 /* Pods-Tests-acknowledgements.markdown */,
+				E2901195F00DFB9ACB8428D8 /* Pods-Tests-acknowledgements.plist */,
+				F77BEF0D0745059E6B3F053B /* Pods-Tests-dummy.m */,
+				F80375ED18B4E20E7937C2C4 /* Pods-Tests-environment.h */,
+				D9EBB1413177DE93099537B1 /* Pods-Tests-resources.sh */,
+				51237C38AC09FE4AD50A8B07 /* Pods-Tests.debug.xcconfig */,
+				314AB3B6F178B6F9F110B6EE /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		96ACA6595FFE0A30C097ED29 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0330E8A4C715EDA6E3FA0564 /* MBCollectionView.h */,
+				401191C28176CAA81D1F55CC /* MBCollectionView.m */,
+				666E0B18B77BFC36AD0F7EE0 /* MBTextField.h */,
+				BB2641A9375F1012DA72AC7D /* MBTextField.m */,
+				01369955CB5C911AD9CDD52E /* MBTextFieldToken.h */,
+				D5FF3B72B4291E6AE409CCBA /* MBTextFieldToken.m */,
+				A970B0E228A87184AF2CCFAC /* MBTokenCollectionTableViewCell.h */,
+				3108D52B1433051A894AF7C6 /* MBTokenCollectionTableViewCell.m */,
+				E8E960AFD332FAE48FE4DCA2 /* MBTokenCollectionTokenView.h */,
+				E5AD38D3F7BAD725F66B7000 /* MBTokenCollectionTokenView.m */,
+				81C9296947267AA53770A22B /* MBTokenCollectionView.h */,
+				E78C75D245CB0D3CAC876958 /* MBTokenCollectionView.m */,
+				DCCAB1BC79BE809A903A4643 /* MBTokenCollectionViewTokenLayout.h */,
+				76DCCCB24D95033D366C7AD5 /* MBTokenCollectionViewTokenLayout.m */,
+				5C1377E1997E13A048C312FB /* MBTokenTextFieldCell.h */,
+				D62A12FDFFCDC65A085A49A0 /* MBTokenTextFieldCell.m */,
+				AB4CD26B4613E89347C15A17 /* MBTokenViewCell.h */,
+				27A13AC1AE8F6FBEB44F7502 /* MBTokenViewCell.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9E0FC22EBF5D759014685FEA /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				96ACA6595FFE0A30C097ED29 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		DB64B41552083DB622429B46 = {
+		A2DA83B18400DB3CB20703BA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				94E434E886D766F90C273EAA /* Podfile */,
-				ADF9D7E25B9E43006AD8A754 /* Development Pods */,
-				16EBCA8DA92E09113A2E76A2 /* Frameworks */,
-				55B137740D432B59533EAD08 /* Products */,
-				F3C6F2571B78F8B6A03FB885 /* Targets Support Files */,
+				3AD5C1B6C78FDB5857F987CF /* Foundation.framework */,
 			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		F3C6F2571B78F8B6A03FB885 /* Targets Support Files */ = {
+		A3D34648C47EF5FF4570E9AC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				78828C6BACCF64DFC3BA0202 /* Pods-Tests */,
-				441979A39ED379B9082B615F /* Pods-TokenCell */,
+				009A71260D7A0CDD1D569816 /* Pods-Tests-TokenCell.xcconfig */,
+				4F5B7CA7DE895FA61845C155 /* Pods-Tests-TokenCell-Private.xcconfig */,
+				02CD4729C8215A923D224554 /* Pods-Tests-TokenCell-dummy.m */,
+				1C9A006987CDFAFBA2BD3E77 /* Pods-Tests-TokenCell-prefix.pch */,
+				D2CCE13E499ED42086733822 /* Pods-TokenCell-TokenCell.xcconfig */,
+				347CE2E14A5DCF1E147D9B28 /* Pods-TokenCell-TokenCell-Private.xcconfig */,
+				8E73F88757C98447A444E1FD /* Pods-TokenCell-TokenCell-dummy.m */,
+				90C774415598DB015AC2ED22 /* Pods-TokenCell-TokenCell-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-Tests-TokenCell";
+			sourceTree = "<group>";
+		};
+		AC769B616CBD8ECDF1E99C03 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				729EF426A6DC0197C70B3CB1 /* Pods-Tests */,
+				2AFBC189077D6079AD739B88 /* Pods-TokenCell */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D4528BDE5839C6156ACAA2B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2DA83B18400DB3CB20703BA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA852FD9DDCA744E76427493 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4257892EF589A9206404B5EA /* TokenCell */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		564D9E573D491BB6439C5684 /* Headers */ = {
+		430A17CB2703651A03D60D9D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				384DFF2E147294A32DCA3A9F /* MBCollectionView.h in Headers */,
-				638CCC6C368262B68C049902 /* MBTextField.h in Headers */,
-				899D90BCA4C5AFF97F44179A /* MBTextFieldToken.h in Headers */,
-				C2BACCC84DF93CB647FB791C /* MBTokenCollectionTableViewCell.h in Headers */,
-				F8A2C3B5134694B64B242FF2 /* MBTokenCollectionTokenView.h in Headers */,
-				D2466918604B3D8F1C5D0246 /* MBTokenCollectionView.h in Headers */,
-				06CE934629BAC9A0D367D592 /* MBTokenCollectionViewTokenLayout.h in Headers */,
-				33943CFB36366A8F9EC28D5C /* MBTokenTextFieldCell.h in Headers */,
-				2AD4801BC46ED7B0CD063F2F /* MBTokenViewCell.h in Headers */,
+				0144405B347D8FA4AF6EC059 /* MBCollectionView.h in Headers */,
+				02F68FBB7C7BA9905E744D40 /* MBTextField.h in Headers */,
+				8B53993F5AEFAC22FEAAB998 /* MBTextFieldToken.h in Headers */,
+				DF8CF7A4A5B0373104FB7B2D /* MBTokenCollectionTableViewCell.h in Headers */,
+				484022F92352DA2321F74B77 /* MBTokenCollectionTokenView.h in Headers */,
+				F346014016F0F07FAC51B537 /* MBTokenCollectionView.h in Headers */,
+				2195F423FFA2116C3E3847DA /* MBTokenCollectionViewTokenLayout.h in Headers */,
+				3B433FB47FC93E90D37DC1A6 /* MBTokenTextFieldCell.h in Headers */,
+				F9FEC03B45C369645CBB1653 /* MBTokenViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9F946BD579A82A982E1350C1 /* Headers */ = {
+		495BB351DC0E9A0B46117847 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCC3BCE0B649E2DDB74EF183 /* MBCollectionView.h in Headers */,
-				672625A15AA340F1A623B6D3 /* MBTextField.h in Headers */,
-				B93BB47E2A2A76BFCE668F1E /* MBTextFieldToken.h in Headers */,
-				C961AC2F6C467AFFBC385CEC /* MBTokenCollectionTableViewCell.h in Headers */,
-				2E337DE66ED7131541EDCD4F /* MBTokenCollectionTokenView.h in Headers */,
-				966D32D10483997F0C9A6249 /* MBTokenCollectionView.h in Headers */,
-				9B8B0424C13CE808A1223E9F /* MBTokenCollectionViewTokenLayout.h in Headers */,
-				E8BCCE88AEF32591EC87B1AD /* MBTokenTextFieldCell.h in Headers */,
-				68E773551C096A92868125CC /* MBTokenViewCell.h in Headers */,
+				6604044BE553D760F85A6AC5 /* MBCollectionView.h in Headers */,
+				D220F6288DC6D2E392BFCB1A /* MBTextField.h in Headers */,
+				DAA039A9A370FD8948E5818B /* MBTextFieldToken.h in Headers */,
+				BA1FCE0136540A86127741AE /* MBTokenCollectionTableViewCell.h in Headers */,
+				410C9E1AB4292D48C5328987 /* MBTokenCollectionTokenView.h in Headers */,
+				65D761F0972AF8F8399A3E80 /* MBTokenCollectionView.h in Headers */,
+				BE8B012812F17CA76CEA075C /* MBTokenCollectionViewTokenLayout.h in Headers */,
+				A6FA28B1F746F0309661834B /* MBTokenTextFieldCell.h in Headers */,
+				85A87E3C9024C03EAB26B9C5 /* MBTokenViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4CA41485D0247FB9BAED28EC /* Pods-Tests-TokenCell */ = {
+		4CBA42D566E91E68A704C536 /* Pods-TokenCell-TokenCell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6E5B76A466F5492AE003212E /* Build configuration list for PBXNativeTarget "Pods-Tests-TokenCell" */;
+			buildConfigurationList = 5BF234791E91D7BD309DFEAB /* Build configuration list for PBXNativeTarget "Pods-TokenCell-TokenCell" */;
 			buildPhases = (
-				7764A06161D37AD6A262E3FA /* Sources */,
-				27AD4E8AFA3F29245C44FFBC /* Frameworks */,
-				564D9E573D491BB6439C5684 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Tests-TokenCell";
-			productName = "Pods-Tests-TokenCell";
-			productReference = 7EC10F13E7DE9F754FB9C370 /* libPods-Tests-TokenCell.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		512F6D573C088B6528FA8CE1 /* Pods-TokenCell */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1EDD06ABF2D22E8FEB0E13E4 /* Build configuration list for PBXNativeTarget "Pods-TokenCell" */;
-			buildPhases = (
-				67CD7A0AFA1A34DF98C2E29C /* Sources */,
-				85263419F4AA9188F518D3AE /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E065EA16FE0F9E0681CE8E1C /* PBXTargetDependency */,
-			);
-			name = "Pods-TokenCell";
-			productName = "Pods-TokenCell";
-			productReference = 217EBA270845B2D9695DDEE4 /* libPods-TokenCell.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		A1E929C18698F677C77A46D4 /* Pods-TokenCell-TokenCell */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3F0EB6EB98A631C2DE03A486 /* Build configuration list for PBXNativeTarget "Pods-TokenCell-TokenCell" */;
-			buildPhases = (
-				12246988D9EFDA7DEDC0E126 /* Sources */,
-				CDBFFC9E017083CFF3052BAE /* Frameworks */,
-				9F946BD579A82A982E1350C1 /* Headers */,
+				F59C8380AFEED24B3A0F8AFE /* Sources */,
+				9D418BA12B8E5639589E8A2B /* Frameworks */,
+				430A17CB2703651A03D60D9D /* Headers */,
 			);
 			buildRules = (
 			);
@@ -385,126 +351,176 @@
 			);
 			name = "Pods-TokenCell-TokenCell";
 			productName = "Pods-TokenCell-TokenCell";
-			productReference = CAA9DA87E7BBA615D1B6D997 /* libPods-TokenCell-TokenCell.a */;
+			productReference = 4C7DFD690CFB591C33F069C9 /* libPods-TokenCell-TokenCell.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B0B738BBC47870885AA31ED7 /* Pods-Tests */ = {
+		A80D111CDF862ACBF7110BBC /* Pods-TokenCell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FF238424234617B9FEC1220 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildConfigurationList = 29B569AB768732CB2E86B581 /* Build configuration list for PBXNativeTarget "Pods-TokenCell" */;
 			buildPhases = (
-				5A5FBB70F2557F881FC7BF6D /* Sources */,
-				4328AC9B2DF15AF509353DDE /* Frameworks */,
+				2740F06029B1B76024E00EC7 /* Sources */,
+				7606AC5D4EF674ABE2A3E62A /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B5EEED741FF667DB1F7F66CB /* PBXTargetDependency */,
+				AD98CDD05A700E49C8DD14C1 /* PBXTargetDependency */,
+			);
+			name = "Pods-TokenCell";
+			productName = "Pods-TokenCell";
+			productReference = 9191B0F232D320CB8082D8B4 /* libPods-TokenCell.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B2E35C2867188F14CAC9C2F9 /* Pods-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C54F4A3F3A13C63D08078B /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildPhases = (
+				FCFC1A0F4143F7C8825A83FA /* Sources */,
+				85EE0BB34265250C669FCED3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11CC4CF454EED846CBB4F7D8 /* PBXTargetDependency */,
 			);
 			name = "Pods-Tests";
 			productName = "Pods-Tests";
-			productReference = E42567B4319A7C8BB8749275 /* libPods-Tests.a */;
+			productReference = 92D1195E19BF09C0E8C425B5 /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F99F31E1DE25DECFB0BF5E9B /* Pods-Tests-TokenCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECA26D5821D8D777529DF514 /* Build configuration list for PBXNativeTarget "Pods-Tests-TokenCell" */;
+			buildPhases = (
+				7AB523D162F797978F748115 /* Sources */,
+				089E0C69A5B6587D42674894 /* Frameworks */,
+				495BB351DC0E9A0B46117847 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-TokenCell";
+			productName = "Pods-Tests-TokenCell";
+			productReference = 45B05C155B17EFE0F82BA6EE /* libPods-Tests-TokenCell.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		43B5AB9E7DAAC7FDAD028B3D /* Project object */ = {
+		A9507A431CD158E5E525F210 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 2C2EFF0EEA7DACCB5A9D3E0C /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = A92503B420B8B79B9059F3AF /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = DB64B41552083DB622429B46;
-			productRefGroup = 55B137740D432B59533EAD08 /* Products */;
+			mainGroup = 2EF0757CBCA4AF22BE6229E3;
+			productRefGroup = 33A2B05EEEF755A7052A9A69 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0B738BBC47870885AA31ED7 /* Pods-Tests */,
-				4CA41485D0247FB9BAED28EC /* Pods-Tests-TokenCell */,
-				512F6D573C088B6528FA8CE1 /* Pods-TokenCell */,
-				A1E929C18698F677C77A46D4 /* Pods-TokenCell-TokenCell */,
+				B2E35C2867188F14CAC9C2F9 /* Pods-Tests */,
+				F99F31E1DE25DECFB0BF5E9B /* Pods-Tests-TokenCell */,
+				A80D111CDF862ACBF7110BBC /* Pods-TokenCell */,
+				4CBA42D566E91E68A704C536 /* Pods-TokenCell-TokenCell */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		12246988D9EFDA7DEDC0E126 /* Sources */ = {
+		2740F06029B1B76024E00EC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8FF16098BE84B350B5DF96A /* MBCollectionView.m in Sources */,
-				DB43E579B0811EEAF147DDBB /* MBTextField.m in Sources */,
-				DC212F1565823F3867E82863 /* MBTextFieldToken.m in Sources */,
-				5F0E13E055FB352A2B84CC18 /* MBTokenCollectionTableViewCell.m in Sources */,
-				B7CC3A784BCAD3F0A056E4F1 /* MBTokenCollectionTokenView.m in Sources */,
-				D4293845D9BC03A0949E710E /* MBTokenCollectionView.m in Sources */,
-				0847AB54BA3EDB022C3A39E0 /* MBTokenCollectionViewTokenLayout.m in Sources */,
-				F002C1872454D4FAD4911306 /* MBTokenTextFieldCell.m in Sources */,
-				69E08894332AAD5C2BECBE1F /* MBTokenViewCell.m in Sources */,
-				FE54AEEDC932CC830D789258 /* Pods-TokenCell-TokenCell-dummy.m in Sources */,
+				ACB15FD3E0322CFF7BC2E394 /* Pods-TokenCell-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A5FBB70F2557F881FC7BF6D /* Sources */ = {
+		7AB523D162F797978F748115 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D19B4CBA38ABA2F28A1AB10 /* Pods-Tests-dummy.m in Sources */,
+				E7B97DAFC73AD3D02CA024DF /* MBCollectionView.m in Sources */,
+				B7603BF2BC67E32D630F4A53 /* MBTextField.m in Sources */,
+				3FABB4D077A04F64DC89190D /* MBTextFieldToken.m in Sources */,
+				57BECC53A119EA6076FD6E5A /* MBTokenCollectionTableViewCell.m in Sources */,
+				79D59015A429E54FBE7D1194 /* MBTokenCollectionTokenView.m in Sources */,
+				308323DC12D4FF770077BEE4 /* MBTokenCollectionView.m in Sources */,
+				55E8525F076DDD94F88D02EE /* MBTokenCollectionViewTokenLayout.m in Sources */,
+				0646C673D22EFD357897FADA /* MBTokenTextFieldCell.m in Sources */,
+				85225A3A7E97F9299A68A8B7 /* MBTokenViewCell.m in Sources */,
+				4BB24D06B3AA32D2583538B4 /* Pods-Tests-TokenCell-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67CD7A0AFA1A34DF98C2E29C /* Sources */ = {
+		F59C8380AFEED24B3A0F8AFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A51F939B5DEF743767CCC21 /* Pods-TokenCell-dummy.m in Sources */,
+				9BCF88B3FF861E138F58EA77 /* MBCollectionView.m in Sources */,
+				61124C3BD9A89BB6928C9983 /* MBTextField.m in Sources */,
+				D390505F4EBAF59FDB7202CD /* MBTextFieldToken.m in Sources */,
+				ABD22F98CA9C2BAA356BC860 /* MBTokenCollectionTableViewCell.m in Sources */,
+				F9C293065E7F3DD3A57B21CB /* MBTokenCollectionTokenView.m in Sources */,
+				217D594FF4D64E340CA6EA76 /* MBTokenCollectionView.m in Sources */,
+				9C91FE64294AB290CC2AF89C /* MBTokenCollectionViewTokenLayout.m in Sources */,
+				0F6DB899DBA026AB58648538 /* MBTokenTextFieldCell.m in Sources */,
+				8FE122262DAE2DBB6B0155E2 /* MBTokenViewCell.m in Sources */,
+				2E8001434D127BEC3350AB4D /* Pods-TokenCell-TokenCell-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7764A06161D37AD6A262E3FA /* Sources */ = {
+		FCFC1A0F4143F7C8825A83FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38C303B1F83A36B566A53FD3 /* MBCollectionView.m in Sources */,
-				D5DF4AE80490638380838277 /* MBTextField.m in Sources */,
-				FFF79664DD45C23EAED68EC2 /* MBTextFieldToken.m in Sources */,
-				EC1B57DD870FC8525EC3558D /* MBTokenCollectionTableViewCell.m in Sources */,
-				BAC2CF5F920D4DAFEDC94CC7 /* MBTokenCollectionTokenView.m in Sources */,
-				28B35615894433533C9D458A /* MBTokenCollectionView.m in Sources */,
-				D26D194520B7366CCAE04AAE /* MBTokenCollectionViewTokenLayout.m in Sources */,
-				F9FFF1235ED4DF2BF98FF862 /* MBTokenTextFieldCell.m in Sources */,
-				843C41D7790D389718D5F65B /* MBTokenViewCell.m in Sources */,
-				E1533DF3E71CA122EA898E68 /* Pods-Tests-TokenCell-dummy.m in Sources */,
+				1A33D3AA953DCAC59E83FE7E /* Pods-Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5EEED741FF667DB1F7F66CB /* PBXTargetDependency */ = {
+		11CC4CF454EED846CBB4F7D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Tests-TokenCell";
-			target = 4CA41485D0247FB9BAED28EC /* Pods-Tests-TokenCell */;
-			targetProxy = 363F46C7744CD1A0938B0B2D /* PBXContainerItemProxy */;
+			target = F99F31E1DE25DECFB0BF5E9B /* Pods-Tests-TokenCell */;
+			targetProxy = 6A1BA06FE0BE699F7E021ADB /* PBXContainerItemProxy */;
 		};
-		E065EA16FE0F9E0681CE8E1C /* PBXTargetDependency */ = {
+		AD98CDD05A700E49C8DD14C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-TokenCell-TokenCell";
-			target = A1E929C18698F677C77A46D4 /* Pods-TokenCell-TokenCell */;
-			targetProxy = 19B57754EDFE673B2FD27C37 /* PBXContainerItemProxy */;
+			target = 4CBA42D566E91E68A704C536 /* Pods-TokenCell-TokenCell */;
+			targetProxy = 2B0E596AB9DB16F036CC573B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		18A8EB452BCAFD2A63B1BA94 /* Debug */ = {
+		31460CD8398E1208EEC97B6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE4C8F544148B0D282C8D8DA /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = 347CE2E14A5DCF1E147D9B28 /* Pods-TokenCell-TokenCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4B9F6541B6619EEFA69AF1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FB6C8F2F29C5AA1C6C5551D /* Pods-TokenCell.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -518,7 +534,105 @@
 			};
 			name = Debug;
 		};
-		22ADED284CF9DCB8468E0233 /* Debug */ = {
+		55C77D3E081ACCE0C2EEBA6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F5B7CA7DE895FA61845C155 /* Pods-Tests-TokenCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-TokenCell/Pods-Tests-TokenCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5F6F87DB2F7A7E99012F1ABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 314AB3B6F178B6F9F110B6EE /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		79BDD812BF60972EB6B23AC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		86F575324ABFE8D7BBF9C096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F5B7CA7DE895FA61845C155 /* Pods-Tests-TokenCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-TokenCell/Pods-Tests-TokenCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AF6A44A013EA7F5CEA28ED26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 347CE2E14A5DCF1E147D9B28 /* Pods-TokenCell-TokenCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C72B91CB6CD8D28900B78954 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -557,9 +671,9 @@
 			};
 			name = Debug;
 		};
-		322DE15E40C095656542DC90 /* Release */ = {
+		D371ABC208F0B8A75E921A3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC3CFD852BADAB74A0EABB5B /* Pods-Tests.release.xcconfig */;
+			baseConfigurationReference = 2D7AE33EAC26370B4CE5681A /* Pods-TokenCell.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -573,9 +687,9 @@
 			};
 			name = Release;
 		};
-		3B3AD07F386C18222AE50BBA /* Debug */ = {
+		DD7236CEA8C1410E901E3C47 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4FBB8D9780759D421DECD8D /* Pods-TokenCell.debug.xcconfig */;
+			baseConfigurationReference = 51237C38AC09FE4AD50A8B07 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -583,120 +697,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		41E6DCB16326A2E587075756 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1DD99C0A118A4E86FE0C505 /* Pods-TokenCell.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		8809C2E1B0C3C98C2A1F6D0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		97D05886A1833C59BAA01962 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A4E45308B6CF4E774A18E71 /* Pods-Tests-TokenCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-TokenCell/Pods-Tests-TokenCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		9D8E5EAA2C16A437484F358A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75E2CC156B24F42EE87BCD3E /* Pods-TokenCell-TokenCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A3D947141B8AD030697DD451 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75E2CC156B24F42EE87BCD3E /* Pods-TokenCell-TokenCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-TokenCell-TokenCell/Pods-TokenCell-TokenCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		D3E72066320B6861DF1109C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A4E45308B6CF4E774A18E71 /* Pods-Tests-TokenCell-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-TokenCell/Pods-Tests-TokenCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -706,52 +706,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1EDD06ABF2D22E8FEB0E13E4 /* Build configuration list for PBXNativeTarget "Pods-TokenCell" */ = {
+		29B569AB768732CB2E86B581 /* Build configuration list for PBXNativeTarget "Pods-TokenCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B3AD07F386C18222AE50BBA /* Debug */,
-				41E6DCB16326A2E587075756 /* Release */,
+				4B9F6541B6619EEFA69AF1D0 /* Debug */,
+				D371ABC208F0B8A75E921A3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C2EFF0EEA7DACCB5A9D3E0C /* Build configuration list for PBXProject "Pods" */ = {
+		5BF234791E91D7BD309DFEAB /* Build configuration list for PBXNativeTarget "Pods-TokenCell-TokenCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				22ADED284CF9DCB8468E0233 /* Debug */,
-				8809C2E1B0C3C98C2A1F6D0C /* Release */,
+				AF6A44A013EA7F5CEA28ED26 /* Debug */,
+				31460CD8398E1208EEC97B6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F0EB6EB98A631C2DE03A486 /* Build configuration list for PBXNativeTarget "Pods-TokenCell-TokenCell" */ = {
+		83C54F4A3F3A13C63D08078B /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D8E5EAA2C16A437484F358A /* Debug */,
-				A3D947141B8AD030697DD451 /* Release */,
+				DD7236CEA8C1410E901E3C47 /* Debug */,
+				5F6F87DB2F7A7E99012F1ABA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FF238424234617B9FEC1220 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		A92503B420B8B79B9059F3AF /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				18A8EB452BCAFD2A63B1BA94 /* Debug */,
-				322DE15E40C095656542DC90 /* Release */,
+				C72B91CB6CD8D28900B78954 /* Debug */,
+				79BDD812BF60972EB6B23AC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E5B76A466F5492AE003212E /* Build configuration list for PBXNativeTarget "Pods-Tests-TokenCell" */ = {
+		ECA26D5821D8D777529DF514 /* Build configuration list for PBXNativeTarget "Pods-Tests-TokenCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3E72066320B6861DF1109C4 /* Debug */,
-				97D05886A1833C59BAA01962 /* Release */,
+				86F575324ABFE8D7BBF9C096 /* Debug */,
+				55C77D3E081ACCE0C2EEBA6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 43B5AB9E7DAAC7FDAD028B3D /* Project object */;
+	rootObject = A9507A431CD158E5E525F210 /* Project object */;
 }
