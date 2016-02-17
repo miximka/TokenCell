@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2B435AD4788E83874CC2EEBB'
+               BlueprintIdentifier = '7A8AAC78B98DA187DD3D87D3'
                BlueprintName = 'TokenCell'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libTokenCell.a'>
