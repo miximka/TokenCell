@@ -1,6 +1,11 @@
-# reference: http://www.objc.io/issue-6/travis-ci.html
-
 language: objective-c
-# before_install: cd Example && pod install && cd -
+osx_image: xcode9.1
+
+before_install:
+- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+- pod --version
+
 script:
-- xctool test -workspace Example/TokenCell.xcworkspace -scheme TokenCell -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- set -o pipefail
+- pod lib lint
+- xcodebuild clean build -workspace Example/TokenCell.xcworkspace -scheme TokenCell -sdk iphonesimulator PLATFORM_NAME=iphonesimulator ONLY_ACTIVE_ARCH=NO -configuration Release | xcpretty -c
