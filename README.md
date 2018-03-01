@@ -7,7 +7,7 @@
 
 ```MBTokenCollectionTableViewCell``` is a simple recipient token field.
 
-![TokenCell](https://www.dropbox.com/s/y1sqaf4m7s3lmfq/TokenCell.gif?dl=1)
+![TokenCell](https://copyless.net/github/TokenCell/TokenCell-min.gif)
 
 ## Usage
 
