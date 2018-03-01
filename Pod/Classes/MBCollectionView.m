@@ -16,15 +16,15 @@
 
 - (void)setNeedsInvalidateLayout
 {
-    if (_shouldInvalidateLayout) {
+    if (self.shouldInvalidateLayout) {
         return;
     }
     
-    _shouldInvalidateLayout = YES;
-    
+    self.shouldInvalidateLayout = YES;
+    __weak MBCollectionView *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        _shouldInvalidateLayout = NO;
-        [[self collectionViewLayout] invalidateLayout];
+        weakSelf.shouldInvalidateLayout = NO;
+        [[weakSelf collectionViewLayout] invalidateLayout];
     });
 }
 

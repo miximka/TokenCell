@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TokenCell"
-  s.version          = "1.1.7"
+  s.version          = "1.2.0"
   s.summary          = "Subclass of UITableViewCell to present and edit tokens similar to the iOS mail app."
   s.description      = <<-DESC
                        Subclass of UITableViewCell to present and edit tokens similar to the iOS mail app.
@@ -24,13 +24,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/miximka/TokenCell.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/miximka'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
-  # s.resources = 'Pod/Assets/*.png'
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
