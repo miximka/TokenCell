@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MBTextFieldToken : NSObject
 
-@property (nonatomic) NSString *text;
-@property (nonatomic, copy) void(^textBeginEditingHandler)(void);
-@property (nonatomic, copy) void(^textDidChangeHandler)(NSString *text);
-@property (nonatomic, copy) void(^textEndEditingHandler)(NSString *text);
-@property (nonatomic, copy) BOOL(^textFieldShouldReturnHandler)(NSString *text);
-@property (nonatomic, copy) void(^deleteBackwardsInEmptyFieldHandler)(void);
+@property (nonatomic, nullable) NSString *text;
+@property (nonatomic, nullable, copy) void(^textBeginEditingHandler)(void);
+@property (nonatomic, nullable, copy) void(^textDidChangeHandler)(NSString *text);
+@property (nonatomic, nullable, copy) void(^textEndEditingHandler)(NSString *text);
+@property (nonatomic, nullable, copy) BOOL(^textFieldShouldReturnHandler)(NSString *text);
+@property (nonatomic, nullable, copy) void(^deleteBackwardsInEmptyFieldHandler)(void);
 @end
+
+NS_ASSUME_NONNULL_END

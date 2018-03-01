@@ -1,6 +1,6 @@
 {
   "name": "TokenCell",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "summary": "Subclass of UITableViewCell to present and edit tokens similar to the iOS mail app.",
   "description": "Subclass of UITableViewCell to present and edit tokens similar to the iOS mail app.\n\n* Markdown format.\n* Don't worry about the indent, we strip it!",
   "homepage": "https://github.com/miximka/TokenCell",
@@ -10,10 +10,10 @@
   },
   "source": {
     "git": "https://github.com/miximka/TokenCell.git",
-    "tag": "1.1.7"
+    "tag": "1.2.0"
   },
   "platforms": {
-    "ios": "7.0"
+    "ios": "8.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes"

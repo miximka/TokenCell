@@ -1,14 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 
-target 'TokenCell', :exclusive => true do
+target 'TokenCell' do
   pod "TokenCell", :path => "../"
 end
 
-target 'Tests', :exclusive => true do
+target 'Tests' do
   pod "TokenCell", :path => "../"
-
-  #pod 'Specta', '~> 0.2.1'
-  #pod 'Expecta'
-  #pod 'FBSnapshotTestCase'
-  #pod 'Expecta+Snapshots'
 end

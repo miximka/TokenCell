@@ -13,13 +13,15 @@
 @protocol MBTokenCollectionTableViewCellDelegate;
 @class MBTokenCollectionTokenView;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
     MBTokenCollectionTableViewCell is a subclass of UITableViewCell which can present and edit tokens.
  */
 @interface MBTokenCollectionTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) id<MBTokenCollectionTableViewCellDataSource> dataSource;
-@property (weak, nonatomic) id<MBTokenCollectionTableViewCellDelegate> delegate;
+@property (weak, nonatomic, nullable) id<MBTokenCollectionTableViewCellDataSource> dataSource;
+@property (weak, nonatomic, nullable) id<MBTokenCollectionTableViewCellDelegate> delegate;
 
 /**
     Holds the main label of the receiver.
@@ -29,7 +31,7 @@
 /**
     Holds the supplementary view which is positioned in the right top corner of the receiver.
  */
-@property (nonatomic) UIView *rightView;
+@property (nonatomic, nullable) UIView *rightView;
 
 #pragma mark - Reloading Content
 
@@ -133,3 +135,5 @@
 - (MBTokenCollectionTokenView *)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell viewForTokenAtIndex:(NSUInteger)index;
 
 @end
+
+NS_ASSUME_NONNULL_END
