@@ -11,9 +11,9 @@
 @interface MBTextFieldToken : NSObject
 
 @property (nonatomic) NSString *text;
-@property (nonatomic, copy) void(^textBeginEditingHandler)();
+@property (nonatomic, copy) void(^textBeginEditingHandler)(void);
 @property (nonatomic, copy) void(^textDidChangeHandler)(NSString *text);
 @property (nonatomic, copy) void(^textEndEditingHandler)(NSString *text);
 @property (nonatomic, copy) BOOL(^textFieldShouldReturnHandler)(NSString *text);
-@property (nonatomic, copy) void(^deleteBackwardsInEmptyFieldHandler)();
+@property (nonatomic, copy) void(^deleteBackwardsInEmptyFieldHandler)(void);
 @end
