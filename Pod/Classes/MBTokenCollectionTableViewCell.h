@@ -86,8 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - MBTokenCollectionTableViewCellDelegate
 
 @protocol MBTokenCollectionTableViewCellDelegate <NSObject>
-@required
 
+@optional
+- (void)tokenCollectionTableViewCellDidStartEditing:(MBTokenCollectionTableViewCell *)cell;
+
+@required
 /**
     Tells the delegate that the embedded text field has left editing mode.
     The delegate may want to use the returned text to add the token to the cell.

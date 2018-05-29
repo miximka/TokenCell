@@ -123,6 +123,10 @@
 
 #pragma mark - MBTokenCollectionTableViewCellDelegate
 
+- (void)tokenCollectionTableViewCellDidStartEditing:(MBTokenCollectionTableViewCell *)cell
+{
+}
+
 - (void)tokenCollectionTableViewCell:(MBTokenCollectionTableViewCell *)cell didEndEditingWithText:(NSString *)text
 {
     [self addTokenForCell:cell withText:text];

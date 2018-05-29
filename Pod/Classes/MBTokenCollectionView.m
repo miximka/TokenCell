@@ -123,6 +123,13 @@
     }
 }
 
+- (void)notifyDelegateDidBeginEditing
+{
+    if ([self.delegate respondsToSelector:@selector(tokenCollectionViewDidStartEditing:)]) {
+        [self.delegate tokenCollectionViewDidStartEditing:self];
+    }
+}
+
 - (void)notifyDelegateTextDidChange:(NSString *)text
 {
     if ([self.delegate respondsToSelector:@selector(tokenCollectionView:didChangeText:)]) {
@@ -150,6 +157,7 @@
         [self.rightView setHidden:NO];
         [self.rightView setAlpha:1.0];
     }];
+    [self notifyDelegateDidBeginEditing];
 }
 
 - (void)textFieldDidEndEditingWithText:(NSString *)text

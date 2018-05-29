@@ -155,6 +155,13 @@
 
 #pragma mark - MBTokenCollectionViewDelegate
 
+- (void)tokenCollectionViewDidStartEditing:(MBTokenCollectionView *)tokenCollectionView
+{
+    if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCellDidStartEditing:)]) {
+        [self.delegate tokenCollectionTableViewCellDidStartEditing:self];
+    }
+}
+
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text
 {
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCell:didChangeText:)]) {

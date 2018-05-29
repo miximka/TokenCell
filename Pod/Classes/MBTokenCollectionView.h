@@ -57,6 +57,7 @@
 @protocol MBTokenCollectionViewDelegate <NSObject>
 @optional
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView willDisplayTokenView:(MBTokenCollectionTokenView *)view forTokenAtIndex:(NSUInteger)index;
+- (void)tokenCollectionViewDidStartEditing:(MBTokenCollectionView *)tokenCollectionView;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didChangeText:(NSString *)text;
 - (void)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView didEndEditingText:(NSString *)text;
 - (BOOL)tokenCollectionView:(MBTokenCollectionView *)tokenCollectionView textFieldShouldReturnWithText:(NSString *)text;
