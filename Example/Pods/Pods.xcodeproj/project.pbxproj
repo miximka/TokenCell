@@ -56,8 +56,8 @@
 		02B9A90421482E5B87EB62040F059D91 /* TokenCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TokenCell-prefix.pch"; sourceTree = "<group>"; };
 		05C59BF5C7D4BDDF805FD8C49F0903B9 /* MBTokenViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBTokenViewCell.m; path = Pod/Classes/MBTokenViewCell.m; sourceTree = "<group>"; };
 		066437E27B053BB6019F4233A296F3AF /* MBTextFieldToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTextFieldToken.h; path = Pod/Classes/MBTextFieldToken.h; sourceTree = "<group>"; };
-		08A4B4CA20BE98230009399A /* MBLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBLabel.h; sourceTree = "<group>"; };
-		08A4B4CB20BE98230009399A /* MBLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBLabel.m; sourceTree = "<group>"; };
+		08A4B4CA20BE98230009399A /* MBLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBLabel.h; path = Pod/Classes/MBLabel.h; sourceTree = "<group>"; };
+		08A4B4CB20BE98230009399A /* MBLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MBLabel.m; path = Pod/Classes/MBLabel.m; sourceTree = "<group>"; };
 		09C340F61EB2A5571682CC9ABF67FE4B /* MBTokenCollectionViewTokenLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBTokenCollectionViewTokenLayout.h; path = Pod/Classes/MBTokenCollectionViewTokenLayout.h; sourceTree = "<group>"; };
 		0E9F354183C9760718E18CEB4665F85A /* Pods-TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TokenCell-dummy.m"; sourceTree = "<group>"; };
 		120B7CAAA89D6201DCA6DFF08EDFD1FC /* TokenCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TokenCell-dummy.m"; sourceTree = "<group>"; };
