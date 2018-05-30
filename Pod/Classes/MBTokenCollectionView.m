@@ -13,6 +13,7 @@
 #import "MBTokenTextFieldCell.h"
 #import "MBCollectionView.h"
 #import "MBTokenCollectionTokenView.h"
+#import "MBLabel.h"
 
 #define TOKEN_VIEW_CELL_IDENTIFIER    @"TokenViewCell"
 #define TEXT_FIELD_CELL_IDENTIFIER    @"TextFieldCell"
@@ -87,13 +88,21 @@
 
 - (void)addTitleLabel
 {
-    UILabel *label = [[UILabel alloc] init];
+    MBLabel *label = [[MBLabel alloc] init];
     label.translatesAutoresizingMaskIntoConstraints = NO;
 
     [self addSubview:label];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[label]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[label]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(label)]];
-
+    
+    __weak MBTokenCollectionView *weakSelf = self;
+    label.didInvalidateIntrinsicContentSize = ^() {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.collectionView performBatchUpdates:^{
+            } completion:nil];
+        });
+    };
+    
     _titleLabel = label;
 }
 
