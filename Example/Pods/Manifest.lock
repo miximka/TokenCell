@@ -1,16 +1,16 @@
 PODS:
-  - TokenCell (1.2.0)
+  - TokenCell (1.3.0)
 
 DEPENDENCIES:
   - TokenCell (from `../`)
 
 EXTERNAL SOURCES:
   TokenCell:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  TokenCell: e5159933dc290e72525d44db78412d352baf5915
+  TokenCell: 7b3402e1950ce02d9eb47b198621f1d691ed72e9
 
 PODFILE CHECKSUM: 7c237f2f3112ddc5c62b06577bdd6cccc9cea015
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
