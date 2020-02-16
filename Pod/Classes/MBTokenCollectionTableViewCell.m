@@ -141,6 +141,10 @@
     [_collectionView startEditing];
 }
 
+- (void)didStartEditing
+{
+}
+
 #pragma mark - MBTokenCollectionViewDataSource
 
 - (NSUInteger)numberOfTokensInCollectionView:(MBTokenCollectionView *)tokenCollectionView
@@ -157,6 +161,7 @@
 
 - (void)tokenCollectionViewDidStartEditing:(MBTokenCollectionView *)tokenCollectionView
 {
+    [self didStartEditing];
     if ([self.delegate respondsToSelector:@selector(tokenCollectionTableViewCellDidStartEditing:)]) {
         [self.delegate tokenCollectionTableViewCellDidStartEditing:self];
     }

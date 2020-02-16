@@ -80,6 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
     Makes the embedded text field first responder, i.e. begins editing
  */
 - (void)startEditing;
+- (void)didStartEditing;
 
 @end
 
