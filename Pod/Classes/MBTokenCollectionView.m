@@ -165,9 +165,8 @@
     [UIView animateWithDuration:0.3 animations:^{
         [self.rightView setHidden:NO];
         [self.rightView setAlpha:1.0];
-    } completion: ^(BOOL isCompleted){
-        [self notifyDelegateDidBeginEditing];
     }];
+    [self notifyDelegateDidBeginEditing];
 }
 
 - (void)textFieldDidEndEditingWithText:(NSString *)text
